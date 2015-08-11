@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CsvHelper.Configuration.CsvClassMap" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAEAAAAACQCAAAAAAAAAAAgAAAgAAAAIAAABEEAA=</HashCode>
+      <FileName>Configuration\CsvClassMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvClassMap&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\CsvClassMap`1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvClassMapCollection" Collapsed="true">
+    <Position X="50.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAQAAAAAAAACAAABAAAAAAIAAAAAAAQAABAAAA=</HashCode>
+      <FileName>Configuration\CsvClassMapCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvConfiguration" Collapsed="true">
+    <Position X="52" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IZQAGFAEGBAoSJICKQiABEAEgBQQVaAgQRAQAAGQkAA=</HashCode>
+      <FileName>Configuration\CsvConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvConfigurationException" Collapsed="true">
+    <Position X="3.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\CsvConfigurationException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyMap" Collapsed="true">
+    <Position X="57.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACACAAAAAAAAAAEIAQAAAAAABAAAAEQAIAAIAA=</HashCode>
+      <FileName>Configuration\CsvPropertyMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyMapCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="50.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAkAAAAAAABAQCAAABAQAAAAAAAAECAABAABUIAA=</HashCode>
+      <FileName>Configuration\CsvPropertyMapCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyMapComparer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Configuration\CsvPropertyMapComparer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyMapData" Collapsed="true">
+    <Position X="53.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAACAAAEQiAAAEUIAAAAAAAAAAAQAEAAQABIIA=</HashCode>
+      <FileName>Configuration\CsvPropertyMapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyNameCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAgAAAAAAAABAACAAAAAQCAAAAAAAEAAAAAABEAIA=</HashCode>
+      <FileName>Configuration\CsvPropertyNameCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyReferenceMap" Collapsed="true">
+    <Position X="57.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAACAAAAABAAAAAQAQAEAAA=</HashCode>
+      <FileName>Configuration\CsvPropertyReferenceMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.CsvPropertyReferenceMapData" Collapsed="true">
+    <Position X="50.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAACAAAAAgAAAAAAAQAAAAA=</HashCode>
+      <FileName>Configuration\CsvPropertyReferenceMapData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.Configuration.DefaultCsvClassMap&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Configuration\DefaultCsvClassMap`1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.CsvBadDataException" Collapsed="true">
+    <Position X="10" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CsvBadDataException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.CsvFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>CsvFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.CsvHelperException" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CsvHelperException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.CsvMissingFieldException" Collapsed="true">
+    <Position X="5.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CsvMissingFieldException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.CsvParser" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJEAABEACwAACCAACAEEiEikACAAgCIoEAACAAQAAA=</HashCode>
+      <FileName>CsvParser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.CsvParserException" Collapsed="true">
+    <Position X="1" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CsvParserException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.CsvReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="52" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIgAFJAkKAGQAGACAJCAAAwAhCBQgYAgAAECAAILAA=</HashCode>
+      <FileName>CsvReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.CsvReaderException" Collapsed="true">
+    <Position X="5.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CsvReaderException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.CsvSerializer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="53.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAAAAAAAAAAACAAAAAgQAACAEAAAA=</HashCode>
+      <FileName>CsvSerializer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.CsvWriter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="55.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIQQAAAICAAAAgEEAACACQSAAGAAAIAgACgCAQAECA=</HashCode>
+      <FileName>CsvWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CsvHelper.CsvWriterException" Collapsed="true">
+    <Position X="12.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CsvWriterException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.ExceptionHelper" Collapsed="true">
+    <Position X="57.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>ExceptionHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.ReflectionHelper" Collapsed="true">
+    <Position X="50.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAAAAAAAAAAAAAABAAAABAAAAIAAAAAAAAAIAA=</HashCode>
+      <FileName>ReflectionHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.StringHelper" Collapsed="true">
+    <Position X="52" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StringHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.BooleanConverter" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\BooleanConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.ByteConverter" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\ByteConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.CharConverter" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\CharConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.CsvTypeConverterException" Collapsed="true">
+    <Position X="7.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\CsvTypeConverterException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.DateTimeConverter" Collapsed="true">
+    <Position X="34.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\DateTimeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.DateTimeOffsetConverter" Collapsed="true">
+    <Position X="41" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\DateTimeOffsetConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.DecimalConverter" Collapsed="true">
+    <Position X="45.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\DecimalConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.DefaultTypeConverter" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\DefaultTypeConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.DoubleConverter" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\DoubleConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.EnumConverter" Collapsed="true">
+    <Position X="14" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\EnumConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.EnumerableConverter" Collapsed="true">
+    <Position X="23" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\EnumerableConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.GuidConverter" Collapsed="true">
+    <Position X="29.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\GuidConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.Int16Converter" Collapsed="true">
+    <Position X="36.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\Int16Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.Int32Converter" Collapsed="true">
+    <Position X="43.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\Int32Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.Int64Converter" Collapsed="true">
+    <Position X="47.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\Int64Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.NullableConverter" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAgAgAAAAAAACAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\NullableConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.SByteConverter" Collapsed="true">
+    <Position X="16.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\SByteConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.SingleConverter" Collapsed="true">
+    <Position X="25.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\SingleConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.StringConverter" Collapsed="true">
+    <Position X="32" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\StringConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.TimeSpanConverter" Collapsed="true">
+    <Position X="38.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\TimeSpanConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.TypeConverterFactory" Collapsed="true">
+    <Position X="53.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAIJAAAAAAAAAAAAAAAAAAAAUAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\TypeConverterFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.TypeConverterOptions" Collapsed="true">
+    <Position X="55.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIBAAAAAAQAAAAAAAiAARAAAQAAAAEQAAA=</HashCode>
+      <FileName>TypeConversion\TypeConverterOptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.TypeConverterOptionsFactory" Collapsed="true">
+    <Position X="57.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAIQAAAEAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>TypeConversion\TypeConverterOptionsFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.UInt16Converter" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\UInt16Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.UInt32Converter" Collapsed="true">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\UInt32Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CsvHelper.TypeConversion.UInt64Converter" Collapsed="true">
+    <Position X="27.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\UInt64Converter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CsvHelper.ICsvFactory" Collapsed="true">
+    <Position X="50.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ICsvFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CsvHelper.ICsvParser" Collapsed="true">
+    <Position X="52" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAACAAAAAAAAAggAAAAgAAoAAAAAAAAAA=</HashCode>
+      <FileName>ICsvParser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CsvHelper.ICsvReader" Collapsed="true">
+    <Position X="3.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAABAAAAgAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ICsvReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CsvHelper.ICsvReaderRow" Collapsed="true">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAkIAAAAAACAICAAAAAgAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICsvReaderRow.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CsvHelper.ICsvSerializer" Collapsed="true">
+    <Position X="53.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAA=</HashCode>
+      <FileName>ICsvSerializer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CsvHelper.ICsvWriter" Collapsed="true">
+    <Position X="55.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAEAAACAAAAAAAAAAAAgACgAAQAAAA=</HashCode>
+      <FileName>ICsvWriter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CsvHelper.TypeConversion.ITypeConverter" Collapsed="true">
+    <Position X="57.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAAAAAAAAAAAAAEAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>TypeConversion\ITypeConverter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,7 @@
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\bin\Debug\CsvHelper.SpeedTests.exe
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\bin\Debug\CsvHelper.SpeedTests.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\bin\Debug\CsvHelper.dll
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\bin\Debug\CsvHelper.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\bin\Debug\CsvHelper.xml
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\obj\Debug\CsvHelper.SpeedTests.exe
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.SpeedTests\obj\Debug\CsvHelper.SpeedTests.pdb

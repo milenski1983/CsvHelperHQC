@@ -1,0 +1,12 @@
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20\bin\Debug\CsvHelper.XML
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20\bin\Debug\CsvHelper.dll
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20\bin\Debug\CsvHelper.pdb
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20\obj\Debug\CsvHelper20.csprojResolveAssemblyReference.cache
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20\obj\Debug\CsvHelper.dll
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20\obj\Debug\CsvHelper.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20\bin\Debug\CsvHelper.XML
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20\bin\Debug\CsvHelper.dll
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20\bin\Debug\CsvHelper.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20\obj\Debug\CsvHelper20.csprojResolveAssemblyReference.cache
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20\obj\Debug\CsvHelper.dll
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20\obj\Debug\CsvHelper.pdb

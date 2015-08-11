@@ -1,0 +1,16 @@
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\bin\Debug\CsvHelper20.Tests.dll
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\bin\Debug\CsvHelper20.Tests.pdb
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\bin\Debug\CsvHelper.dll
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\bin\Debug\CsvHelper.pdb
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\bin\Debug\CsvHelper.xml
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\obj\Debug\CsvHelper20.Tests.csprojResolveAssemblyReference.cache
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\obj\Debug\CsvHelper20.Tests.dll
+C:\Users\pc\Desktop\CsvHelper-master\src\CsvHelper20.Tests\obj\Debug\CsvHelper20.Tests.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\bin\Debug\CsvHelper20.Tests.dll
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\bin\Debug\CsvHelper20.Tests.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\bin\Debug\CsvHelper.dll
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\bin\Debug\CsvHelper.pdb
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\bin\Debug\CsvHelper.xml
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\obj\Debug\CsvHelper20.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\obj\Debug\CsvHelper20.Tests.dll
+C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper20.Tests\obj\Debug\CsvHelper20.Tests.pdb
