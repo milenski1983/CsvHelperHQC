@@ -2,21 +2,22 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using CsvHelper.Configuration;
-
 namespace CsvHelper.SpeedTests
 {
-    class Program
+    using System;
+    using System.Diagnostics;
+    using System.Globalization;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+
+    using CsvHelper.Configuration;
+
+    internal class Program
     {
         private const string FileName = "test.csv";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             CreateCsvFile();
             SelectTest();
@@ -26,7 +27,7 @@ namespace CsvHelper.SpeedTests
 
         private static string ReadUntilValid(string question, string errorMessage, Func<string, bool> answerValidator)
         {
-            for (; ; )
+            for (;;)
             {
                 Console.Write(question);
                 var answer = Console.ReadLine();
@@ -34,20 +35,33 @@ namespace CsvHelper.SpeedTests
                 {
                     return answer;
                 }
+
                 Console.WriteLine(errorMessage);
             }
         }
 
         private static void CreateCsvFile()
         {
-            var answer = ReadUntilValid("Create CSV? ", "Not a valid answer.", a => new[] { "y", "yes", "1", "true", "n", "no", "0", "false" }.Contains(a, StringComparer.Create(CultureInfo.CurrentCulture, true)));
-            if (!new[] { "y", "yes", "1", "true" }.Contains(answer, StringComparer.Create(CultureInfo.CurrentCulture, true)))
+            var answer = ReadUntilValid(
+                "Create CSV? ", 
+                "Not a valid answer.", 
+                a =>
+                new[] { "y", "yes", "1", "true", "n", "no", "0", "false" }.Contains(
+                    a, 
+                    StringComparer.Create(CultureInfo.CurrentCulture, true)));
+            if (
+                !new[] { "y", "yes", "1", "true" }.Contains(
+                    answer, 
+                    StringComparer.Create(CultureInfo.CurrentCulture, true)))
             {
                 return;
             }
 
             int rowCount = 0;
-            ReadUntilValid("How many rows? ", "You need to specify a valid integer.", s => int.TryParse(s, NumberStyles.Number, CultureInfo.CurrentCulture, out rowCount));
+            ReadUntilValid(
+                "How many rows? ", 
+                "You need to specify a valid integer.", 
+                s => int.TryParse(s, NumberStyles.Number, CultureInfo.CurrentCulture, out rowCount));
 
             var rowsWrittenText = "Rows written: ";
             Console.Write(rowsWrittenText);
@@ -63,20 +77,22 @@ namespace CsvHelper.SpeedTests
                 for (var i = 1; i <= rowCount; i++)
                 {
                     var row = new TestClass
-                    {
-                        IntColumn = i,
-                        StringColumn = string.Format("Row {0}", i),
-                        DateColumn = DateTime.Now,
-                        BoolColumn = i % 2 == 0,
-                        GuidColumn = Guid.NewGuid()
-                    };
+                                  {
+                                      IntColumn = i, 
+                                      StringColumn = string.Format("Row {0}", i), 
+                                      DateColumn = DateTime.Now, 
+                                      BoolColumn = i % 2 == 0, 
+                                      GuidColumn = Guid.NewGuid()
+                                  };
                     Console.CursorLeft = rowsWrittenText.Length;
                     csv.WriteRecord(row);
                     Console.Write("{0:N0}", i);
                 }
+
                 stopwatch.Stop();
                 Console.WriteLine("Time: {0}", stopwatch.Elapsed);
             }
+
             Console.WriteLine();
         }
 
@@ -89,7 +105,10 @@ namespace CsvHelper.SpeedTests
                 question.AppendLine("2) Parse and count bytes");
                 question.AppendLine("q) Quit");
                 question.Append("Select test to run: ");
-                var option = ReadUntilValid(question.ToString(), "Not a valid option.", s => new[] { "1", "2" }.Contains(s, StringComparer.Create(CultureInfo.CurrentCulture, true)));
+                var option = ReadUntilValid(
+                    question.ToString(), 
+                    "Not a valid option.", 
+                    s => new[] { "1", "2" }.Contains(s, StringComparer.Create(CultureInfo.CurrentCulture, true)));
 
                 switch (option)
                 {
@@ -121,6 +140,7 @@ namespace CsvHelper.SpeedTests
                         break;
                     }
                 }
+
                 stopwatch.Stop();
                 Console.WriteLine("Time: {0}", stopwatch.Elapsed);
             }
@@ -143,6 +163,7 @@ namespace CsvHelper.SpeedTests
                         break;
                     }
                 }
+
                 stopwatch.Stop();
                 Console.WriteLine("Time: {0}", stopwatch.Elapsed);
             }
@@ -165,11 +186,11 @@ namespace CsvHelper.SpeedTests
         {
             public TestClassMap()
             {
-                Map(m => m.IntColumn).Name("Int Column");
-                Map(m => m.StringColumn).Name("String Column");
-                Map(m => m.DateColumn).Name("Date Column");
-                Map(m => m.BoolColumn).Name("Bool Column");
-                Map(m => m.GuidColumn).Name("Guid Column");
+                this.Map(m => m.IntColumn).Name("Int Column");
+                this.Map(m => m.StringColumn).Name("String Column");
+                this.Map(m => m.DateColumn).Name("Date Column");
+                this.Map(m => m.BoolColumn).Name("Bool Column");
+                this.Map(m => m.GuidColumn).Name("Guid Column");
             }
         }
     }

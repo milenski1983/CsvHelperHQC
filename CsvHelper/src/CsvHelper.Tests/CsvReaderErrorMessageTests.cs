@@ -2,21 +2,25 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-using System;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 #endif
 
 namespace CsvHelper.Tests
 {
+    using System;
+    using System.Globalization;
+    using System.IO;
+    using System.Linq;
+    using System.Threading;
+
+    using CsvHelper.Configuration;
+    using CsvHelper.TypeConversion;
+
     [TestClass]
     public class CsvReaderErrorMessageTests
     {
@@ -51,6 +55,7 @@ namespace CsvHelper.Tests
                 {
                     Assert.IsTrue(ex.Data["CsvHelper"].ToString().Contains("Row: '1'"));
                     Assert.IsTrue(ex.Data["CsvHelper"].ToString().Contains("Field Index: '0'"));
+
                     // There is no header so a field name should not be in the message.
                     Assert.IsTrue(!ex.Data["CsvHelper"].ToString().Contains("Field Name: 'IntColumn'"));
                     Assert.IsTrue(ex.Data["CsvHelper"].ToString().Contains("Field Value: ''"));
@@ -219,8 +224,8 @@ namespace CsvHelper.Tests
         {
             public Test1Map()
             {
-                Map(m => m.IntColumn).Index(0);
-                Map(m => m.StringColumn).Index(1);
+                this.Map(m => m.IntColumn).Index(0);
+                this.Map(m => m.StringColumn).Index(1);
             }
         }
 
@@ -235,8 +240,8 @@ namespace CsvHelper.Tests
         {
             public Test2Map()
             {
-                Map(m => m.StringColumn);
-                Map(m => m.IntColumn);
+                this.Map(m => m.StringColumn);
+                this.Map(m => m.IntColumn);
             }
         }
 
@@ -253,9 +258,9 @@ namespace CsvHelper.Tests
         {
             public Test3Map()
             {
-                Map(m => m.Id).Index(0);
-                Map(m => m.CreationDate).Index(1);
-                Map(m => m.Description).Index(2);
+                this.Map(m => m.Id).Index(0);
+                this.Map(m => m.CreationDate).Index(1);
+                this.Map(m => m.Description).Index(2);
             }
         }
     }

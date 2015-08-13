@@ -2,136 +2,143 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-using System;
-using System.IO;
-using CsvHelper.Configuration;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 #endif
 
 namespace CsvHelper.Tests
 {
-	[TestClass]
-	public class CsvConfigurationTests
-	{
-		[TestMethod]
-		public void EnsureReaderAndParserConfigIsAreSameTest()
-		{
-			using( var stream = new MemoryStream() )
-			using( var reader = new StreamReader( stream ) )
-			{
-				var csvReader = new CsvReader( reader );
+    using System;
+    using System.IO;
 
-				Assert.AreSame( csvReader.Configuration, csvReader.Parser.Configuration );
+    using CsvHelper.Configuration;
 
-				var config = new CsvConfiguration();
-				var parser = new CsvParser( reader, config );
-				csvReader = new CsvReader( parser );
+    [TestClass]
+    public class CsvConfigurationTests
+    {
+        [TestMethod]
+        public void EnsureReaderAndParserConfigIsAreSameTest()
+        {
+            using (var stream = new MemoryStream())
+            using (var reader = new StreamReader(stream))
+            {
+                var csvReader = new CsvReader(reader);
 
-				Assert.AreSame( csvReader.Configuration, csvReader.Parser.Configuration );
-			}
-		}
+                Assert.AreSame(csvReader.Configuration, csvReader.Parser.Configuration);
 
-		[TestMethod]
-		public void AddingMappingsWithGenericMethod1Test()
-		{
-			// TODO: Implement me
-		}
+                var config = new CsvConfiguration();
+                var parser = new CsvParser(reader, config);
+                csvReader = new CsvReader(parser);
 
-		[TestMethod]
-		public void AddingMappingsWithGenericMethod2Test()
-		{
-			var config = new CsvConfiguration();
-			config.RegisterClassMap<TestClassMappings>();
+                Assert.AreSame(csvReader.Configuration, csvReader.Parser.Configuration);
+            }
+        }
 
-			Assert.AreEqual( 2, config.Maps[typeof( TestClass )].PropertyMaps.Count );
-		}
-
-		[TestMethod]
-		public void AddingMappingsWithNonGenericMethodTest()
-		{
-			var config = new CsvConfiguration();
-			config.RegisterClassMap( typeof( TestClassMappings ) );
-
-			Assert.AreEqual( 2, config.Maps[typeof( TestClass )].PropertyMaps.Count );
-		}
-
-		[TestMethod]
-		public void AddingMappingsWithInstanceMethodTest()
-		{
-            // TODO: Implement me			
-		}
-
-		[TestMethod]
-		public void RegisterClassMapGenericTest()
-		{
+        [TestMethod]
+        public void AddingMappingsWithGenericMethod1Test()
+        {
             // TODO: Implement me
-		}
+        }
 
-		[TestMethod]
-		public void RegisterClassMapNonGenericTest()
-		{
-            // TODO: Implement me
-		}
+        [TestMethod]
+        public void AddingMappingsWithGenericMethod2Test()
+        {
+            var config = new CsvConfiguration();
+            config.RegisterClassMap<TestClassMappings>();
 
-		[TestMethod]
-		public void RegisterClassInstanceTest()
-		{
-			var config = new CsvConfiguration();
+            Assert.AreEqual(2, config.Maps[typeof(TestClass)].PropertyMaps.Count);
+        }
 
-			Assert.IsNull( config.Maps[typeof( TestClass )] );
-			config.RegisterClassMap( new TestClassMappings() );
-			Assert.IsNotNull( config.Maps[typeof( TestClass )] );
-		}
+        [TestMethod]
+        public void AddingMappingsWithNonGenericMethodTest()
+        {
+            var config = new CsvConfiguration();
+            config.RegisterClassMap(typeof(TestClassMappings));
 
-		[TestMethod]
-		public void UnregisterClassMapGenericTest()
-		{
-			var config = new CsvConfiguration();
+            Assert.AreEqual(2, config.Maps[typeof(TestClass)].PropertyMaps.Count);
+        }
 
-			Assert.IsNull( config.Maps[typeof( TestClass )] );
-			config.RegisterClassMap<TestClassMappings>();
-			Assert.IsNotNull( config.Maps[typeof( TestClass )] );
-
-			config.UnregisterClassMap<TestClassMappings>();
-			Assert.IsNull( config.Maps[typeof( TestClass )] );
-		}
-
-		[TestMethod]
-		public void UnregisterClassNonMapGenericTest()
-		{
+        [TestMethod]
+        public void AddingMappingsWithInstanceMethodTest()
+        {
             // TODO: Implement me			
-		}
+        }
 
+        [TestMethod]
+        public void RegisterClassMapGenericTest()
+        {
+            // TODO: Implement me
+        }
+
+        [TestMethod]
+        public void RegisterClassMapNonGenericTest()
+        {
+            // TODO: Implement me
+        }
+
+        [TestMethod]
+        public void RegisterClassInstanceTest()
+        {
+            var config = new CsvConfiguration();
+
+            Assert.IsNull(config.Maps[typeof(TestClass)]);
+            config.RegisterClassMap(new TestClassMappings());
+            Assert.IsNotNull(config.Maps[typeof(TestClass)]);
+        }
+
+        [TestMethod]
+        public void UnregisterClassMapGenericTest()
+        {
+            var config = new CsvConfiguration();
+
+            Assert.IsNull(config.Maps[typeof(TestClass)]);
+            config.RegisterClassMap<TestClassMappings>();
+            Assert.IsNotNull(config.Maps[typeof(TestClass)]);
+
+            config.UnregisterClassMap<TestClassMappings>();
+            Assert.IsNull(config.Maps[typeof(TestClass)]);
+        }
+
+        [TestMethod]
+        public void UnregisterClassNonMapGenericTest()
+        {
+            // TODO: Implement me			
+        }
 
 #if !WINRT_4_5
-		[TestMethod]
-		public void AddingMappingsWithNonGenericMethodThrowsWhenNotACsvClassMap()
-		{
-			try
-			{
-				new CsvConfiguration().RegisterClassMap( typeof( TestClass ) );
-				Assert.Fail();
-			}
-			catch( ArgumentException ) {}
-		}
+        [TestMethod]
+        public void AddingMappingsWithNonGenericMethodThrowsWhenNotACsvClassMap()
+        {
+            try
+            {
+                new CsvConfiguration().RegisterClassMap(typeof(TestClass));
+                Assert.Fail();
+            }
+            catch (ArgumentException)
+            {
+            }
+        }
+
 #endif
 
-		private class TestClass
-		{
-			public string StringColumn { get; set; }
-			public int IntColumn { get; set; }
-		}
+        private class TestClass
+        {
+            public string StringColumn { get; set; }
 
-		private class TestClassMappings : CsvClassMap<TestClass>
-		{
-			public TestClassMappings()
-			{
-				Map( c => c.StringColumn );
-				Map( c => c.IntColumn );
-			}
-		}
-	}
+            public int IntColumn { get; set; }
+        }
+
+        private class TestClassMappings : CsvClassMap<TestClass>
+        {
+            public TestClassMappings()
+            {
+                this.Map(c => c.StringColumn);
+                this.Map(c => c.IntColumn);
+            }
+        }
+    }
 }

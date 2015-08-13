@@ -2,36 +2,34 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.IO;
-using System.Web.Script.Serialization;
-using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
-
 namespace CsvHelper.Example
 {
-    class Program
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Web.Script.Serialization;
+
+    using CsvHelper.Configuration;
+    using CsvHelper.TypeConversion;
+
+    internal class Program
     {
         private const string columnSeparator = ":";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            //ReadRawFieldsByIndex();
-            //ReadRawFieldsByName();
-            //ReadFieldsByIndex();
-            //ReadRecordsNoAttributes();
-            //ReadRecordsWithAttributes();
-            //ReadAllRecords();
+            // ReadRawFieldsByIndex();
+            // ReadRawFieldsByName();
+            // ReadFieldsByIndex();
+            // ReadRecordsNoAttributes();
+            // ReadRecordsWithAttributes();
+            // ReadAllRecords();
 
-            //WriteRawFields();
-            //WriteFields();
-            //WriteRecordsNoAttributes();
-            //WriteRecordsWithAttributes();
-            //WriteAllRecords();
-
+            // WriteRawFields();
+            // WriteFields();
+            // WriteRecordsNoAttributes();
+            // WriteRecordsWithAttributes();
+            // WriteAllRecords();
             Console.ReadKey();
         }
 
@@ -49,6 +47,7 @@ namespace CsvHelper.Example
                     Console.WriteLine(reader.GetField(3));
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -67,6 +66,7 @@ namespace CsvHelper.Example
                     Console.WriteLine(reader.GetField("Custom Type Column"));
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -86,6 +86,7 @@ namespace CsvHelper.Example
                     Console.WriteLine(reader.GetField<CustomType>(3, customTypeTypeConverter));
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -100,6 +101,7 @@ namespace CsvHelper.Example
                     Console.WriteLine(reader.GetRecord<CustomObject>());
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -116,6 +118,7 @@ namespace CsvHelper.Example
                     Console.WriteLine(reader.GetRecord<CustomObjectWithMapping>());
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -131,6 +134,7 @@ namespace CsvHelper.Example
                     Console.WriteLine(record);
                 }
             }
+
             Console.WriteLine();
         }
 
@@ -150,7 +154,7 @@ namespace CsvHelper.Example
                 writer.NextRecord();
 
                 writer.WriteField("one");
-                writer.WriteField((1).ToString());
+                writer.WriteField(1.ToString());
                 writer.WriteField(Guid.NewGuid().ToString());
                 writer.WriteField((new CustomType { First = 1, Second = 2, Third = 3 }).ToString());
                 writer.NextRecord();
@@ -159,6 +163,7 @@ namespace CsvHelper.Example
 
                 Console.WriteLine(streamReader.ReadToEnd());
             }
+
             Console.WriteLine();
         }
 
@@ -187,6 +192,7 @@ namespace CsvHelper.Example
 
                 Console.WriteLine(streamReader.ReadToEnd());
             }
+
             Console.WriteLine();
         }
 
@@ -195,32 +201,34 @@ namespace CsvHelper.Example
             Console.WriteLine("Write records no attributes:");
 
             var records = new List<CustomObject>
-			{
-				new CustomObject
-				{
-					CustomTypeColumn = new CustomType
-					{
-					    First = 1,
-					    Second = 2,
-					    Third = 3,
-					},
-					GuidColumn = Guid.NewGuid(),
-					IntColumn = 1,
-					StringColumn = "one",
-				},
-				new CustomObject
-				{
-					CustomTypeColumn = new CustomType
-					{
-					    First = 4,
-					    Second = 5,
-					    Third = 6,
-					},
-					GuidColumn = Guid.NewGuid(),
-					IntColumn = 2,
-					StringColumn = "two",
-				},
-			};
+                              {
+                                  new CustomObject
+                                      {
+                                          CustomTypeColumn =
+                                              new CustomType
+                                                  {
+                                                      First = 1, 
+                                                      Second = 2, 
+                                                      Third = 3
+                                                  }, 
+                                          GuidColumn = Guid.NewGuid(), 
+                                          IntColumn = 1, 
+                                          StringColumn = "one"
+                                      }, 
+                                  new CustomObject
+                                      {
+                                          CustomTypeColumn =
+                                              new CustomType
+                                                  {
+                                                      First = 4, 
+                                                      Second = 5, 
+                                                      Third = 6
+                                                  }, 
+                                          GuidColumn = Guid.NewGuid(), 
+                                          IntColumn = 2, 
+                                          StringColumn = "two"
+                                      }
+                              };
 
             using (var memoryStream = new MemoryStream())
             using (var streamWriter = new StreamWriter(memoryStream))
@@ -236,6 +244,7 @@ namespace CsvHelper.Example
 
                 Console.WriteLine(streamReader.ReadToEnd());
             }
+
             Console.WriteLine();
         }
 
@@ -244,32 +253,48 @@ namespace CsvHelper.Example
             Console.WriteLine("Write records with attributes:");
 
             var records = new List<CustomObjectWithMapping>
-			{
-				new CustomObjectWithMapping
-				{
-					CustomTypeColumn = new CustomType
-					{
-					    First = 1,
-					    Second = 2,
-					    Third = 3,
-					},
-					GuidColumn = Guid.NewGuid(),
-					IntColumn = 1,
-					StringColumn = "one",
-				},
-				new CustomObjectWithMapping
-				{
-					CustomTypeColumn = new CustomType
-					{
-					    First = 4,
-					    Second = 5,
-					    Third = 6,
-					},
-					GuidColumn = Guid.NewGuid(),
-					IntColumn = 2,
-					StringColumn = "two",
-				},
-			};
+                              {
+                                  new CustomObjectWithMapping
+                                      {
+                                          CustomTypeColumn =
+                                              new CustomType
+                                                  {
+                                                      First
+                                                          =
+                                                          1, 
+                                                      Second
+                                                          =
+                                                          2, 
+                                                      Third
+                                                          =
+                                                          3
+                                                  }, 
+                                          GuidColumn =
+                                              Guid.NewGuid(), 
+                                          IntColumn = 1, 
+                                          StringColumn = "one"
+                                      }, 
+                                  new CustomObjectWithMapping
+                                      {
+                                          CustomTypeColumn =
+                                              new CustomType
+                                                  {
+                                                      First
+                                                          =
+                                                          4, 
+                                                      Second
+                                                          =
+                                                          5, 
+                                                      Third
+                                                          =
+                                                          6
+                                                  }, 
+                                          GuidColumn =
+                                              Guid.NewGuid(), 
+                                          IntColumn = 2, 
+                                          StringColumn = "two"
+                                      }
+                              };
 
             using (var memoryStream = new MemoryStream())
             using (var streamWriter = new StreamWriter(memoryStream))
@@ -285,6 +310,7 @@ namespace CsvHelper.Example
 
                 Console.WriteLine(streamReader.ReadToEnd());
             }
+
             Console.WriteLine();
         }
 
@@ -293,32 +319,48 @@ namespace CsvHelper.Example
             Console.WriteLine("Write all records with attributes:");
 
             var records = new List<CustomObjectWithMapping>
-			{
-				new CustomObjectWithMapping
-				{
-					CustomTypeColumn = new CustomType
-					{
-					    First = 1,
-					    Second = 2,
-					    Third = 3,
-					},
-					GuidColumn = Guid.NewGuid(),
-					IntColumn = 1,
-					StringColumn = "one",
-				},
-				new CustomObjectWithMapping
-				{
-					CustomTypeColumn = new CustomType
-					{
-					    First = 4,
-					    Second = 5,
-					    Third = 6,
-					},
-					GuidColumn = Guid.NewGuid(),
-					IntColumn = 2,
-					StringColumn = "two",
-				},
-			};
+                              {
+                                  new CustomObjectWithMapping
+                                      {
+                                          CustomTypeColumn =
+                                              new CustomType
+                                                  {
+                                                      First
+                                                          =
+                                                          1, 
+                                                      Second
+                                                          =
+                                                          2, 
+                                                      Third
+                                                          =
+                                                          3
+                                                  }, 
+                                          GuidColumn =
+                                              Guid.NewGuid(), 
+                                          IntColumn = 1, 
+                                          StringColumn = "one"
+                                      }, 
+                                  new CustomObjectWithMapping
+                                      {
+                                          CustomTypeColumn =
+                                              new CustomType
+                                                  {
+                                                      First
+                                                          =
+                                                          4, 
+                                                      Second
+                                                          =
+                                                          5, 
+                                                      Third
+                                                          =
+                                                          6
+                                                  }, 
+                                          GuidColumn =
+                                              Guid.NewGuid(), 
+                                          IntColumn = 2, 
+                                          StringColumn = "two"
+                                      }
+                              };
 
             using (var memoryStream = new MemoryStream())
             using (var streamWriter = new StreamWriter(memoryStream))
@@ -332,6 +374,7 @@ namespace CsvHelper.Example
 
                 Console.WriteLine(streamReader.ReadToEnd());
             }
+
             Console.WriteLine();
         }
 
@@ -343,10 +386,11 @@ namespace CsvHelper.Example
             if (hasHeader)
             {
                 var header = hasSpacesInHeaderNames
-                                ? "String Column,Int Column,Guid Column,Custom Type Column"
-                                : "StringColumn,IntColumn,GuidColumn,CustomTypeColumn";
+                                 ? "String Column,Int Column,Guid Column,Custom Type Column"
+                                 : "StringColumn,IntColumn,GuidColumn,CustomTypeColumn";
                 writer.WriteLine(header);
             }
+
             writer.WriteLine("one,1,{0},1|2|3", Guid.NewGuid());
             writer.WriteLine("two,2,{0},4|5|6", Guid.NewGuid());
             writer.WriteLine("\"this, has a comma\",2,{0},7|8|9", Guid.NewGuid());
@@ -360,7 +404,9 @@ namespace CsvHelper.Example
         public class CustomType
         {
             public int First { get; set; }
+
             public int Second { get; set; }
+
             public int Third { get; set; }
 
             public override string ToString()
@@ -380,14 +426,14 @@ namespace CsvHelper.Example
 
             public object ConvertFromString(TypeConverterOptions options, string text)
             {
-                var values = ((string)text).Split('|');
+                var values = text.Split('|');
 
                 var obj = new CustomType
-                {
-                    First = int.Parse(values[0]),
-                    Second = int.Parse(values[1]),
-                    Third = int.Parse(values[2]),
-                };
+                              {
+                                  First = int.Parse(values[0]), 
+                                  Second = int.Parse(values[1]), 
+                                  Third = int.Parse(values[2])
+                              };
                 return obj;
             }
 
@@ -405,8 +451,11 @@ namespace CsvHelper.Example
         public class CustomObject
         {
             public CustomType CustomTypeColumn { get; set; }
+
             public Guid GuidColumn { get; set; }
+
             public int IntColumn { get; set; }
+
             public string StringColumn { get; set; }
 
             public override string ToString()
@@ -439,10 +488,13 @@ namespace CsvHelper.Example
         {
             public CustomObjectWithMappingMap()
             {
-                Map(m => m.CustomTypeColumn).Name("Custom Type Column").Index(3).TypeConverter<CustomTypeTypeConverter>();
-                Map(m => m.GuidColumn).Name("Guid Column").Index(2);
-                Map(m => m.IntColumn).Name("Int Column").Index(1);
-                Map(m => m.StringColumn).Name("String Column").Index(0);
+                this.Map(m => m.CustomTypeColumn)
+                    .Name("Custom Type Column")
+                    .Index(3)
+                    .TypeConverter<CustomTypeTypeConverter>();
+                this.Map(m => m.GuidColumn).Name("Guid Column").Index(2);
+                this.Map(m => m.IntColumn).Name("Int Column").Index(1);
+                this.Map(m => m.StringColumn).Name("String Column").Index(0);
             }
         }
     }

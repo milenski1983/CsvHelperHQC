@@ -1,41 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CsvHelper.Configuration;
-
-namespace CsvHelper.Tests.Mocks
+﻿namespace CsvHelper.Tests.Mocks
 {
-	public class SerializerMock : ICsvSerializer
-	{
-		private readonly List<string[]> records = new List<string[]>();
-		private readonly bool throwExceptionOnWrite;
+    using System;
+    using System.Collections.Generic;
 
-		public CsvConfiguration Configuration { get; private set; }
+    using CsvHelper.Configuration;
 
-		public List<string[]> Records
-		{
-			get { return records; }
-		}
+    public class SerializerMock : ICsvSerializer
+    {
+        public SerializerMock(bool throwExceptionOnWrite = false)
+        {
+            this.Configuration = new CsvConfiguration();
+            this.throwExceptionOnWrite = throwExceptionOnWrite;
+        }
 
-		public SerializerMock( bool throwExceptionOnWrite = false )
-		{
-			Configuration = new CsvConfiguration();
-			this.throwExceptionOnWrite = throwExceptionOnWrite;
-		}
+        public List<string[]> Records
+        {
+            get
+            {
+                return this.records;
+            }
+        }
 
-		public void Write( string[] record )
-		{
-			if( throwExceptionOnWrite )
-			{
-				throw new Exception( "Mock Write exception." );
-			}
+        public CsvConfiguration Configuration { get; private set; }
 
-			records.Add( record );
-		}
+        public void Write(string[] record)
+        {
+            if (this.throwExceptionOnWrite)
+            {
+                throw new Exception("Mock Write exception.");
+            }
 
-		public void Dispose()
-		{
-		}
-	}
+            this.records.Add(record);
+        }
+
+        public void Dispose()
+        {
+        }
+
+        private readonly List<string[]> records = new List<string[]>();
+
+        private readonly bool throwExceptionOnWrite;
+    }
 }

@@ -2,60 +2,64 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using CsvHelper.Configuration;
-
 namespace CsvHelper.Tests.Mocks
 {
-	public class ParserMock : ICsvParser, IEnumerable<string[]>
-	{
-		private readonly Queue<string[]> rows;
+    using System.Collections;
+    using System.Collections.Generic;
 
-		public void Dispose()
-		{
-		}
+    using CsvHelper.Configuration;
 
-		public CsvConfiguration Configuration { get; private set; }
-		public int FieldCount { get; private set; }
-		public long CharPosition { get; private set; }
-		public long BytePosition { get; private set; }
-		public int Row { get; private set; }
-		public string RawRecord { get; private set; }
+    public class ParserMock : ICsvParser, IEnumerable<string[]>
+    {
+        public ParserMock()
+        {
+            this.Configuration = new CsvConfiguration();
+            this.rows = new Queue<string[]>();
+        }
 
-		public ParserMock()
-		{
-			Configuration = new CsvConfiguration();
-			rows = new Queue<string[]>();
-		}
+        public ParserMock(Queue<string[]> rows)
+        {
+            this.Configuration = new CsvConfiguration();
+            this.rows = rows;
+        }
 
-		public ParserMock( Queue<string[]> rows )
-		{
-			Configuration = new CsvConfiguration();
-			this.rows = rows;
-		}
+        public void Add(params string[] row)
+        {
+            this.rows.Enqueue(row);
+        }
 
-		public string[] Read()
-		{
-		    Row++;
-			return rows.Dequeue();
-		}
+        public void Dispose()
+        {
+        }
 
-		public void Add( params string[] row )
-		{
-			rows.Enqueue( row );
-		}
+        public CsvConfiguration Configuration { get; private set; }
 
-		public IEnumerator<string[]> GetEnumerator()
-		{
-			return rows.GetEnumerator();
-		}
+        public int FieldCount { get; private set; }
 
-		IEnumerator IEnumerable.GetEnumerator()
-		{
-			return GetEnumerator();
-		}
-	}
+        public long CharPosition { get; private set; }
+
+        public long BytePosition { get; private set; }
+
+        public int Row { get; private set; }
+
+        public string RawRecord { get; private set; }
+
+        public string[] Read()
+        {
+            this.Row++;
+            return this.rows.Dequeue();
+        }
+
+        public IEnumerator<string[]> GetEnumerator()
+        {
+            return this.rows.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this.GetEnumerator();
+        }
+
+        private readonly Queue<string[]> rows;
+    }
 }

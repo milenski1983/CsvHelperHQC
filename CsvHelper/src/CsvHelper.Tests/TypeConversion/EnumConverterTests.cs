@@ -2,87 +2,83 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-using System;
-using System.Globalization;
-using System.IO;
-using System.Text;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 #endif
-using CsvHelper.TypeConversion;
 
 namespace CsvHelper.Tests.TypeConversion
 {
-	[TestClass]
-	public class EnumConverterTests
-	{
-		[TestMethod]
-		public void ConstructorTest()
-		{
-			try
-			{
-				new EnumConverter( typeof( string ) );
-				Assert.Fail();
-			}
-			catch( ArgumentException ex )
-			{
-				Assert.AreEqual( "'System.String' is not an Enum.", ex.Message );
-			}
-		}
+    using System;
+    using System.Globalization;
 
-		[TestMethod]
-		public void ConvertToStringTest()
-		{
-			var converter = new EnumConverter( typeof( TestEnum ) );
-			var typeConverterOptions = new TypeConverterOptions
-			{
-				CultureInfo = CultureInfo.CurrentCulture
-			};
+    using CsvHelper.TypeConversion;
 
-			Assert.AreEqual( "None", converter.ConvertToString( typeConverterOptions, (TestEnum)0 ) );
-			Assert.AreEqual( "None", converter.ConvertToString( typeConverterOptions, TestEnum.None ) );
-			Assert.AreEqual( "One", converter.ConvertToString( typeConverterOptions, (TestEnum)1 ) );
-			Assert.AreEqual( "One", converter.ConvertToString( typeConverterOptions, TestEnum.One ) );
-			Assert.AreEqual( "", converter.ConvertToString( typeConverterOptions, null ) );
-		}
+    [TestClass]
+    public class EnumConverterTests
+    {
+        [TestMethod]
+        public void ConstructorTest()
+        {
+            try
+            {
+                new EnumConverter(typeof(string));
+                Assert.Fail();
+            }
+            catch (ArgumentException ex)
+            {
+                Assert.AreEqual("'System.String' is not an Enum.", ex.Message);
+            }
+        }
 
-		[TestMethod]
-		public void ConvertFromStringTest()
-		{
-			var converter = new EnumConverter( typeof( TestEnum ) );
-			var typeConverterOptions = new TypeConverterOptions
-			{
-				CultureInfo = CultureInfo.CurrentCulture
-			};
+        [TestMethod]
+        public void ConvertToStringTest()
+        {
+            var converter = new EnumConverter(typeof(TestEnum));
+            var typeConverterOptions = new TypeConverterOptions { CultureInfo = CultureInfo.CurrentCulture };
 
-			Assert.AreEqual( TestEnum.One, converter.ConvertFromString( typeConverterOptions, "One" ) );
-			Assert.AreEqual( TestEnum.One, converter.ConvertFromString( typeConverterOptions, "one" ) );
-			Assert.AreEqual( TestEnum.One, converter.ConvertFromString( typeConverterOptions, "1" ) );
-			try
-			{
-				Assert.AreEqual( TestEnum.One, converter.ConvertFromString( typeConverterOptions, "" ) );
-				Assert.Fail();
-			}
-			catch( CsvTypeConverterException )
-			{
-			}
+            Assert.AreEqual("None", converter.ConvertToString(typeConverterOptions, (TestEnum)0));
+            Assert.AreEqual("None", converter.ConvertToString(typeConverterOptions, TestEnum.None));
+            Assert.AreEqual("One", converter.ConvertToString(typeConverterOptions, (TestEnum)1));
+            Assert.AreEqual("One", converter.ConvertToString(typeConverterOptions, TestEnum.One));
+            Assert.AreEqual(string.Empty, converter.ConvertToString(typeConverterOptions, null));
+        }
 
-			try
-			{
-				Assert.AreEqual( TestEnum.One, converter.ConvertFromString( typeConverterOptions, null ) );
-				Assert.Fail();
-			}
-			catch( CsvTypeConverterException )
-			{
-			}
-		}
+        [TestMethod]
+        public void ConvertFromStringTest()
+        {
+            var converter = new EnumConverter(typeof(TestEnum));
+            var typeConverterOptions = new TypeConverterOptions { CultureInfo = CultureInfo.CurrentCulture };
 
-		private enum TestEnum
-		{
-			None = 0,
-			One = 1,
-		}
-	}
+            Assert.AreEqual(TestEnum.One, converter.ConvertFromString(typeConverterOptions, "One"));
+            Assert.AreEqual(TestEnum.One, converter.ConvertFromString(typeConverterOptions, "one"));
+            Assert.AreEqual(TestEnum.One, converter.ConvertFromString(typeConverterOptions, "1"));
+            try
+            {
+                Assert.AreEqual(TestEnum.One, converter.ConvertFromString(typeConverterOptions, string.Empty));
+                Assert.Fail();
+            }
+            catch (CsvTypeConverterException)
+            {
+            }
+
+            try
+            {
+                Assert.AreEqual(TestEnum.One, converter.ConvertFromString(typeConverterOptions, null));
+                Assert.Fail();
+            }
+            catch (CsvTypeConverterException)
+            {
+            }
+        }
+
+        private enum TestEnum
+        {
+            None = 0, 
+
+            One = 1
+        }
+    }
 }

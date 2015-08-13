@@ -2,27 +2,29 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.IO;
-using System.Text;
-using System.Threading;
-using CsvHelper.Configuration;
-using CsvHelper.TypeConversion;
-using Int32Converter = CsvHelper.TypeConversion.Int32Converter;
 #if !PCL
-using System.Dynamic;
 #endif
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
+using System.Dynamic;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 #endif
 
 namespace CsvHelper.Tests
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.IO;
+    using System.Text;
+    using System.Threading;
+
+    using CsvHelper.Configuration;
+    using CsvHelper.TypeConversion;
+
     [TestClass]
     public class CsvWriterTests
     {
@@ -59,32 +61,34 @@ namespace CsvHelper.Tests
             stream.Position = 0;
             var data = reader.ReadToEnd();
 
-            Assert.AreEqual("one,\"one, two\",\"one \"\"two\"\" three\",\" one \"," + date + ",1,1,1,1,1," + guid + "\r\n", data);
+            Assert.AreEqual(
+                "one,\"one, two\",\"one \"\"two\"\" three\",\" one \"," + date + ",1,1,1,1,1," + guid + "\r\n", 
+                data);
         }
 
-		[TestMethod]
-	    public void WriteEmptyFieldWithExcelLeadingZerosTest()
-	    {
-			using( var stream = new MemoryStream() )
-			using( var writer = new StreamWriter( stream ) )
-			using( var reader = new StreamReader( stream ) )
-			using( var csv = new CsvWriter( writer ) )
-			{
-				csv.Configuration.UseExcelLeadingZerosFormatForNumerics = true;
-				csv.WriteField( string.Empty );
-			}
-	    }
+        [TestMethod]
+        public void WriteEmptyFieldWithExcelLeadingZerosTest()
+        {
+            using (var stream = new MemoryStream())
+            using (var writer = new StreamWriter(stream))
+            using (var reader = new StreamReader(stream))
+            using (var csv = new CsvWriter(writer))
+            {
+                csv.Configuration.UseExcelLeadingZerosFormatForNumerics = true;
+                csv.WriteField(string.Empty);
+            }
+        }
 
         [TestMethod]
         public void WriteRecordTest()
         {
             var record = new TestRecord
-            {
-                IntColumn = 1,
-                StringColumn = "string column",
-                IgnoredColumn = "ignored column",
-                FirstColumn = "first column",
-            };
+                             {
+                                 IntColumn = 1, 
+                                 StringColumn = "string column", 
+                                 IgnoredColumn = "ignored column", 
+                                 FirstColumn = "first column"
+                             };
 
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream) { AutoFlush = true };
@@ -105,12 +109,12 @@ namespace CsvHelper.Tests
         public void WriteRecordNoIndexesTest()
         {
             var record = new TestRecordNoIndexes
-            {
-                IntColumn = 1,
-                StringColumn = "string column",
-                IgnoredColumn = "ignored column",
-                FirstColumn = "first column",
-            };
+                             {
+                                 IntColumn = 1, 
+                                 StringColumn = "string column", 
+                                 IgnoredColumn = "ignored column", 
+                                 FirstColumn = "first column"
+                             };
 
             using (var stream = new MemoryStream())
             using (var writer = new StreamWriter(stream) { AutoFlush = true })
@@ -134,22 +138,22 @@ namespace CsvHelper.Tests
         public void WriteRecordsTest()
         {
             var records = new List<TestRecord>
-            {
-                new TestRecord
-                {
-                    IntColumn = 1,
-                    StringColumn = "string column",
-                    IgnoredColumn = "ignored column",
-                    FirstColumn = "first column",
-                },
-                new TestRecord
-                {
-                    IntColumn = 2,
-                    StringColumn = "string column 2",
-                    IgnoredColumn = "ignored column 2",
-                    FirstColumn = "first column 2",
-                },
-            };
+                              {
+                                  new TestRecord
+                                      {
+                                          IntColumn = 1, 
+                                          StringColumn = "string column", 
+                                          IgnoredColumn = "ignored column", 
+                                          FirstColumn = "first column"
+                                      }, 
+                                  new TestRecord
+                                      {
+                                          IntColumn = 2, 
+                                          StringColumn = "string column 2", 
+                                          IgnoredColumn = "ignored column 2", 
+                                          FirstColumn = "first column 2"
+                                      }
+                              };
 
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream) { AutoFlush = true };
@@ -192,22 +196,22 @@ namespace CsvHelper.Tests
         public void WriteRecordsCalledWithTwoParametersTest()
         {
             var records = new List<object>
-			{
-				new TestRecord
-				{
-					IntColumn = 1,
-					StringColumn = "string column",
-					IgnoredColumn = "ignored column",
-					FirstColumn = "first column",
-				},
-				new TestRecord
-				{
-					IntColumn = 2,
-					StringColumn = "string column 2",
-					IgnoredColumn = "ignored column 2",
-					FirstColumn = "first column 2",
-				},
-			};
+                              {
+                                  new TestRecord
+                                      {
+                                          IntColumn = 1, 
+                                          StringColumn = "string column", 
+                                          IgnoredColumn = "ignored column", 
+                                          FirstColumn = "first column"
+                                      }, 
+                                  new TestRecord
+                                      {
+                                          IntColumn = 2, 
+                                          StringColumn = "string column 2", 
+                                          IgnoredColumn = "ignored column 2", 
+                                          FirstColumn = "first column 2"
+                                      }
+                              };
 
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream) { AutoFlush = true };
@@ -246,12 +250,12 @@ namespace CsvHelper.Tests
         public void WriteRecordWithNullRecordTest()
         {
             var record = new TestRecord
-            {
-                IntColumn = 1,
-                StringColumn = "string column",
-                IgnoredColumn = "ignored column",
-                FirstColumn = "first column",
-            };
+                             {
+                                 IntColumn = 1, 
+                                 StringColumn = "string column", 
+                                 IgnoredColumn = "ignored column", 
+                                 FirstColumn = "first column"
+                             };
 
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream) { AutoFlush = true };
@@ -276,24 +280,26 @@ namespace CsvHelper.Tests
         public void WriteRecordWithReferencesTest()
         {
             var record = new Person
-            {
-                FirstName = "First Name",
-                LastName = "Last Name",
-                HomeAddress = new Address
-                {
-                    Street = "Home Street",
-                    City = "Home City",
-                    State = "Home State",
-                    Zip = "Home Zip",
-                },
-                WorkAddress = new Address
-                {
-                    Street = "Work Street",
-                    City = "Work City",
-                    State = "Work State",
-                    Zip = "Work Zip",
-                }
-            };
+                             {
+                                 FirstName = "First Name", 
+                                 LastName = "Last Name", 
+                                 HomeAddress =
+                                     new Address
+                                         {
+                                             Street = "Home Street", 
+                                             City = "Home City", 
+                                             State = "Home State", 
+                                             Zip = "Home Zip"
+                                         }, 
+                                 WorkAddress =
+                                     new Address
+                                         {
+                                             Street = "Work Street", 
+                                             City = "Work City", 
+                                             State = "Work State", 
+                                             Zip = "Work Zip"
+                                         }
+                             };
 
             var stream = new MemoryStream();
             var writer = new StreamWriter(stream) { AutoFlush = true };
@@ -306,7 +312,8 @@ namespace CsvHelper.Tests
             var reader = new StreamReader(stream);
             var csvFile = reader.ReadToEnd();
 
-            var expected = "First Name,Last Name,Home Street,Home City,Home State,Home Zip,Work Street,Work City,Work State,Work Zip\r\n";
+            var expected =
+                "First Name,Last Name,Home Street,Home City,Home State,Home Zip,Work Street,Work City,Work State,Work Zip\r\n";
 
             Assert.AreEqual(expected, csvFile);
         }
@@ -315,12 +322,12 @@ namespace CsvHelper.Tests
         public void WriteRecordsAllFieldsQuotedTest()
         {
             var record = new TestRecord
-            {
-                IntColumn = 1,
-                StringColumn = "string column",
-                IgnoredColumn = "ignored column",
-                FirstColumn = "first column",
-            };
+                             {
+                                 IntColumn = 1, 
+                                 StringColumn = "string column", 
+                                 IgnoredColumn = "ignored column", 
+                                 FirstColumn = "first column"
+                             };
 
             string csv;
             using (var stream = new MemoryStream())
@@ -347,12 +354,12 @@ namespace CsvHelper.Tests
         public void WriteRecordsNoFieldsQuotedTest()
         {
             var record = new TestRecord
-            {
-                IntColumn = 1,
-                StringColumn = "string \" column",
-                IgnoredColumn = "ignored column",
-                FirstColumn = "first, column",
-            };
+                             {
+                                 IntColumn = 1, 
+                                 StringColumn = "string \" column", 
+                                 IgnoredColumn = "ignored column", 
+                                 FirstColumn = "first, column"
+                             };
 
             string csv;
             using (var stream = new MemoryStream())
@@ -426,10 +433,7 @@ namespace CsvHelper.Tests
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer))
             {
-                var record = new TestSinglePropertyRecord
-                {
-                    Name = "one,two"
-                };
+                var record = new TestSinglePropertyRecord { Name = "one,two" };
                 csv.WriteRecord(record);
                 writer.Flush();
                 stream.Position = 0;
@@ -448,10 +452,7 @@ namespace CsvHelper.Tests
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer))
             {
-                var record = new TestSinglePropertyRecord
-                {
-                    Name = "one\"two"
-                };
+                var record = new TestSinglePropertyRecord { Name = "one\"two" };
                 csv.WriteRecord(record);
                 writer.Flush();
                 stream.Position = 0;
@@ -471,10 +472,7 @@ namespace CsvHelper.Tests
             using (var csv = new CsvWriter(writer))
             {
                 csv.Configuration.QuoteAllFields = true;
-                var record = new TestSinglePropertyRecord
-                {
-                    Name = "one,two"
-                };
+                var record = new TestSinglePropertyRecord { Name = "one,two" };
                 csv.WriteRecord(record);
                 writer.Flush();
                 stream.Position = 0;
@@ -494,10 +492,7 @@ namespace CsvHelper.Tests
             using (var csv = new CsvWriter(writer))
             {
                 csv.Configuration.QuoteAllFields = true;
-                var record = new TestSinglePropertyRecord
-                {
-                    Name = "one\"two"
-                };
+                var record = new TestSinglePropertyRecord { Name = "one\"two" };
                 csv.WriteRecord(record);
                 writer.Flush();
                 stream.Position = 0;
@@ -520,12 +515,12 @@ namespace CsvHelper.Tests
                 csv.Configuration.RegisterClassMap<TestRecordMap>();
 
                 var record = new TestRecord
-                {
-                    IntColumn = 1,
-                    FirstColumn = "first column",
-                    IgnoredColumn = "ignored column",
-                    StringColumn = "string column",
-                };
+                                 {
+                                     IntColumn = 1, 
+                                     FirstColumn = "first column", 
+                                     IgnoredColumn = "ignored column", 
+                                     StringColumn = "string column"
+                                 };
 
                 csv.WriteRecord(record);
                 writer.Flush();
@@ -543,14 +538,7 @@ namespace CsvHelper.Tests
             using (var writer = new StreamWriter(stream))
             using (var csv = new CsvWriter(writer))
             {
-                var list = new List<TestPrivateGet>
-				{
-					new TestPrivateGet
-					{
-						Id = 1,
-						Name = "one"
-					}
-				};
+                var list = new List<TestPrivateGet> { new TestPrivateGet { Id = 1, Name = "one" } };
                 csv.WriteRecords(list);
                 writer.Flush();
                 stream.Position = 0;
@@ -630,10 +618,10 @@ namespace CsvHelper.Tests
             using (var csv = new CsvWriter(writer))
             {
                 var list = new List<TestStruct>
-				{
-					new TestStruct { Id = 1, Name = "one" },
-					new TestStruct { Id = 2, Name = "two" },
-				};
+                               {
+                                   new TestStruct { Id = 1, Name = "one" }, 
+                                   new TestStruct { Id = 2, Name = "two" }
+                               };
                 csv.WriteRecords(list);
                 writer.Flush();
                 stream.Position = 0;
@@ -648,16 +636,17 @@ namespace CsvHelper.Tests
         public void WriteStructReferenceRecordsTest()
         {
             var list = new List<TestStructParent>
-			{
-				new TestStructParent
-				{
-					Test = new TestStruct
-					{
-						Id = 1,
-						Name = "one",
-					},
-				},
-			};
+                           {
+                               new TestStructParent
+                                   {
+                                       Test =
+                                           new TestStruct
+                                               {
+                                                   Id = 1, 
+                                                   Name = "one"
+                                               }
+                                   }
+                           };
 
             using (var stream = new MemoryStream())
             using (var reader = new StreamReader(stream))
@@ -678,27 +667,29 @@ namespace CsvHelper.Tests
         public void WriteNestedHeadersTest()
         {
             var list = new List<Person>
-			{
-				new Person
-				{
-					FirstName = "first",
-					LastName = "last",
-					HomeAddress = new Address
-					{
-						City = "home city",
-						State = "home state",
-						Street = "home street",
-						Zip = "home zip",
-					},
-					WorkAddress = new Address
-					{
-						City = "work city",
-						State = "work state",
-						Street = "work street",
-						Zip = "work zip",
-					},
-				},
-			};
+                           {
+                               new Person
+                                   {
+                                       FirstName = "first", 
+                                       LastName = "last", 
+                                       HomeAddress =
+                                           new Address
+                                               {
+                                                   City = "home city", 
+                                                   State = "home state", 
+                                                   Street = "home street", 
+                                                   Zip = "home zip"
+                                               }, 
+                                       WorkAddress =
+                                           new Address
+                                               {
+                                                   City = "work city", 
+                                                   State = "work state", 
+                                                   Street = "work street", 
+                                                   Zip = "work zip"
+                                               }
+                                   }
+                           };
 
             using (var stream = new MemoryStream())
             using (var reader = new StreamReader(stream))
@@ -712,8 +703,10 @@ namespace CsvHelper.Tests
 
                 var text = reader.ReadToEnd();
                 var expected = new StringBuilder();
-                expected.AppendLine("FirstName,LastName,HomeAddress.Street,HomeAddress.City,HomeAddress.State,HomeAddress.Zip,WorkAddress.Street,WorkAddress.City,WorkAddress.State,WorkAddress.Zip");
-                expected.AppendLine("first,last,home street,home city,home state,home zip,work street,work city,work state,work zip");
+                expected.AppendLine(
+                    "FirstName,LastName,HomeAddress.Street,HomeAddress.City,HomeAddress.State,HomeAddress.Zip,WorkAddress.Street,WorkAddress.City,WorkAddress.State,WorkAddress.Zip");
+                expected.AppendLine(
+                    "first,last,home street,home city,home state,home zip,work street,work city,work state,work zip");
                 Assert.AreEqual(expected.ToString(), text);
             }
         }
@@ -736,110 +729,52 @@ namespace CsvHelper.Tests
             }
         }
 
-		[TestMethod]
-	    public void ClassWithStaticAutoMappingTest()
-	    {
-			using( var stream = new MemoryStream() )
-			using( var reader = new StreamReader( stream ) )
-			using( var writer = new StreamWriter( stream ) )
-			using( var csv = new CsvWriter( writer ) )
-			{
-				TestWithStatic.Name = "one";
-				var records = new List<TestWithStatic>
-				{
-					new TestWithStatic
-					{
-						Id = 1
-					},
-				};
+        [TestMethod]
+        public void ClassWithStaticAutoMappingTest()
+        {
+            using (var stream = new MemoryStream())
+            using (var reader = new StreamReader(stream))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer))
+            {
+                TestWithStatic.Name = "one";
+                var records = new List<TestWithStatic> { new TestWithStatic { Id = 1 } };
 
-				csv.WriteRecords( records );
-			}
-	    }
+                csv.WriteRecords(records);
+            }
+        }
 
-		[TestMethod]
-		public void ClassWithStaticUsingMappingTest()
-		{
-			using( var stream = new MemoryStream() )
-			using( var reader = new StreamReader( stream ) )
-			using( var writer = new StreamWriter( stream ) )
-			using( var csv = new CsvWriter( writer ) )
-			{
-				csv.Configuration.RegisterClassMap<TestWithStaticMap>();
+        [TestMethod]
+        public void ClassWithStaticUsingMappingTest()
+        {
+            using (var stream = new MemoryStream())
+            using (var reader = new StreamReader(stream))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer))
+            {
+                csv.Configuration.RegisterClassMap<TestWithStaticMap>();
 
-				TestWithStatic.Name = "one";
-				var records = new List<TestWithStatic>
-				{
-					new TestWithStatic
-					{
-						Id = 1
-					},
-				};
+                TestWithStatic.Name = "one";
+                var records = new List<TestWithStatic> { new TestWithStatic { Id = 1 } };
 
-				csv.WriteRecords( records );
-			}
-		}
+                csv.WriteRecords(records);
+            }
+        }
 
-#if !PCL
-		[TestMethod]
-		public void WriteDynamicListTest()
-		{
-			using( var stream = new MemoryStream() )
-			using( var reader = new StreamReader( stream ) )
-			using( var writer = new StreamWriter( stream ) )
-			using( var csv = new CsvWriter( writer ) )
-			{
-				var list = new List<dynamic>();
-				dynamic record = new { Id = 1, Name = "one" };
-				list.Add( record );
-				csv.WriteRecords( list );
-				writer.Flush();
-				stream.Position = 0;
+        private class TestWithStatic
+        {
+            public int Id { get; set; }
 
-				var text = reader.ReadToEnd();
-				Assert.AreEqual( "Id,Name\r\n1,one\r\n", text );
-			}
-		}
+            public static string Name { get; set; }
+        }
 
-		// TODO: Make reader/writer work with expando objects.
-		[Ignore]
-		[TestMethod]
-		public void WriteExpandoListTest()
-		{
-			using( var stream = new MemoryStream() )
-			using( var reader = new StreamReader( stream ) )
-			using( var writer = new StreamWriter( stream ) )
-			using( var csv = new CsvWriter( writer ) )
-			{
-				var list = new List<dynamic>();
-				dynamic record = new ExpandoObject();
-				record.Id = 1;
-				record.Name = "one";
-				list.Add( record );
-				csv.WriteRecords( list );
-				writer.Flush();
-				stream.Position = 0;
-
-				var text = reader.ReadToEnd();
-				Assert.AreEqual( "Id,Name\r\n1,one\r\n", text );
-			}
-		}
-#endif
-
-	    private class TestWithStatic
-	    {
-			public int Id { get; set; }
-
-			public static string Name { get; set; }
-	    }
-
-	    private sealed class TestWithStaticMap : CsvClassMap<TestWithStatic>
-	    {
-		    public TestWithStaticMap()
-		    {
-			    Map( m => m.Id );
-		    }
-	    }
+        private sealed class TestWithStaticMap : CsvClassMap<TestWithStatic>
+        {
+            public TestWithStaticMap()
+            {
+                this.Map(m => m.Id);
+            }
+        }
 
         private class TestStructParent
         {
@@ -850,7 +785,7 @@ namespace CsvHelper.Tests
         {
             public TestStructParentMap()
             {
-                References<TestStructMap>(m => m.Test);
+                this.References<TestStructMap>(m => m.Test);
             }
         }
 
@@ -865,8 +800,8 @@ namespace CsvHelper.Tests
         {
             public TestStructMap()
             {
-                Map(m => m.Id);
-                Map(m => m.Name);
+                this.Map(m => m.Id);
+                this.Map(m => m.Name);
             }
         }
 
@@ -899,10 +834,10 @@ namespace CsvHelper.Tests
         {
             public TestRecordMap()
             {
-                Map(m => m.IntColumn).Name("Int Column").Index(1).TypeConverter<Int32Converter>();
-                Map(m => m.StringColumn);
-                Map(m => m.FirstColumn).Index(0);
-                Map(m => m.TypeConvertedColumn).TypeConverter<TestTypeConverter>();
+                this.Map(m => m.IntColumn).Name("Int Column").Index(1).TypeConverter<Int32Converter>();
+                this.Map(m => m.StringColumn);
+                this.Map(m => m.FirstColumn).Index(0);
+                this.Map(m => m.TypeConvertedColumn).TypeConverter<TestTypeConverter>();
             }
         }
 
@@ -923,10 +858,10 @@ namespace CsvHelper.Tests
         {
             public TestRecordNoIndexesMap()
             {
-                Map(m => m.IntColumn).Name("Int Column").TypeConverter<Int32Converter>();
-                Map(m => m.StringColumn);
-                Map(m => m.FirstColumn);
-                Map(m => m.TypeConvertedColumn).TypeConverter<TestTypeConverter>();
+                this.Map(m => m.IntColumn).Name("Int Column").TypeConverter<Int32Converter>();
+                this.Map(m => m.StringColumn);
+                this.Map(m => m.FirstColumn);
+                this.Map(m => m.TypeConvertedColumn).TypeConverter<TestTypeConverter>();
             }
         }
 
@@ -979,10 +914,10 @@ namespace CsvHelper.Tests
         {
             public PersonMap()
             {
-                Map(m => m.FirstName);
-                Map(m => m.LastName);
-                References<HomeAddressMap>(m => m.HomeAddress);
-                References<WorkAddressMap>(m => m.WorkAddress);
+                this.Map(m => m.FirstName);
+                this.Map(m => m.LastName);
+                this.References<HomeAddressMap>(m => m.HomeAddress);
+                this.References<WorkAddressMap>(m => m.WorkAddress);
             }
         }
 
@@ -990,10 +925,10 @@ namespace CsvHelper.Tests
         {
             public HomeAddressMap()
             {
-                Map(m => m.Street).Name("HomeStreet");
-                Map(m => m.City).Name("HomeCity");
-                Map(m => m.State).Name("HomeState");
-                Map(m => m.Zip).Name("HomeZip");
+                this.Map(m => m.Street).Name("HomeStreet");
+                this.Map(m => m.City).Name("HomeCity");
+                this.Map(m => m.State).Name("HomeState");
+                this.Map(m => m.Zip).Name("HomeZip");
             }
         }
 
@@ -1001,12 +936,58 @@ namespace CsvHelper.Tests
         {
             public WorkAddressMap()
             {
-                Map(m => m.Street).Name("WorkStreet");
-                Map(m => m.City).Name("WorkCity");
-                Map(m => m.State).Name("WorkState");
-                Map(m => m.Zip).Name("WorkZip");
+                this.Map(m => m.Street).Name("WorkStreet");
+                this.Map(m => m.City).Name("WorkCity");
+                this.Map(m => m.State).Name("WorkState");
+                this.Map(m => m.Zip).Name("WorkZip");
             }
         }
 
+#if !PCL
+        [TestMethod]
+        public void WriteDynamicListTest()
+        {
+            using (var stream = new MemoryStream())
+            using (var reader = new StreamReader(stream))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer))
+            {
+                var list = new List<dynamic>();
+                dynamic record = new { Id = 1, Name = "one" };
+                list.Add(record);
+                csv.WriteRecords(list);
+                writer.Flush();
+                stream.Position = 0;
+
+                var text = reader.ReadToEnd();
+                Assert.AreEqual("Id,Name\r\n1,one\r\n", text);
+            }
+        }
+
+        // TODO: Make reader/writer work with expando objects.
+        [Ignore]
+        [TestMethod]
+        public void WriteExpandoListTest()
+        {
+            using (var stream = new MemoryStream())
+            using (var reader = new StreamReader(stream))
+            using (var writer = new StreamWriter(stream))
+            using (var csv = new CsvWriter(writer))
+            {
+                var list = new List<dynamic>();
+                dynamic record = new ExpandoObject();
+                record.Id = 1;
+                record.Name = "one";
+                list.Add(record);
+                csv.WriteRecords(list);
+                writer.Flush();
+                stream.Position = 0;
+
+                var text = reader.ReadToEnd();
+                Assert.AreEqual("Id,Name\r\n1,one\r\n", text);
+            }
+        }
+
+#endif
     }
 }

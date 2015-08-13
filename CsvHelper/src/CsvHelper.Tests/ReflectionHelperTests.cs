@@ -5,33 +5,38 @@
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 #endif
 
 namespace CsvHelper.Tests
 {
-	[TestClass]
-	public class ReflectionHelperTests
-	{
-		[TestMethod]
-		public void CreateInstanceTests()
-		{
-			var test = ReflectionHelper.CreateInstance<Test>();
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-			Assert.IsNotNull( test );
-			Assert.AreEqual( "name", test.Name );
+    [TestClass]
+    public class ReflectionHelperTests
+    {
+        [TestMethod]
+        public void CreateInstanceTests()
+        {
+            var test = ReflectionHelper.CreateInstance<Test>();
 
-			test = (Test)ReflectionHelper.CreateInstance( typeof( Test ) );
-			Assert.IsNotNull( test );
-			Assert.AreEqual( "name", test.Name );
-		}
+            Assert.IsNotNull(test);
+            Assert.AreEqual("name", test.Name);
 
-		private class Test
-		{
-			public string Name
-			{
-				get { return "name"; }
-			}
-		}
-	}
+            test = (Test)ReflectionHelper.CreateInstance(typeof(Test));
+            Assert.IsNotNull(test);
+            Assert.AreEqual("name", test.Name);
+        }
+
+        private class Test
+        {
+            public string Name
+            {
+                get
+                {
+                    return "name";
+                }
+            }
+        }
+    }
 }
