@@ -7,6 +7,10 @@
 
     public class SerializerMock : ICsvSerializer
     {
+        private readonly List<string[]> records = new List<string[]>();
+
+        private readonly bool throwExceptionOnWrite;
+
         public SerializerMock(bool throwExceptionOnWrite = false)
         {
             this.Configuration = new CsvConfiguration();
@@ -36,9 +40,5 @@
         public void Dispose()
         {
         }
-
-        private readonly List<string[]> records = new List<string[]>();
-
-        private readonly bool throwExceptionOnWrite;
     }
 }

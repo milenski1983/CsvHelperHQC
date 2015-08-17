@@ -11,6 +11,8 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvPropertyReferenceMapData
     {
+        private string prefix;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="CsvPropertyReferenceMapData" /> class.
         /// </summary>
@@ -52,7 +54,5 @@ namespace CsvHelper.Configuration
         ///     Gets the mapping this is a reference for.
         /// </summary>
         public CsvClassMap Mapping { get; private set; }
-
-        private string prefix;
     }
 }

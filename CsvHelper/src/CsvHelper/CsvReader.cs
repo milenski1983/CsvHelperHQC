@@ -6,10 +6,7 @@
 using CsvHelper.MissingFrom20;
 #endif
 #if !NET_2_0
-using System.Dynamic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
+
 #endif
 #if !NET_2_0 && !NET_3_5 && !PCL
 
@@ -19,8 +16,12 @@ namespace CsvHelper
 {
     using System;
     using System.Collections.Generic;
+    using System.Dynamic;
     using System.Globalization;
     using System.IO;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
     using System.Text.RegularExpressions;
 
     using CsvHelper.Configuration;
@@ -31,6 +32,28 @@ namespace CsvHelper
     /// </summary>
     public class CsvReader : ICsvReader
     {
+        private readonly CsvConfiguration configuration;
+
+        private readonly Dictionary<string, List<int>> namedIndexes = new Dictionary<string, List<int>>();
+
+#if !NET_2_0
+        private readonly Dictionary<Type, Delegate> recordFuncs = new Dictionary<Type, Delegate>();
+#endif
+
+        private int currentIndex = -1;
+
+        private string[] currentRecord;
+
+        private bool disposed;
+
+        private bool doneReading;
+
+        private bool hasBeenRead;
+
+        private string[] headerRecord;
+
+        private ICsvParser parser;
+
         /// <summary>
         ///     Creates a new CSV reader using the given <see cref="TextReader" /> and
         ///     <see cref="CsvParser" /> as the default parser.
@@ -1140,28 +1163,6 @@ namespace CsvHelper
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        private bool disposed;
-
-        private bool hasBeenRead;
-
-        private string[] currentRecord;
-
-        private string[] headerRecord;
-
-        private ICsvParser parser;
-
-        private int currentIndex = -1;
-
-        private bool doneReading;
-
-        private readonly Dictionary<string, List<int>> namedIndexes = new Dictionary<string, List<int>>();
-
-#if !NET_2_0
-        private readonly Dictionary<Type, Delegate> recordFuncs = new Dictionary<Type, Delegate>();
-#endif
-
-        private readonly CsvConfiguration configuration;
 
 #if !NET_2_0
         /// <summary>

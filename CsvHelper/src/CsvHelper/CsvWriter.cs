@@ -3,8 +3,6 @@
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
 #if !NET_2_0
-using System.Linq;
-using System.Linq.Expressions;
 
 #endif
 
@@ -22,6 +20,8 @@ namespace CsvHelper
     using System.Collections;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
+    using System.Linq.Expressions;
     using System.Reflection;
 
     using CsvHelper.Configuration;
@@ -32,6 +32,24 @@ namespace CsvHelper
     /// </summary>
     public class CsvWriter : ICsvWriter
     {
+        private readonly CsvConfiguration configuration;
+
+        private readonly List<string> currentRecord = new List<string>();
+
+#if !NET_2_0
+        private readonly Dictionary<Type, Delegate> typeActions = new Dictionary<Type, Delegate>();
+#endif
+
+        private bool disposed;
+
+        private bool hasExcelSeperatorBeenRead;
+
+        private bool hasHeaderBeenWritten;
+
+        private bool hasRecordBeenWritten;
+
+        private ICsvSerializer serializer;
+
         /// <summary>
         ///     Creates a new CSV writer using the given <see cref="TextWriter" />,
         ///     a default <see cref="CsvConfiguration" /> and <see cref="CsvSerializer" />
@@ -362,24 +380,6 @@ namespace CsvHelper
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        private bool disposed;
-
-        private readonly List<string> currentRecord = new List<string>();
-
-        private ICsvSerializer serializer;
-
-        private bool hasHeaderBeenWritten;
-
-        private bool hasRecordBeenWritten;
-
-#if !NET_2_0
-        private readonly Dictionary<Type, Delegate> typeActions = new Dictionary<Type, Delegate>();
-#endif
-
-        private readonly CsvConfiguration configuration;
-
-        private bool hasExcelSeperatorBeenRead;
 
 #if !NET_2_0
         /// <summary>

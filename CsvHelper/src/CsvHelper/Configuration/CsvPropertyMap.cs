@@ -20,6 +20,8 @@ namespace CsvHelper.Configuration
         )]
     public class CsvPropertyMap
     {
+        private readonly CsvPropertyMapData data;
+
         /// <summary>
         ///     Creates a new <see cref="CsvPropertyMap" /> instance using the specified property.
         /// </summary>
@@ -245,7 +247,5 @@ namespace CsvHelper.Configuration
 
             return this;
         }
-
-        private readonly CsvPropertyMapData data;
     }
 }

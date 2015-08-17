@@ -3,7 +3,6 @@
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
 
-using System.Linq;
 #if !NET_2_0
 
 #endif
@@ -12,6 +11,7 @@ namespace CsvHelper
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
 
     /// <summary>

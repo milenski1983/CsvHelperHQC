@@ -3,7 +3,6 @@
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
 
-using System.Linq;
 #if NET_2_0
 using CsvHelper.MissingFrom20;
 #endif
@@ -16,6 +15,7 @@ namespace CsvHelper
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
 
     using CsvHelper.Configuration;
 
@@ -24,6 +24,32 @@ namespace CsvHelper
     /// </summary>
     public class CsvParser : ICsvParser
     {
+        private readonly CsvConfiguration configuration;
+
+        private readonly char[] readerBuffer;
+
+        private char c = '\0';
+
+        private int charsRead;
+
+        private char? cPrev;
+
+        private int currentRawRow;
+
+        private int currentRow;
+
+        private bool disposed;
+
+        private bool hasExcelSeparatorBeenRead;
+
+        private bool read;
+
+        private TextReader reader;
+
+        private int readerBufferPosition;
+
+        private string[] record;
+
         /// <summary>
         ///     Creates a new parser using the given <see cref="TextReader" />.
         /// </summary>
@@ -222,8 +248,6 @@ namespace CsvHelper
                 this.readerBufferPosition++;
                 this.CharPosition++;
 
-                
-
                 // This needs to get in the way and parse things completely different
                 // from how a normal CSV field works. This horribly ugly.
                 if (this.configuration.UseExcelLeadingZerosFormatForNumerics)
@@ -305,8 +329,6 @@ namespace CsvHelper
                         continue;
                     }
                 }
-
-                
 
                 if (this.c == this.configuration.Quote && !this.configuration.IgnoreQuotes)
                 {
@@ -703,31 +725,5 @@ namespace CsvHelper
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        private bool disposed;
-
-        private TextReader reader;
-
-        private readonly char[] readerBuffer;
-
-        private int readerBufferPosition;
-
-        private int charsRead;
-
-        private string[] record;
-
-        private int currentRow;
-
-        private int currentRawRow;
-
-        private readonly CsvConfiguration configuration;
-
-        private char? cPrev;
-
-        private char c = '\0';
-
-        private bool read;
-
-        private bool hasExcelSeparatorBeenRead;
     }
 }

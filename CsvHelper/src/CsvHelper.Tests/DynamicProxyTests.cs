@@ -3,7 +3,6 @@
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
@@ -19,6 +18,8 @@ namespace CsvHelper.Tests
     using Castle.DynamicProxy;
 
     using CsvHelper.Configuration;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class DynamicProxyTests

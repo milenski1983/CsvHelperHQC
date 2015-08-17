@@ -14,6 +14,14 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvPropertyMapData
     {
+        private readonly CsvPropertyNameCollection names = new CsvPropertyNameCollection();
+
+        private readonly TypeConverterOptions typeConverterOptions = new TypeConverterOptions();
+
+        private object defaultValue;
+
+        private int index = -1;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="CsvPropertyMapData" /> class.
         /// </summary>
@@ -127,13 +135,5 @@ namespace CsvHelper.Configuration
         ///     row to the property.
         /// </summary>
         public virtual Expression ConvertExpression { get; set; }
-
-        private readonly CsvPropertyNameCollection names = new CsvPropertyNameCollection();
-
-        private int index = -1;
-
-        private object defaultValue;
-
-        private readonly TypeConverterOptions typeConverterOptions = new TypeConverterOptions();
     }
 }

@@ -3,7 +3,6 @@
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
 
-using System.Linq;
 #if NET_2_0
 using CsvHelper.MissingFrom20;
 #else
@@ -14,12 +13,17 @@ namespace CsvHelper.TypeConversion
 {
     using System.Collections.Generic;
     using System.Globalization;
+    using System.Linq;
 
     /// <summary>
     ///     Options used when doing type conversion.
     /// </summary>
     public class TypeConverterOptions
     {
+        private readonly List<string> booleanFalseValues = new List<string> { "no", "n" };
+
+        private readonly List<string> booleanTrueValues = new List<string> { "yes", "y" };
+
         /// <summary>
         ///     Gets or sets the culture info.
         /// </summary>
@@ -130,9 +134,5 @@ namespace CsvHelper.TypeConversion
 
             return options;
         }
-
-        private readonly List<string> booleanTrueValues = new List<string> { "yes", "y" };
-
-        private readonly List<string> booleanFalseValues = new List<string> { "no", "n" };
     }
 }

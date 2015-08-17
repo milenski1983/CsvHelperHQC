@@ -18,6 +18,10 @@ namespace CsvHelper.Configuration
     /// </summary>
     public abstract class CsvClassMap
     {
+        private readonly CsvPropertyMapCollection propertyMaps = new CsvPropertyMapCollection();
+
+        private readonly List<CsvPropertyReferenceMap> referenceMaps = new List<CsvPropertyReferenceMap>();
+
         /// <summary>
         ///     Allow only internal creation of CsvClassMap.
         /// </summary>
@@ -282,9 +286,5 @@ namespace CsvHelper.Configuration
 
             return false;
         }
-
-        private readonly CsvPropertyMapCollection propertyMaps = new CsvPropertyMapCollection();
-
-        private readonly List<CsvPropertyReferenceMap> referenceMaps = new List<CsvPropertyReferenceMap>();
     }
 }

@@ -13,6 +13,8 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvClassMapCollection
     {
+        private readonly Dictionary<Type, CsvClassMap> data = new Dictionary<Type, CsvClassMap>();
+
         /// <summary>
         ///     Gets the <see cref="CsvClassMap" /> for the specified record type.
         /// </summary>
@@ -99,7 +101,5 @@ namespace CsvHelper.Configuration
 
             return this.GetGenericCsvClassMapType(type.BaseType);
         }
-
-        private readonly Dictionary<Type, CsvClassMap> data = new Dictionary<Type, CsvClassMap>();
     }
 }

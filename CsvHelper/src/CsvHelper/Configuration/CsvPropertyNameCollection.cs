@@ -12,6 +12,8 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvPropertyNameCollection : IEnumerable<string>
     {
+        private readonly List<string> names = new List<string>();
+
         /// <summary>
         ///     Gets the prefix to use for each name.
         /// </summary>
@@ -111,7 +113,5 @@ namespace CsvHelper.Configuration
         {
             return this.names.GetEnumerator();
         }
-
-        private readonly List<string> names = new List<string>();
     }
 }

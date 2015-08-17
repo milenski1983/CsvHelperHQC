@@ -14,6 +14,10 @@ namespace CsvHelper.Configuration
     [DebuggerDisplay("Count = {list.Count}")]
     public class CsvPropertyMapCollection : IList<CsvPropertyMap>
     {
+        private readonly IComparer<CsvPropertyMap> comparer;
+
+        private readonly List<CsvPropertyMap> list = new List<CsvPropertyMap>();
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="CsvPropertyMapCollection" /> class.
         /// </summary>
@@ -254,9 +258,5 @@ namespace CsvHelper.Configuration
                 this.list[index] = value;
             }
         }
-
-        private readonly List<CsvPropertyMap> list = new List<CsvPropertyMap>();
-
-        private readonly IComparer<CsvPropertyMap> comparer;
     }
 }

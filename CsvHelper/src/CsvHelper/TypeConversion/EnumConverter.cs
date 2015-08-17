@@ -11,6 +11,8 @@ namespace CsvHelper.TypeConversion
     /// </summary>
     public class EnumConverter : DefaultTypeConverter
     {
+        private readonly Type type;
+
         /// <summary>
         ///     Creates a new <see cref="EnumConverter" /> for the given <see cref="Enum" /> <see cref="Type" />.
         /// </summary>
@@ -55,7 +57,5 @@ namespace CsvHelper.TypeConversion
             // We only care about strings.
             return type == typeof(string);
         }
-
-        private readonly Type type;
     }
 }

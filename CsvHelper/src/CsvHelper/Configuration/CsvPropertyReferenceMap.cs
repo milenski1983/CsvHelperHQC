@@ -12,6 +12,8 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvPropertyReferenceMap
     {
+        private readonly CsvPropertyReferenceMapData data;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="CsvPropertyReferenceMap" /> class.
         /// </summary>
@@ -91,7 +93,5 @@ namespace CsvHelper.Configuration
         {
             return this.data.Mapping.GetMaxIndex();
         }
-
-        private readonly CsvPropertyReferenceMapData data;
     }
 }

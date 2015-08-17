@@ -14,6 +14,12 @@ namespace CsvHelper
     /// </summary>
     public class CsvSerializer : ICsvSerializer
     {
+        private readonly CsvConfiguration configuration;
+
+        private bool disposed;
+
+        private TextWriter writer;
+
         /// <summary>
         ///     Creates a new serializer using the given <see cref="TextWriter" />.
         /// </summary>
@@ -112,11 +118,5 @@ namespace CsvHelper
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
-
-        private bool disposed;
-
-        private readonly CsvConfiguration configuration;
-
-        private TextWriter writer;
     }
 }

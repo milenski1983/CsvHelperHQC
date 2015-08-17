@@ -11,6 +11,8 @@ namespace CsvHelper.Tests.Mocks
 
     public class ParserMock : ICsvParser, IEnumerable<string[]>
     {
+        private readonly Queue<string[]> rows;
+
         public ParserMock()
         {
             this.Configuration = new CsvConfiguration();
@@ -59,7 +61,5 @@ namespace CsvHelper.Tests.Mocks
         {
             return this.GetEnumerator();
         }
-
-        private readonly Queue<string[]> rows;
     }
 }

@@ -2,6 +2,7 @@
 // This file is a part of CsvHelper and is dual licensed under MS-PL and Apache 2.0.
 // See LICENSE.txt for details or visit http://www.opensource.org/licenses/ms-pl.html for MS-PL and http://opensource.org/licenses/Apache-2.0 for Apache 2.0.
 // http://csvhelper.com
+
 #if !NET_2_0
 #else
 using CsvHelper.MissingFrom20;
@@ -19,6 +20,38 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvConfiguration
     {
+        private int bufferSize = 2048;
+
+        private char comment = '#';
+
+        private CultureInfo cultureInfo = CultureInfo.CurrentCulture;
+
+        private string delimiter = ",";
+
+        private string doubleQuoteString = "\"\"";
+
+        private Encoding encoding = Encoding.UTF8;
+
+        private bool hasHeaderRecord = true;
+
+        private bool ignoreBlankLines = true;
+
+        private bool isHeaderCaseSensitive = true;
+
+        private BindingFlags propertyBindingFlags = BindingFlags.Public | BindingFlags.Instance;
+
+        private char quote = '"';
+
+        private bool quoteAllFields;
+
+        private bool quoteNoFields;
+
+        private char[] quoteRequiredChars;
+
+        private string quoteString = "\"";
+
+        private bool willThrowOnMissingField = true;
+
         /// <summary>
         ///     Creates a new CsvConfiguration.
         /// </summary>
@@ -496,38 +529,6 @@ namespace CsvHelper.Configuration
                                           ? new[] { '\r', '\n' }
                                           : new[] { '\r', '\n', this.delimiter[0] };
         }
-
-        private BindingFlags propertyBindingFlags = BindingFlags.Public | BindingFlags.Instance;
-
-        private bool hasHeaderRecord = true;
-
-        private bool willThrowOnMissingField = true;
-
-        private string delimiter = ",";
-
-        private char quote = '"';
-
-        private string quoteString = "\"";
-
-        private string doubleQuoteString = "\"\"";
-
-        private char[] quoteRequiredChars;
-
-        private char comment = '#';
-
-        private int bufferSize = 2048;
-
-        private bool isHeaderCaseSensitive = true;
-
-        private Encoding encoding = Encoding.UTF8;
-
-        private CultureInfo cultureInfo = CultureInfo.CurrentCulture;
-
-        private bool quoteAllFields;
-
-        private bool quoteNoFields;
-
-        private bool ignoreBlankLines = true;
 
 #if !NET_2_0
         private bool useNewObjectForNullReferenceProperties = true;

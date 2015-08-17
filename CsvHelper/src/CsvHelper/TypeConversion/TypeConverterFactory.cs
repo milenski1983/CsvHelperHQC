@@ -18,14 +18,6 @@ namespace CsvHelper.TypeConversion
         private static readonly Dictionary<Type, ITypeConverter> typeConverters = new Dictionary<Type, ITypeConverter>();
 
         /// <summary>
-        ///     Initializes the <see cref="TypeConverterFactory" /> class.
-        /// </summary>
-        static TypeConverterFactory()
-        {
-            CreateDefaultConverters();
-        }
-
-        /// <summary>
         ///     Adds the <see cref="ITypeConverter" /> for the given <see cref="Type" />.
         /// </summary>
         /// <param name="type">The type the converter converts.</param>
@@ -165,6 +157,14 @@ namespace CsvHelper.TypeConversion
             AddConverter(typeof(uint), new UInt32Converter());
             AddConverter(typeof(ulong), new UInt64Converter());
             AddConverter(typeof(IEnumerable), new EnumerableConverter());
+        }
+
+        /// <summary>
+        ///     Initializes the <see cref="TypeConverterFactory" /> class.
+        /// </summary>
+        static TypeConverterFactory()
+        {
+            CreateDefaultConverters();
         }
     }
 }

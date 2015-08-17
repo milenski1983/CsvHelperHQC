@@ -7,9 +7,6 @@
 #if WINRT_4_5
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 #else
-using System.Dynamic;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 #endif
 
@@ -17,6 +14,7 @@ namespace CsvHelper.Tests
 {
     using System;
     using System.Collections.Generic;
+    using System.Dynamic;
     using System.Globalization;
     using System.IO;
     using System.Text;
@@ -24,6 +22,8 @@ namespace CsvHelper.Tests
 
     using CsvHelper.Configuration;
     using CsvHelper.TypeConversion;
+
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class CsvWriterTests
