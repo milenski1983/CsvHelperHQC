@@ -14,6 +14,7 @@ namespace CsvHelper.Tests
     using System.Collections.Generic;
     using System.Linq;
 
+    using CsvHelper.Interfaces;
     using CsvHelper.Tests.Mocks;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;

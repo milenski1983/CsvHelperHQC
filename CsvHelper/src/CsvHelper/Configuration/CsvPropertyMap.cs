@@ -10,6 +10,7 @@ namespace CsvHelper.Configuration
     using System.Linq.Expressions;
     using System.Reflection;
 
+    using CsvHelper.Interfaces;
     using CsvHelper.TypeConversion;
 
     /// <summary>

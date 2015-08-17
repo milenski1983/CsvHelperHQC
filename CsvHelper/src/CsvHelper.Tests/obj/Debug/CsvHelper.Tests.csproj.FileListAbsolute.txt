@@ -18,3 +18,6 @@ C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\b
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.dll
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.pdb
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.dll
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.pdb

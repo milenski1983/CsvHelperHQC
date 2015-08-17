@@ -4,6 +4,7 @@
     using System.Collections.Generic;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
 
     public class SerializerMock : ICsvSerializer
     {

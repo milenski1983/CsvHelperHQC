@@ -8,6 +8,7 @@ namespace CsvHelper
     using System.IO;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
 
     /// <summary>
     ///     Defines methods used to serialize data into a CSV file.

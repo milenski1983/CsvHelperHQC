@@ -16,3 +16,12 @@ C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Example
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\obj\Debug\CsvHelper.Example.csprojResolveAssemblyReference.cache
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\obj\Debug\CsvHelper.Example.exe
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\obj\Debug\CsvHelper.Example.pdb
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\bin\Debug\CsvHelper.Example.exe.config
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\bin\Debug\CsvHelper.Example.exe
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\bin\Debug\CsvHelper.Example.pdb
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\bin\Debug\CsvHelper.dll
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\bin\Debug\CsvHelper.pdb
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\bin\Debug\CsvHelper.xml
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\obj\Debug\CsvHelper.Example.csprojResolveAssemblyReference.cache
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\obj\Debug\CsvHelper.Example.exe
+C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper.Example\obj\Debug\CsvHelper.Example.pdb

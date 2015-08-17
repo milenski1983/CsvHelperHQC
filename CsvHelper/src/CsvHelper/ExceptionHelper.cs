@@ -14,6 +14,8 @@ namespace CsvHelper
     using System.Linq;
     using System.Text;
 
+    using CsvHelper.Interfaces;
+
     /// <summary>
     ///     Common exception tasks.
     /// </summary>

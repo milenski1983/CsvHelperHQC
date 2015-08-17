@@ -25,6 +25,7 @@ namespace CsvHelper
     using System.Text.RegularExpressions;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
     using CsvHelper.TypeConversion;
 
     /// <summary>

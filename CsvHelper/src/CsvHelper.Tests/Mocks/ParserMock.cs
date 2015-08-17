@@ -8,6 +8,7 @@ namespace CsvHelper.Tests.Mocks
     using System.Collections.Generic;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
 
     public class ParserMock : ICsvParser, IEnumerable<string[]>
     {

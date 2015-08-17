@@ -15,6 +15,8 @@ namespace CsvHelper.Configuration
     using System.Reflection;
     using System.Text;
 
+    using CsvHelper.Interfaces;
+
     /// <summary>
     ///     Configuration used for reading and writing CSV data.
     /// </summary>

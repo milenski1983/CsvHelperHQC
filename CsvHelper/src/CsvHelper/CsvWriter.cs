@@ -25,6 +25,7 @@ namespace CsvHelper
     using System.Reflection;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
     using CsvHelper.TypeConversion;
 
     /// <summary>

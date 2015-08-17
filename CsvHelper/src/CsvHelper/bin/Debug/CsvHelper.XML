@@ -394,7 +394,7 @@
                 <see cref="M:CsvHelper.Configuration.CsvPropertyMap.TypeConverter(CsvHelper.TypeConversion.ITypeConverter)"/> to use.
             </typeparam>
         </member>
-        <member name="M:CsvHelper.Configuration.CsvPropertyMap.ConvertUsing``1(System.Func{CsvHelper.ICsvReaderRow,``0})">
+        <member name="M:CsvHelper.Configuration.CsvPropertyMap.ConvertUsing``1(System.Func{CsvHelper.Interfaces.ICsvReaderRow,``0})">
             <summary>
                 Specifies an expression to be used to convert data in the
                 row to the property.
@@ -620,67 +620,67 @@
                 Creates CsvHelper classes.
             </summary>
         </member>
-        <member name="T:CsvHelper.ICsvFactory">
+        <member name="T:CsvHelper.Interfaces.ICsvFactory">
             <summary>
                 Defines methods used to create
                 CsvHelper classes.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateParser(System.IO.TextReader,CsvHelper.Configuration.CsvConfiguration)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateParser(System.IO.TextReader,CsvHelper.Configuration.CsvConfiguration)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvParser"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvParser"/>.
             </summary>
             <param name="reader">The text reader to use for the csv parser.</param>
             <param name="configuration">The configuration to use for the csv parser.</param>
             <returns>The created parser.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateParser(System.IO.TextReader)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateParser(System.IO.TextReader)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvParser"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvParser"/>.
             </summary>
             <param name="reader">The text reader to use for the csv parser.</param>
             <returns>The created parser.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateReader(System.IO.TextReader,CsvHelper.Configuration.CsvConfiguration)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateReader(System.IO.TextReader,CsvHelper.Configuration.CsvConfiguration)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvReader"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvReader"/>.
             </summary>
             <param name="reader">The text reader to use for the csv reader.</param>
             <param name="configuration">The configuration to use for the reader.</param>
             <returns>The created reader.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateReader(System.IO.TextReader)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateReader(System.IO.TextReader)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvReader"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvReader"/>.
             </summary>
             <param name="reader">The text reader to use for the csv reader.</param>
             <returns>The created reader.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateReader(CsvHelper.ICsvParser)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateReader(CsvHelper.Interfaces.ICsvParser)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvReader"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvReader"/>.
             </summary>
             <param name="parser">The parser used to create the reader.</param>
             <returns>The created reader.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateWriter(System.IO.TextWriter,CsvHelper.Configuration.CsvConfiguration)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateWriter(System.IO.TextWriter,CsvHelper.Configuration.CsvConfiguration)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvWriter"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvWriter"/>.
             </summary>
             <param name="writer">The text writer to use for the csv writer.</param>
             <param name="configuration">The configuration to use for the writer.</param>
             <returns>The created writer.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvFactory.CreateWriter(System.IO.TextWriter)">
+        <member name="M:CsvHelper.Interfaces.ICsvFactory.CreateWriter(System.IO.TextWriter)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvWriter"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvWriter"/>.
             </summary>
             <param name="writer">The text writer to use for the csv writer.</param>
             <returns>The created writer.</returns>
         </member>
         <member name="M:CsvHelper.CsvFactory.CreateParser(System.IO.TextReader,CsvHelper.Configuration.CsvConfiguration)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvParser"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvParser"/>.
             </summary>
             <param name="reader">The text reader to use for the csv parser.</param>
             <param name="configuration">The configuration to use for the csv parser.</param>
@@ -688,14 +688,14 @@
         </member>
         <member name="M:CsvHelper.CsvFactory.CreateParser(System.IO.TextReader)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvParser"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvParser"/>.
             </summary>
             <param name="reader">The text reader to use for the csv parser.</param>
             <returns>The created parser.</returns>
         </member>
         <member name="M:CsvHelper.CsvFactory.CreateReader(System.IO.TextReader,CsvHelper.Configuration.CsvConfiguration)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvReader"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvReader"/>.
             </summary>
             <param name="reader">The text reader to use for the csv reader.</param>
             <param name="configuration">The configuration to use for the reader.</param>
@@ -703,21 +703,21 @@
         </member>
         <member name="M:CsvHelper.CsvFactory.CreateReader(System.IO.TextReader)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvReader"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvReader"/>.
             </summary>
             <param name="reader">The text reader to use for the csv reader.</param>
             <returns>The created reader.</returns>
         </member>
-        <member name="M:CsvHelper.CsvFactory.CreateReader(CsvHelper.ICsvParser)">
+        <member name="M:CsvHelper.CsvFactory.CreateReader(CsvHelper.Interfaces.ICsvParser)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvReader"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvReader"/>.
             </summary>
             <param name="parser">The parser used to create the reader.</param>
             <returns>The created reader.</returns>
         </member>
         <member name="M:CsvHelper.CsvFactory.CreateWriter(System.IO.TextWriter,CsvHelper.Configuration.CsvConfiguration)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvWriter"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvWriter"/>.
             </summary>
             <param name="writer">The text writer to use for the csv writer.</param>
             <param name="configuration">The configuration to use for the writer.</param>
@@ -725,7 +725,7 @@
         </member>
         <member name="M:CsvHelper.CsvFactory.CreateWriter(System.IO.TextWriter)">
             <summary>
-                Creates an <see cref="T:CsvHelper.ICsvWriter"/>.
+                Creates an <see cref="T:CsvHelper.Interfaces.ICsvWriter"/>.
             </summary>
             <param name="writer">The text writer to use for the csv writer.</param>
             <returns>The created writer.</returns>
@@ -822,43 +822,43 @@
                 Parses a CSV file.
             </summary>
         </member>
-        <member name="T:CsvHelper.ICsvParser">
+        <member name="T:CsvHelper.Interfaces.ICsvParser">
             <summary>
                 Defines methods used the parse a CSV file.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvParser.Read">
+        <member name="M:CsvHelper.Interfaces.ICsvParser.Read">
             <summary>
                 Reads a record from the CSV file.
             </summary>
             <returns>A <see cref="T:String[]" /> of fields for the record read.</returns>
         </member>
-        <member name="P:CsvHelper.ICsvParser.Configuration">
+        <member name="P:CsvHelper.Interfaces.ICsvParser.Configuration">
             <summary>
                 Gets the configuration.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvParser.FieldCount">
+        <member name="P:CsvHelper.Interfaces.ICsvParser.FieldCount">
             <summary>
                 Gets the field count.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvParser.CharPosition">
+        <member name="P:CsvHelper.Interfaces.ICsvParser.CharPosition">
             <summary>
                 Gets the character position that the parser is currently on.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvParser.BytePosition">
+        <member name="P:CsvHelper.Interfaces.ICsvParser.BytePosition">
             <summary>
                 Gets the byte position that the parser is currently on.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvParser.Row">
+        <member name="P:CsvHelper.Interfaces.ICsvParser.Row">
             <summary>
                 Gets the row of the CSV file that the parser is currently on.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvParser.RawRecord">
+        <member name="P:CsvHelper.Interfaces.ICsvParser.RawRecord">
             <summary>
                 Gets the raw row for the current record that was parsed.
             </summary>
@@ -1278,36 +1278,36 @@
         </member>
         <member name="T:CsvHelper.CsvReader">
             <summary>
-                Reads data that was parsed from <see cref="T:CsvHelper.ICsvParser"/>.
+                Reads data that was parsed from <see cref="T:CsvHelper.Interfaces.ICsvParser"/>.
             </summary>
         </member>
-        <member name="T:CsvHelper.ICsvReader">
+        <member name="T:CsvHelper.Interfaces.ICsvReader">
             <summary>
                 Defines methods used to read parsed data
                 from a CSV file.
             </summary>
         </member>
-        <member name="T:CsvHelper.ICsvReaderRow">
+        <member name="T:CsvHelper.Interfaces.ICsvReaderRow">
             <summary>
                 Defines methods used to read parsed data
                 from a CSV file row.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Int32)">
             <summary>
                 Gets the raw field at position (column) index.
             </summary>
             <param name="index">The zero based index of the field.</param>
             <returns>The raw field.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.String)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.String)">
             <summary>
                 Gets the raw field at position (column) name.
             </summary>
             <param name="name">The named index of the field.</param>
             <returns>The raw field.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.String,System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.String,System.Int32)">
             <summary>
                 Gets the raw field at position (column) name and the index
                 instance of that field. The index is used when there are
@@ -1317,7 +1317,7 @@
             <param name="index">The zero based index of the instance of the field.</param>
             <returns>The raw field.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Type,System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Type,System.Int32)">
             <summary>
                 Gets the field converted to <see cref="T:System.Object"/> using
                 the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1326,7 +1326,7 @@
             <param name="index">The index of the field.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Type,System.String)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Type,System.String)">
             <summary>
                 Gets the field converted to <see cref="T:System.Object"/> using
                 the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1335,7 +1335,7 @@
             <param name="name">The named index of the field.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Type,System.String,System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Type,System.String,System.Int32)">
             <summary>
                 Gets the field converted to <see cref="T:System.Object"/> using
                 the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1345,7 +1345,7 @@
             <param name="index">The zero based index of the instance of the field.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Type,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Type,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Gets the field converted to <see cref="T:System.Object"/> using
                 the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1355,7 +1355,7 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Object"/>.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Type,System.String,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Type,System.String,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Gets the field converted to <see cref="T:System.Object"/> using
                 the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1365,7 +1365,7 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Object"/>.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField(System.Type,System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField(System.Type,System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Gets the field converted to <see cref="T:System.Object"/> using
                 the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1376,7 +1376,7 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Object"/>.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``1(System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``1(System.Int32)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) index.
             </summary>
@@ -1384,7 +1384,7 @@
             <param name="index">The zero based index of the field.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``1(System.String)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``1(System.String)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name.
             </summary>
@@ -1392,7 +1392,7 @@
             <param name="name">The named index of the field.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``1(System.String,System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``1(System.String,System.Int32)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position
                 (column) name and the index instance of that field. The index
@@ -1403,7 +1403,7 @@
             <param name="index">The zero based index of the instance of the field.</param>
             <returns></returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``1(System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``1(System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) index using
                 the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1413,7 +1413,7 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``1(System.String,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``1(System.String,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name using
                 the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1423,7 +1423,7 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``1(System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``1(System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position
                 (column) name and the index instance of that field. The index
@@ -1435,7 +1435,7 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Type"/> T.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``2(System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``2(System.Int32)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) index using
                 the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1445,7 +1445,7 @@
             <param name="index">The zero based index of the field.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``2(System.String)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``2(System.String)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name using
                 the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1455,7 +1455,7 @@
             <param name="name">The named index of the field.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetField``2(System.String,System.Int32)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetField``2(System.String,System.Int32)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position
                 (column) name and the index instance of that field. The index
@@ -1467,7 +1467,7 @@
             <param name="index">The zero based index of the instance of the field.</param>
             <returns>The field converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``1(System.Int32,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``1(System.Int32,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) index.
             </summary>
@@ -1476,7 +1476,7 @@
             <param name="field">The field converted to type T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``1(System.String,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``1(System.String,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name.
             </summary>
@@ -1485,7 +1485,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``1(System.String,System.Int32,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``1(System.String,System.Int32,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position
                 (column) name and the index instance of that field. The index
@@ -1497,7 +1497,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``1(System.Int32,CsvHelper.TypeConversion.ITypeConverter,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``1(System.Int32,CsvHelper.TypeConversion.ITypeConverter,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) index
                 using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1508,7 +1508,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``1(System.String,CsvHelper.TypeConversion.ITypeConverter,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``1(System.String,CsvHelper.TypeConversion.ITypeConverter,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
                 using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1519,7 +1519,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``1(System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``1(System.String,System.Int32,CsvHelper.TypeConversion.ITypeConverter,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
                 using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1531,7 +1531,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``2(System.Int32,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``2(System.Int32,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) index
                 using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1542,7 +1542,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``2(System.String,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``2(System.String,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
                 using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1553,7 +1553,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.TryGetField``2(System.String,System.Int32,``0@)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.TryGetField``2(System.String,System.Int32,``0@)">
             <summary>
                 Gets the field converted to <see cref="T:System.Type"/> T at position (column) name
                 using the specified <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
@@ -1565,7 +1565,7 @@
             <param name="field">The field converted to <see cref="T:System.Type"/> T.</param>
             <returns>A value indicating if the get was successful.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.IsRecordEmpty">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.IsRecordEmpty">
             <summary>
                 Determines whether the current record is empty.
                 A record is considered empty if all fields are empty.
@@ -1574,21 +1574,21 @@
                 <c>true</c> if [is record empty]; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetRecord``1">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1">
             <summary>
                 Gets the record converted into <see cref="T:System.Type"/> T.
             </summary>
             <typeparam name="T">The <see cref="T:System.Type"/> of the record.</typeparam>
             <returns>The record converted to <see cref="T:System.Type"/> T.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetRecord(System.Type)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord(System.Type)">
             <summary>
                 Gets the record.
             </summary>
             <param name="type">The <see cref="T:System.Type"/> of the record.</param>
             <returns>The record.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetRecords``1">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecords``1">
             <summary>
                 Gets all the records in the CSV file and
                 converts each to <see cref="T:System.Type"/> T. The Read method
@@ -1597,7 +1597,7 @@
             <typeparam name="T">The <see cref="T:System.Type"/> of the record.</typeparam>
             <returns>An <see cref="T:System.Collections.Generic.IList`1"/> of records.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.GetRecords(System.Type)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecords(System.Type)">
             <summary>
                 Gets all the records in the CSV file and
                 converts each to <see cref="T:System.Type"/> T. The Read method
@@ -1606,59 +1606,59 @@
             <param name="type">The <see cref="T:System.Type"/> of the record.</param>
             <returns>An <see cref="T:System.Collections.Generic.IList`1"/> of records.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.ClearRecordCache``1">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache``1">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvReaderRow.GetRecord``1"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvReaderRow.ClearRecordCache``1"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache``1"/> needs to be called to update the
                 record cache.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.ClearRecordCache(System.Type)">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache(System.Type)">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvReaderRow.GetRecord``1"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvReaderRow.ClearRecordCache(System.Type)"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache(System.Type)"/> needs to be called to update the
                 record cache.
             </summary>
             <param name="type">The type to invalidate.</param>
         </member>
-        <member name="M:CsvHelper.ICsvReaderRow.ClearRecordCache">
+        <member name="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache">
             <summary>
-                Clears the record cache for all types. After <see cref="M:CsvHelper.ICsvReaderRow.GetRecord``1"/> is called the
+                Clears the record cache for all types. After <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvReaderRow.ClearRecordCache"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache"/> needs to be called to update the
                 record cache.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvReaderRow.CurrentRecord">
+        <member name="P:CsvHelper.Interfaces.ICsvReaderRow.CurrentRecord">
             <summary>
                 Get the current record;
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvReaderRow.Row">
+        <member name="P:CsvHelper.Interfaces.ICsvReaderRow.Row">
             <summary>
                 Gets the current row.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvReaderRow.Item(System.Int32)">
+        <member name="P:CsvHelper.Interfaces.ICsvReaderRow.Item(System.Int32)">
             <summary>
                 Gets the raw field at position (column) index.
             </summary>
             <param name="index">The zero based index of the field.</param>
             <returns>The raw field.</returns>
         </member>
-        <member name="P:CsvHelper.ICsvReaderRow.Item(System.String)">
+        <member name="P:CsvHelper.Interfaces.ICsvReaderRow.Item(System.String)">
             <summary>
                 Gets the raw field at position (column) name.
             </summary>
             <param name="name">The named index of the field.</param>
             <returns>The raw field.</returns>
         </member>
-        <member name="P:CsvHelper.ICsvReaderRow.Item(System.String,System.Int32)">
+        <member name="P:CsvHelper.Interfaces.ICsvReaderRow.Item(System.String,System.Int32)">
             <summary>
                 Gets the raw field at position (column) name.
             </summary>
@@ -1666,23 +1666,23 @@
             <param name="index">The zero based index of the field.</param>
             <returns>The raw field.</returns>
         </member>
-        <member name="M:CsvHelper.ICsvReader.Read">
+        <member name="M:CsvHelper.Interfaces.ICsvReader.Read">
             <summary>
                 Advances the reader to the next record.
             </summary>
             <returns>True if there are more records, otherwise false.</returns>
         </member>
-        <member name="P:CsvHelper.ICsvReader.Configuration">
+        <member name="P:CsvHelper.Interfaces.ICsvReader.Configuration">
             <summary>
                 Gets or sets the configuration.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvReader.Parser">
+        <member name="P:CsvHelper.Interfaces.ICsvReader.Parser">
             <summary>
                 Gets the parser.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvReader.FieldHeaders">
+        <member name="P:CsvHelper.Interfaces.ICsvReader.FieldHeaders">
             <summary>
                 Gets the field headers.
             </summary>
@@ -1702,11 +1702,11 @@
             <param name="reader">The reader.</param>
             <param name="configuration">The configuration.</param>
         </member>
-        <member name="M:CsvHelper.CsvReader.#ctor(CsvHelper.ICsvParser)">
+        <member name="M:CsvHelper.CsvReader.#ctor(CsvHelper.Interfaces.ICsvParser)">
             <summary>
-                Creates a new CSV reader using the given <see cref="T:CsvHelper.ICsvParser"/>.
+                Creates a new CSV reader using the given <see cref="T:CsvHelper.Interfaces.ICsvParser"/>.
             </summary>
-            <param name="parser">The <see cref="T:CsvHelper.ICsvParser"/> used to parse the CSV file.</param>
+            <param name="parser">The <see cref="T:CsvHelper.Interfaces.ICsvParser"/> used to parse the CSV file.</param>
         </member>
         <member name="M:CsvHelper.CsvReader.GetField(System.Int32,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
@@ -2143,29 +2143,29 @@
         </member>
         <member name="M:CsvHelper.CsvReader.ClearRecordCache``1">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvReaderRow.GetRecord``1"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvReaderRow.ClearRecordCache``1"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache``1"/> needs to be called to update the
                 record cache.
             </summary>
         </member>
         <member name="M:CsvHelper.CsvReader.ClearRecordCache(System.Type)">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvReaderRow.GetRecord``1"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvReaderRow.ClearRecordCache(System.Type)"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache(System.Type)"/> needs to be called to update the
                 record cache.
             </summary>
             <param name="type">The type to invalidate.</param>
         </member>
         <member name="M:CsvHelper.CsvReader.ClearRecordCache">
             <summary>
-                Clears the record cache for all types. After <see cref="M:CsvHelper.ICsvReaderRow.GetRecord``1"/> is called the
+                Clears the record cache for all types. After <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecord``1"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvReaderRow.ClearRecordCache"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.ClearRecordCache"/> needs to be called to update the
                 record cache.
             </summary>
         </member>
@@ -2613,7 +2613,7 @@
                 should be ignored. True to ignore exceptions,
                 otherwise false. Default is false.
                 This is only applicable when during
-                <see cref="M:CsvHelper.ICsvReaderRow.GetRecords``1"/>.
+                <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecords``1"/>.
             </summary>
         </member>
         <member name="P:CsvHelper.Configuration.CsvConfiguration.ReadingExceptionCallback">
@@ -2621,7 +2621,7 @@
                 Gets or sets the callback that is called when a reading
                 exception occurs. This will only happen when
                 <see cref="P:CsvHelper.Configuration.CsvConfiguration.IgnoreReadingExceptions"/> is true, and when
-                calling <see cref="M:CsvHelper.ICsvReaderRow.GetRecords``1"/>.
+                calling <see cref="M:CsvHelper.Interfaces.ICsvReaderRow.GetRecords``1"/>.
             </summary>
         </member>
         <member name="P:CsvHelper.Configuration.CsvConfiguration.UseNewObjectForNullReferenceProperties">
@@ -2638,18 +2638,18 @@
                 Defines methods used to serialize data into a CSV file.
             </summary>
         </member>
-        <member name="T:CsvHelper.ICsvSerializer">
+        <member name="T:CsvHelper.Interfaces.ICsvSerializer">
             <summary>
                 Defines methods used to serialize data into a CSV file.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvSerializer.Write(System.String[])">
+        <member name="M:CsvHelper.Interfaces.ICsvSerializer.Write(System.String[])">
             <summary>
                 Writes a record to the CSV file.
             </summary>
             <param name="record">The record to write.</param>
         </member>
-        <member name="P:CsvHelper.ICsvSerializer.Configuration">
+        <member name="P:CsvHelper.Interfaces.ICsvSerializer.Configuration">
             <summary>
                 Gets the configuration.
             </summary>
@@ -2702,22 +2702,22 @@
                 Used to write CSV files.
             </summary>
         </member>
-        <member name="T:CsvHelper.ICsvWriter">
+        <member name="T:CsvHelper.Interfaces.ICsvWriter">
             <summary>
                 Defines methods used to write to a CSV file.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField(System.String)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField(System.String)">
             <summary>
                 Writes the field to the CSV file. The field
                 may get quotes added to it.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="field">The field to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField(System.String,System.Boolean)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField(System.String,System.Boolean)">
             <summary>
                 Writes the field to the CSV file. This will
                 ignore any need to quote and ignore the
@@ -2725,140 +2725,140 @@
                 and just quote based on the shouldQuote
                 parameter.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="field">The field to write.</param>
             <param name="shouldQuote">True to quote the field, otherwise false.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField``1(``0)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField``1(``0)">
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <typeparam name="T">The type of the field.</typeparam>
             <param name="field">The field to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField``1(``0,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField``1(``0,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <typeparam name="T">The type of the field.</typeparam>
             <param name="field">The field to write.</param>
             <param name="converter">The converter used to convert the field into a string.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField``2(``0)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField``2(``0)">
             <summary>
                 Writes the field to the CSV file
                 using the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <typeparam name="T">The type of the field.</typeparam>
             <typeparam name="TConverter">The type of the converter.</typeparam>
             <param name="field">The field to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField(System.Type,System.Object)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField(System.Type,System.Object)">
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="type">The type of the field.</param>
             <param name="field">The field to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteField(System.Type,System.Object,CsvHelper.TypeConversion.ITypeConverter)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteField(System.Type,System.Object,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="type">The type of the field.</param>
             <param name="field">The field to write.</param>
             <param name="converter">The converter used to convert the field into a string.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.NextRecord">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.NextRecord">
             <summary>
                 Ends writing of the current record
                 and starts a new record. This is used
-                when manually writing records with <see cref="M:CsvHelper.ICsvWriter.WriteField``1(``0)"/>
+                when manually writing records with <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteField``1(``0)"/>
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteExcelSeparator">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteExcelSeparator">
             <summary>
                 Write the Excel seperator record.
             </summary>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteHeader``1">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteHeader``1">
             <summary>
                 Writes the header record from the given properties.
             </summary>
             <typeparam name="T">The type of the record.</typeparam>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteHeader(System.Type)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteHeader(System.Type)">
             <summary>
                 Writes the header record from the given properties.
             </summary>
             <param name="type">The type of the record.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)">
             <summary>
                 Writes the record to the CSV file.
             </summary>
             <typeparam name="T">The type of the record.</typeparam>
             <param name="record">The record to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteRecord(System.Type,System.Object)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord(System.Type,System.Object)">
             <summary>
                 Writes the record to the CSV file.
             </summary>
             <param name="type">The type of the record.</param>
             <param name="record">The record to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.WriteRecords(System.Collections.IEnumerable)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.WriteRecords(System.Collections.IEnumerable)">
             <summary>
                 Writes the list of records to the CSV file.
             </summary>
             <param name="records">The list of records to write.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.ClearRecordCache``1">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache``1">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvWriter.ClearRecordCache``1"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache``1"/> needs to be called to update the
                 record cache.
             </summary>
             <typeparam name="T">The record type.</typeparam>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.ClearRecordCache(System.Type)">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache(System.Type)">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvWriter.ClearRecordCache(System.Type)"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache(System.Type)"/> needs to be called to update the
                 record cache.
             </summary>
             <param name="type">The record type.</param>
         </member>
-        <member name="M:CsvHelper.ICsvWriter.ClearRecordCache">
+        <member name="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache">
             <summary>
-                Clears the record cache for all types. After <see cref="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)"/> is called the
+                Clears the record cache for all types. After <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvWriter.ClearRecordCache"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache"/> needs to be called to update the
                 record cache.
             </summary>
         </member>
-        <member name="P:CsvHelper.ICsvWriter.Configuration">
+        <member name="P:CsvHelper.Interfaces.ICsvWriter.Configuration">
             <summary>
                 Gets or sets the configuration.
             </summary>
@@ -2880,9 +2880,9 @@
             <param name="writer">The <see cref="T:System.IO.StreamWriter"/> use to write the CSV file.</param>
             <param name="configuration">The configuration.</param>
         </member>
-        <member name="M:CsvHelper.CsvWriter.#ctor(CsvHelper.ICsvSerializer)">
+        <member name="M:CsvHelper.CsvWriter.#ctor(CsvHelper.Interfaces.ICsvSerializer)">
             <summary>
-                Creates a new CSV writer using the given <see cref="T:CsvHelper.ICsvSerializer"/>.
+                Creates a new CSV writer using the given <see cref="T:CsvHelper.Interfaces.ICsvSerializer"/>.
             </summary>
             <param name="serializer">The serializer.</param>
         </member>
@@ -2903,7 +2903,7 @@
                 Writes the field to the CSV file. The field
                 may get quotes added to it.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="field">The field to write.</param>
@@ -2916,7 +2916,7 @@
                 and just quote based on the shouldQuote
                 parameter.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="field">The field to write.</param>
@@ -2926,7 +2926,7 @@
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <typeparam name="T">The type of the field.</typeparam>
@@ -2936,7 +2936,7 @@
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <typeparam name="T">The type of the field.</typeparam>
@@ -2948,7 +2948,7 @@
                 Writes the field to the CSV file
                 using the given <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <typeparam name="T">The type of the field.</typeparam>
@@ -2959,7 +2959,7 @@
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="type">The type of the field.</param>
@@ -2969,7 +2969,7 @@
             <summary>
                 Writes the field to the CSV file.
                 When all fields are written for a record,
-                <see cref="M:CsvHelper.ICsvWriter.NextRecord"/> must be called
+                <see cref="M:CsvHelper.Interfaces.ICsvWriter.NextRecord"/> must be called
                 to complete writing of the current record.
             </summary>
             <param name="type">The type of the field.</param>
@@ -3028,30 +3028,30 @@
         </member>
         <member name="M:CsvHelper.CsvWriter.ClearRecordCache``1">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvWriter.ClearRecordCache``1"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache``1"/> needs to be called to update the
                 record cache.
             </summary>
             <typeparam name="T">The record type.</typeparam>
         </member>
         <member name="M:CsvHelper.CsvWriter.ClearRecordCache(System.Type)">
             <summary>
-                Clears the record cache for the given type. After <see cref="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)"/> is called the
+                Clears the record cache for the given type. After <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvWriter.ClearRecordCache(System.Type)"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache(System.Type)"/> needs to be called to update the
                 record cache.
             </summary>
             <param name="type">The record type.</param>
         </member>
         <member name="M:CsvHelper.CsvWriter.ClearRecordCache">
             <summary>
-                Clears the record cache for all types. After <see cref="M:CsvHelper.ICsvWriter.WriteRecord``1(``0)"/> is called the
+                Clears the record cache for all types. After <see cref="M:CsvHelper.Interfaces.ICsvWriter.WriteRecord``1(``0)"/> is called the
                 first time, code is dynamically generated based on the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>,
                 compiled, and stored for the given type T. If the <see cref="T:CsvHelper.Configuration.CsvPropertyMapCollection"/>
-                changes, <see cref="M:CsvHelper.ICsvWriter.ClearRecordCache"/> needs to be called to update the
+                changes, <see cref="M:CsvHelper.Interfaces.ICsvWriter.ClearRecordCache"/> needs to be called to update the
                 record cache.
             </summary>
         </member>
@@ -3182,7 +3182,7 @@
                 Common exception tasks.
             </summary>
         </member>
-        <member name="M:CsvHelper.ExceptionHelper.AddExceptionDataMessage(System.Exception,CsvHelper.ICsvParser,System.Type,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Int32}},System.Nullable{System.Int32},System.String[])">
+        <member name="M:CsvHelper.ExceptionHelper.AddExceptionDataMessage(System.Exception,CsvHelper.Interfaces.ICsvParser,System.Type,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Int32}},System.Nullable{System.Int32},System.String[])">
             <summary>
                 Adds CsvHelper specific information to <see cref="P:System.Exception.Data"/>.
             </summary>
@@ -3193,7 +3193,7 @@
             <param name="currentIndex">The current index of the <see cref="T:CsvHelper.CsvReader"/>.</param>
             <param name="currentRecord">The current record of the <see cref="T:CsvHelper.CsvReader"/>.</param>
         </member>
-        <member name="M:CsvHelper.ExceptionHelper.GetErrorMessage(CsvHelper.ICsvParser,System.Type,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Int32}},System.Nullable{System.Int32},System.String[])">
+        <member name="M:CsvHelper.ExceptionHelper.GetErrorMessage(CsvHelper.Interfaces.ICsvParser,System.Type,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{System.Int32}},System.Nullable{System.Int32},System.String[])">
             <summary>
                 Gets CsvHelper information to be added to an exception.
             </summary>

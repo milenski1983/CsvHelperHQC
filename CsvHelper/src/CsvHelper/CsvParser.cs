@@ -18,6 +18,7 @@ namespace CsvHelper
     using System.Linq;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
 
     /// <summary>
     ///     Parses a CSV file.

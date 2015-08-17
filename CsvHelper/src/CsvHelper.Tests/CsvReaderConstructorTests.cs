@@ -15,6 +15,7 @@ namespace CsvHelper.Tests
     using System.IO;
 
     using CsvHelper.Configuration;
+    using CsvHelper.Interfaces;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
