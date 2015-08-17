@@ -147,20 +147,6 @@
                 True to prefix, otherwise false.
             </param>
         </member>
-        <member name="M:CsvHelper.Configuration.CsvClassMap.GetMaxIndex">
-            <summary>
-                Get the largest index for the
-                properties and references.
-            </summary>
-            <returns>The max index.</returns>
-        </member>
-        <member name="M:CsvHelper.Configuration.CsvClassMap.ReIndex(System.Int32)">
-            <summary>
-                Resets the indexes based on the given start index.
-            </summary>
-            <param name="indexStart">The index start.</param>
-            <returns>The last index + 1.</returns>
-        </member>
         <member name="M:CsvHelper.Configuration.CsvClassMap.AutoMapInternal(CsvHelper.Configuration.CsvClassMap,System.Boolean,System.Boolean,System.Collections.Generic.LinkedList{System.Type},System.Int32)">
             <summary>
                 Auto maps the given map and checks for circular references as it goes.
@@ -187,6 +173,20 @@
                 A value indicating if a circular reference was found.
                 True if a circular reference was found, otherwise false.
             </returns>
+        </member>
+        <member name="M:CsvHelper.Configuration.CsvClassMap.GetMaxIndex">
+            <summary>
+                Get the largest index for the
+                properties and references.
+            </summary>
+            <returns>The max index.</returns>
+        </member>
+        <member name="M:CsvHelper.Configuration.CsvClassMap.ReIndex(System.Int32)">
+            <summary>
+                Resets the indexes based on the given start index.
+            </summary>
+            <param name="indexStart">The index start.</param>
+            <returns>The last index + 1.</returns>
         </member>
         <member name="P:CsvHelper.Configuration.CsvClassMap.Constructor">
             <summary>
@@ -877,6 +877,21 @@
             <param name="reader">The <see cref="T:System.IO.TextReader"/> with the CSV file data.</param>
             <param name="configuration">The configuration.</param>
         </member>
+        <member name="M:CsvHelper.CsvParser.Read">
+            <summary>
+                Reads a record from the CSV file.
+            </summary>
+            <returns>
+                A <see cref="T:System.Collections.Generic.List`1"/> of fields for the record read.
+                If there are no more records, null is returned.
+            </returns>
+        </member>
+        <member name="M:CsvHelper.CsvParser.Dispose">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <filterpriority>2</filterpriority>
+        </member>
         <member name="M:CsvHelper.CsvParser.Dispose(System.Boolean)">
             <summary>
                 Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -940,21 +955,6 @@
             <summary>
                 Reads the Excel seperator and sets it to the delimiter.
             </summary>
-        </member>
-        <member name="M:CsvHelper.CsvParser.Read">
-            <summary>
-                Reads a record from the CSV file.
-            </summary>
-            <returns>
-                A <see cref="T:System.Collections.Generic.List`1"/> of fields for the record read.
-                If there are no more records, null is returned.
-            </returns>
-        </member>
-        <member name="M:CsvHelper.CsvParser.Dispose">
-            <summary>
-                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-            <filterpriority>2</filterpriority>
         </member>
         <member name="P:CsvHelper.CsvParser.RawRow">
             <summary>
@@ -1736,92 +1736,6 @@
             <param name="converter">The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> used to convert the field to <see cref="T:System.Object"/>.</param>
             <returns>The field converted to <see cref="T:System.Object"/>.</returns>
         </member>
-        <member name="M:CsvHelper.CsvReader.Dispose(System.Boolean)">
-            <summary>
-                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-            <param name="disposing">True if the instance needs to be disposed of.</param>
-        </member>
-        <member name="M:CsvHelper.CsvReader.CheckDisposed">
-            <summary>
-                Checks if the instance has been disposed of.
-            </summary>
-            <exception cref="T:System.ObjectDisposedException"/>
-        </member>
-        <member name="M:CsvHelper.CsvReader.CheckHasBeenRead">
-            <summary>
-                Checks if the reader has been read yet.
-            </summary>
-            <exception cref="T:CsvHelper.CsvReaderException"/>
-        </member>
-        <member name="M:CsvHelper.CsvReader.IsRecordEmpty(System.Boolean)">
-            <summary>
-                Determines whether the current record is empty.
-                A record is considered empty if all fields are empty.
-            </summary>
-            <param name="checkHasBeenRead">
-                True to check if the record
-                has been read, otherwise false.
-            </param>
-            <returns>
-                <c>true</c> if [is record empty]; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:CsvHelper.CsvReader.GetEmtpyStringMethod">
-            <summary>
-                Gets a function to test for an empty string.
-                Will check <see cref="P:CsvHelper.Configuration.CsvConfiguration.TrimFields"/> when making its decision.
-            </summary>
-            <returns>The function to test for an empty string.</returns>
-        </member>
-        <member name="M:CsvHelper.CsvReader.GetFieldIndex(System.String,System.Int32,System.Boolean)">
-            <summary>
-                Gets the index of the field at name if found.
-            </summary>
-            <param name="name">The name of the field to get the index for.</param>
-            <param name="index">The index of the field if there are multiple fields with the same name.</param>
-            <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
-            <returns>The index of the field if found, otherwise -1.</returns>
-            <exception cref="T:CsvHelper.CsvReaderException">Thrown if there is no header record.</exception>
-            <exception cref="T:CsvHelper.CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
-        </member>
-        <member name="M:CsvHelper.CsvReader.GetFieldIndex(System.String[],System.Int32,System.Boolean)">
-            <summary>
-                Gets the index of the field at name if found.
-            </summary>
-            <param name="names">The possible names of the field to get the index for.</param>
-            <param name="index">The index of the field if there are multiple fields with the same name.</param>
-            <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
-            <returns>The index of the field if found, otherwise -1.</returns>
-            <exception cref="T:CsvHelper.CsvReaderException">Thrown if there is no header record.</exception>
-            <exception cref="T:CsvHelper.CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
-        </member>
-        <member name="M:CsvHelper.CsvReader.ParseNamedIndexes">
-            <summary>
-                Parses the named indexes from the header record.
-            </summary>
-        </member>
-        <member name="M:CsvHelper.CsvReader.ShouldSkipRecord">
-            <summary>
-                Checks if the current record should be skipped or not.
-            </summary>
-            <returns><c>true</c> if the current record should be skipped, <c>false</c> otherwise.</returns>
-        </member>
-        <member name="M:CsvHelper.CsvReader.CreateDynamic">
-            <summary>
-                Creates a dynamic object from the current record.
-            </summary>
-            <returns>The dynamic object.</returns>
-        </member>
-        <member name="M:CsvHelper.CsvReader.Read">
-            <summary>
-                Advances the reader to the next record.
-                If HasHeaderRecord is true (true by default), the first record of
-                the CSV file will be automatically read in as the header record
-                and the second record will be returned.
-            </summary>
-            <returns>True if there are more records, otherwise false.</returns>
-        </member>
         <member name="M:CsvHelper.CsvReader.GetField(System.Int32)">
             <summary>
                 Gets the raw field at position (column) index.
@@ -2169,6 +2083,92 @@
                 record cache.
             </summary>
         </member>
+        <member name="M:CsvHelper.CsvReader.Read">
+            <summary>
+                Advances the reader to the next record.
+                If HasHeaderRecord is true (true by default), the first record of
+                the CSV file will be automatically read in as the header record
+                and the second record will be returned.
+            </summary>
+            <returns>True if there are more records, otherwise false.</returns>
+        </member>
+        <member name="M:CsvHelper.CsvReader.Dispose(System.Boolean)">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <param name="disposing">True if the instance needs to be disposed of.</param>
+        </member>
+        <member name="M:CsvHelper.CsvReader.CheckDisposed">
+            <summary>
+                Checks if the instance has been disposed of.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException"/>
+        </member>
+        <member name="M:CsvHelper.CsvReader.CheckHasBeenRead">
+            <summary>
+                Checks if the reader has been read yet.
+            </summary>
+            <exception cref="T:CsvHelper.CsvReaderException"/>
+        </member>
+        <member name="M:CsvHelper.CsvReader.IsRecordEmpty(System.Boolean)">
+            <summary>
+                Determines whether the current record is empty.
+                A record is considered empty if all fields are empty.
+            </summary>
+            <param name="checkHasBeenRead">
+                True to check if the record
+                has been read, otherwise false.
+            </param>
+            <returns>
+                <c>true</c> if [is record empty]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CsvHelper.CsvReader.GetEmtpyStringMethod">
+            <summary>
+                Gets a function to test for an empty string.
+                Will check <see cref="P:CsvHelper.Configuration.CsvConfiguration.TrimFields"/> when making its decision.
+            </summary>
+            <returns>The function to test for an empty string.</returns>
+        </member>
+        <member name="M:CsvHelper.CsvReader.GetFieldIndex(System.String,System.Int32,System.Boolean)">
+            <summary>
+                Gets the index of the field at name if found.
+            </summary>
+            <param name="name">The name of the field to get the index for.</param>
+            <param name="index">The index of the field if there are multiple fields with the same name.</param>
+            <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
+            <returns>The index of the field if found, otherwise -1.</returns>
+            <exception cref="T:CsvHelper.CsvReaderException">Thrown if there is no header record.</exception>
+            <exception cref="T:CsvHelper.CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
+        </member>
+        <member name="M:CsvHelper.CsvReader.GetFieldIndex(System.String[],System.Int32,System.Boolean)">
+            <summary>
+                Gets the index of the field at name if found.
+            </summary>
+            <param name="names">The possible names of the field to get the index for.</param>
+            <param name="index">The index of the field if there are multiple fields with the same name.</param>
+            <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
+            <returns>The index of the field if found, otherwise -1.</returns>
+            <exception cref="T:CsvHelper.CsvReaderException">Thrown if there is no header record.</exception>
+            <exception cref="T:CsvHelper.CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
+        </member>
+        <member name="M:CsvHelper.CsvReader.ParseNamedIndexes">
+            <summary>
+                Parses the named indexes from the header record.
+            </summary>
+        </member>
+        <member name="M:CsvHelper.CsvReader.ShouldSkipRecord">
+            <summary>
+                Checks if the current record should be skipped or not.
+            </summary>
+            <returns><c>true</c> if the current record should be skipped, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:CsvHelper.CsvReader.CreateDynamic">
+            <summary>
+                Creates a dynamic object from the current record.
+            </summary>
+            <returns>The dynamic object.</returns>
+        </member>
         <member name="M:CsvHelper.CsvReader.CreateRecord``1">
             <summary>
                 Creates the record for the given type.
@@ -2312,11 +2312,6 @@
                 Creates a new CsvConfiguration.
             </summary>
         </member>
-        <member name="M:CsvHelper.Configuration.CsvConfiguration.BuildRequiredQuoteChars">
-            <summary>
-                Builds the values for the RequiredQuoteChars property.
-            </summary>
-        </member>
         <member name="M:CsvHelper.Configuration.CsvConfiguration.RegisterClassMap``1">
             <summary>
                 Use a <see cref="T:CsvHelper.Configuration.CsvClassMap`1"/> to configure mappings.
@@ -2369,6 +2364,11 @@
             </summary>
             <param name="type">The type to generate for the map.</param>
             <returns>The generate map.</returns>
+        </member>
+        <member name="M:CsvHelper.Configuration.CsvConfiguration.BuildRequiredQuoteChars">
+            <summary>
+                Builds the values for the RequiredQuoteChars property.
+            </summary>
         </member>
         <member name="P:CsvHelper.Configuration.CsvConfiguration.Maps">
             <summary>
@@ -2668,18 +2668,6 @@
             <param name="writer">The <see cref="T:System.IO.TextWriter"/> to write the CSV file data to.</param>
             <param name="configuration">The configuration.</param>
         </member>
-        <member name="M:CsvHelper.CsvSerializer.Dispose(System.Boolean)">
-            <summary>
-                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-            <param name="disposing">True if the instance needs to be disposed of.</param>
-        </member>
-        <member name="M:CsvHelper.CsvSerializer.CheckDisposed">
-            <summary>
-                Checks if the instance has been disposed of.
-            </summary>
-            <exception cref="T:System.ObjectDisposedException"/>
-        </member>
         <member name="M:CsvHelper.CsvSerializer.Write(System.String[])">
             <summary>
                 Writes a record to the CSV file.
@@ -2691,6 +2679,18 @@
                 Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
             </summary>
             <filterpriority>2</filterpriority>
+        </member>
+        <member name="M:CsvHelper.CsvSerializer.Dispose(System.Boolean)">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <param name="disposing">True if the instance needs to be disposed of.</param>
+        </member>
+        <member name="M:CsvHelper.CsvSerializer.CheckDisposed">
+            <summary>
+                Checks if the instance has been disposed of.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException"/>
         </member>
         <member name="P:CsvHelper.CsvSerializer.Configuration">
             <summary>
@@ -2885,18 +2885,6 @@
                 Creates a new CSV writer using the given <see cref="T:CsvHelper.Interfaces.ICsvSerializer"/>.
             </summary>
             <param name="serializer">The serializer.</param>
-        </member>
-        <member name="M:CsvHelper.CsvWriter.Dispose(System.Boolean)">
-            <summary>
-                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-            </summary>
-            <param name="disposing">True if the instance needs to be disposed of.</param>
-        </member>
-        <member name="M:CsvHelper.CsvWriter.CheckDisposed">
-            <summary>
-                Checks if the instance has been disposed of.
-            </summary>
-            <exception cref="T:System.ObjectDisposedException"/>
         </member>
         <member name="M:CsvHelper.CsvWriter.WriteField(System.String)">
             <summary>
@@ -3128,6 +3116,18 @@
                 A value indicating if the property can be written.
                 True if the property can be written, otherwise false.
             </returns>
+        </member>
+        <member name="M:CsvHelper.CsvWriter.Dispose(System.Boolean)">
+            <summary>
+                Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+            <param name="disposing">True if the instance needs to be disposed of.</param>
+        </member>
+        <member name="M:CsvHelper.CsvWriter.CheckDisposed">
+            <summary>
+                Checks if the instance has been disposed of.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException"/>
         </member>
         <member name="P:CsvHelper.CsvWriter.Configuration">
             <summary>
@@ -3915,45 +3915,45 @@
         </member>
         <member name="T:CsvHelper.TypeConversion.TypeConverterOptionsFactory">
             <summary>
-                Creates <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/>.
+                Creates <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/>.
             </summary>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterOptionsFactory.AddOptions(System.Type,CsvHelper.TypeConversion.TypeConverterOptions)">
             <summary>
-                Adds the <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
+                Adds the <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
             </summary>
             <param name="type">The type the options are for.</param>
             <param name="options">The options.</param>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterOptionsFactory.AddOptions``1(CsvHelper.TypeConversion.TypeConverterOptions)">
             <summary>
-                Adds the <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
+                Adds the <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
             </summary>
             <typeparam name="T">The type the options are for.</typeparam>
             <param name="options">The options.</param>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterOptionsFactory.RemoveOptions(System.Type)">
             <summary>
-                Removes the <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/> for the given type.
+                Removes the <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/> for the given type.
             </summary>
             <param name="type">The type to remove the options for.</param>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterOptionsFactory.RemoveOptions``1">
             <summary>
-                Removes the <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/> for the given type.
+                Removes the <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/> for the given type.
             </summary>
             <typeparam name="T">The type to remove the options for.</typeparam>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterOptionsFactory.GetOptions(System.Type)">
             <summary>
-                Get the <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
+                Get the <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
             </summary>
             <param name="type">The type the options are for.</param>
             <returns>The options for the given type.</returns>
         </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterOptionsFactory.GetOptions``1">
             <summary>
-                Get the <see cref="T:CsvHelper.TypeConversion.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
+                Get the <see cref="F:CsvHelper.TypeConversion.TypeConverterOptionsFactory.TypeConverterOptions"/> for the given <see cref="T:System.Type"/>.
             </summary>
             <typeparam name="T">The type the options are for.</typeparam>
             <returns>The options for the given type.</returns>
@@ -4013,6 +4013,11 @@
                 Creates <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>s.
             </summary>
         </member>
+        <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.#cctor">
+            <summary>
+                Initializes the <see cref="T:CsvHelper.TypeConversion.TypeConverterFactory"/> class.
+            </summary>
+        </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.AddConverter(System.Type,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Adds the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.
@@ -4052,11 +4057,6 @@
             </summary>
             <typeparam name="T">The type to get the converter for.</typeparam>
             <returns>The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.</returns>
-        </member>
-        <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.#cctor">
-            <summary>
-                Initializes the <see cref="T:CsvHelper.TypeConversion.TypeConverterFactory"/> class.
-            </summary>
         </member>
         <member name="T:CsvHelper.TypeConversion.UInt32Converter">
             <summary>

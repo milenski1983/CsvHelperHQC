@@ -72,6 +72,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomObject.cs" />
+    <Compile Include="CustomObjectWithMapping.cs" />
+    <Compile Include="CustomObjectWithMappingMap.cs" />
+    <Compile Include="CustomType.cs" />
+    <Compile Include="CustomTypeTypeConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -14,3 +14,9 @@ C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Deb
 C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.pdb
 C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debug\CsvHelper.dll
 C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debug\CsvHelper.pdb
+C:\Users\Milen\Desktop\CsvHelperGit\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debug\CsvHelper.XML
+C:\Users\Milen\Desktop\CsvHelperGit\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debug\CsvHelper.dll
+C:\Users\Milen\Desktop\CsvHelperGit\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debug\CsvHelper.pdb
+C:\Users\Milen\Desktop\CsvHelperGit\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.csprojResolveAssemblyReference.cache
+C:\Users\Milen\Desktop\CsvHelperGit\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.dll
+C:\Users\Milen\Desktop\CsvHelperGit\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.pdb

@@ -12,11 +12,11 @@ namespace CsvHelper.Example
     using CsvHelper.Configuration;
     using CsvHelper.TypeConversion;
 
-    internal class Program
+    public class Program
     {
-        private const string columnSeparator = ":";
+        private const string ColumnSeparator = ":";
 
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // ReadRawFieldsByIndex();
             // ReadRawFieldsByName();
@@ -25,7 +25,7 @@ namespace CsvHelper.Example
             // ReadRecordsWithAttributes();
             // ReadAllRecords();
 
-            // WriteRawFields();
+            WriteRawFields();
             // WriteFields();
             // WriteRecordsNoAttributes();
             // WriteRecordsWithAttributes();
@@ -41,9 +41,9 @@ namespace CsvHelper.Example
             {
                 while (reader.Read())
                 {
-                    Console.Write(reader.GetField(0) + columnSeparator);
-                    Console.Write(reader.GetField(1) + columnSeparator);
-                    Console.Write(reader.GetField(2) + columnSeparator);
+                    Console.Write(reader.GetField(0) + ColumnSeparator);
+                    Console.Write(reader.GetField(1) + ColumnSeparator);
+                    Console.Write(reader.GetField(2) + ColumnSeparator);
                     Console.WriteLine(reader.GetField(3));
                 }
             }
@@ -59,10 +59,10 @@ namespace CsvHelper.Example
             {
                 while (reader.Read())
                 {
-                    Console.Write(reader.GetField("String Column") + columnSeparator);
-                    Console.Write(reader.GetField("Int Column") + columnSeparator);
-                    Console.Write(reader.GetField("Guid Column") + columnSeparator);
-                    Console.Write(reader.GetField("Does Not Exist Column") + columnSeparator);
+                    Console.Write(reader.GetField("String Column") + ColumnSeparator);
+                    Console.Write(reader.GetField("Int Column") + ColumnSeparator);
+                    Console.Write(reader.GetField("Guid Column") + ColumnSeparator);
+                    Console.Write(reader.GetField("Does Not Exist Column") + ColumnSeparator);
                     Console.WriteLine(reader.GetField("Custom Type Column"));
                 }
             }
@@ -80,9 +80,9 @@ namespace CsvHelper.Example
             {
                 while (reader.Read())
                 {
-                    Console.Write(reader.GetField<string>(0) + columnSeparator);
-                    Console.Write(reader.GetField<int>("Int Column") + columnSeparator);
-                    Console.Write(reader.GetField<Guid>(2) + columnSeparator);
+                    Console.Write(reader.GetField<string>(0) + ColumnSeparator);
+                    Console.Write(reader.GetField<int>("Int Column") + ColumnSeparator);
+                    Console.Write(reader.GetField<Guid>(2) + ColumnSeparator);
                     Console.WriteLine(reader.GetField<CustomType>(3, customTypeTypeConverter));
                 }
             }
@@ -204,8 +204,7 @@ namespace CsvHelper.Example
                               {
                                   new CustomObject
                                       {
-                                          CustomTypeColumn =
-                                              new CustomType
+                                          CustomTypeColumn = new CustomType
                                                   {
                                                       First = 1, 
                                                       Second = 2, 
@@ -217,8 +216,7 @@ namespace CsvHelper.Example
                                       }, 
                                   new CustomObject
                                       {
-                                          CustomTypeColumn =
-                                              new CustomType
+                                          CustomTypeColumn = new CustomType
                                                   {
                                                       First = 4, 
                                                       Second = 5, 
@@ -256,41 +254,25 @@ namespace CsvHelper.Example
                               {
                                   new CustomObjectWithMapping
                                       {
-                                          CustomTypeColumn =
-                                              new CustomType
+                                          CustomTypeColumn = new CustomType
                                                   {
-                                                      First
-                                                          =
-                                                          1, 
-                                                      Second
-                                                          =
-                                                          2, 
-                                                      Third
-                                                          =
-                                                          3
+                                                      First = 1, 
+                                                      Second = 2, 
+                                                      Third = 3
                                                   }, 
-                                          GuidColumn =
-                                              Guid.NewGuid(), 
+                                          GuidColumn = Guid.NewGuid(), 
                                           IntColumn = 1, 
                                           StringColumn = "one"
                                       }, 
                                   new CustomObjectWithMapping
                                       {
-                                          CustomTypeColumn =
-                                              new CustomType
+                                          CustomTypeColumn = new CustomType
                                                   {
-                                                      First
-                                                          =
-                                                          4, 
-                                                      Second
-                                                          =
-                                                          5, 
-                                                      Third
-                                                          =
-                                                          6
+                                                      First = 4, 
+                                                      Second = 5, 
+                                                      Third = 6
                                                   }, 
-                                          GuidColumn =
-                                              Guid.NewGuid(), 
+                                          GuidColumn = Guid.NewGuid(), 
                                           IntColumn = 2, 
                                           StringColumn = "two"
                                       }
@@ -322,41 +304,25 @@ namespace CsvHelper.Example
                               {
                                   new CustomObjectWithMapping
                                       {
-                                          CustomTypeColumn =
-                                              new CustomType
+                                          CustomTypeColumn = new CustomType
                                                   {
-                                                      First
-                                                          =
-                                                          1, 
-                                                      Second
-                                                          =
-                                                          2, 
-                                                      Third
-                                                          =
-                                                          3
+                                                      First = 1, 
+                                                      Second = 2, 
+                                                      Third = 3
                                                   }, 
-                                          GuidColumn =
-                                              Guid.NewGuid(), 
+                                          GuidColumn = Guid.NewGuid(), 
                                           IntColumn = 1, 
                                           StringColumn = "one"
                                       }, 
                                   new CustomObjectWithMapping
                                       {
-                                          CustomTypeColumn =
-                                              new CustomType
+                                          CustomTypeColumn = new CustomType
                                                   {
-                                                      First
-                                                          =
-                                                          4, 
-                                                      Second
-                                                          =
-                                                          5, 
-                                                      Third
-                                                          =
-                                                          6
+                                                      First = 4, 
+                                                      Second = 5, 
+                                                      Third = 6
                                                   }, 
-                                          GuidColumn =
-                                              Guid.NewGuid(), 
+                                          GuidColumn = Guid.NewGuid(), 
                                           IntColumn = 2, 
                                           StringColumn = "two"
                                       }
@@ -399,103 +365,6 @@ namespace CsvHelper.Example
             stream.Position = 0;
 
             return stream;
-        }
-
-        public class CustomType
-        {
-            public int First { get; set; }
-
-            public int Second { get; set; }
-
-            public int Third { get; set; }
-
-            public override string ToString()
-            {
-                var serializer = new JavaScriptSerializer();
-                return serializer.Serialize(this);
-            }
-        }
-
-        public class CustomTypeTypeConverter : ITypeConverter
-        {
-            public string ConvertToString(TypeConverterOptions options, object value)
-            {
-                var obj = (CustomType)value;
-                return string.Format("{0}|{1}|{2}", obj.First, obj.Second, obj.Third);
-            }
-
-            public object ConvertFromString(TypeConverterOptions options, string text)
-            {
-                var values = text.Split('|');
-
-                var obj = new CustomType
-                              {
-                                  First = int.Parse(values[0]), 
-                                  Second = int.Parse(values[1]), 
-                                  Third = int.Parse(values[2])
-                              };
-                return obj;
-            }
-
-            public bool CanConvertFrom(Type type)
-            {
-                throw new NotImplementedException();
-            }
-
-            public bool CanConvertTo(Type type)
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public class CustomObject
-        {
-            public CustomType CustomTypeColumn { get; set; }
-
-            public Guid GuidColumn { get; set; }
-
-            public int IntColumn { get; set; }
-
-            public string StringColumn { get; set; }
-
-            public override string ToString()
-            {
-                var serializer = new JavaScriptSerializer();
-                return serializer.Serialize(this);
-            }
-        }
-
-        public class CustomObjectWithMapping
-        {
-            public CustomType CustomTypeColumn { get; set; }
-
-            public Guid GuidColumn { get; set; }
-
-            public int IntColumn { get; set; }
-
-            public string StringColumn { get; set; }
-
-            public string IgnoredColumn { get; set; }
-
-            public override string ToString()
-            {
-                var serializer = new JavaScriptSerializer();
-                return serializer.Serialize(this);
-            }
-        }
-
-        public sealed class CustomObjectWithMappingMap : CsvClassMap<CustomObjectWithMapping>
-        {
-            public CustomObjectWithMappingMap()
-            {
-                this.Map(m => m.CustomTypeColumn)
-                    .Name("Custom Type Column")
-                    .Index(3)
-                    .TypeConverter<CustomTypeTypeConverter>();
-                this.Map(m => m.GuidColumn).Name("Guid Column").Index(2);
-                this.Map(m => m.IntColumn).Name("Int Column").Index(1);
-                this.Map(m => m.StringColumn).Name("String Column").Index(0);
-            }
         }
     }
 }
