@@ -93,9 +93,13 @@
     <Compile Include="CsvWriter.cs" />
     <Compile Include="CsvWriterException.cs" />
     <Compile Include="ExceptionHelper.cs" />
-    <Compile Include="ICsvFactory.cs" />
+    <Compile Include="ICsvFactory.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="ICsvParser.cs" />
-    <Compile Include="ICsvReader.cs" />
+    <Compile Include="ICsvReader.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="ICsvReaderRow.cs" />
     <Compile Include="ICsvSerializer.cs" />
     <Compile Include="ICsvWriter.cs" />
