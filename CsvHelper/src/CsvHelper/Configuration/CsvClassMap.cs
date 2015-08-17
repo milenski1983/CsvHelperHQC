@@ -79,11 +79,8 @@ namespace CsvHelper.Configuration
 
             var existingMap =
                 this.PropertyMaps.SingleOrDefault(
-                    m =>
-                    m.Data.Property == property
-                    || m.Data.Property.Name == property.Name
-                    && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType)
-                        || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
+                    m => (m.Data.Property == property || m.Data.Property.Name == property.Name) 
+                        && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType) || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
             if (existingMap != null)
             {
                 return existingMap;
@@ -116,52 +113,6 @@ namespace CsvHelper.Configuration
         }
 
         /// <summary>
-        ///     Get the largest index for the
-        ///     properties and references.
-        /// </summary>
-        /// <returns>The max index.</returns>
-        internal int GetMaxIndex()
-        {
-            if (this.PropertyMaps.Count == 0 && this.ReferenceMaps.Count == 0)
-            {
-                return -1;
-            }
-
-            var indexes = new List<int>();
-            if (this.PropertyMaps.Count > 0)
-            {
-                indexes.Add(this.PropertyMaps.Max(pm => pm.Data.Index));
-            }
-
-            indexes.AddRange(this.ReferenceMaps.Select(referenceMap => referenceMap.GetMaxIndex()));
-
-            return indexes.Max();
-        }
-
-        /// <summary>
-        ///     Resets the indexes based on the given start index.
-        /// </summary>
-        /// <param name="indexStart">The index start.</param>
-        /// <returns>The last index + 1.</returns>
-        internal int ReIndex(int indexStart = 0)
-        {
-            foreach (var propertyMap in this.PropertyMaps)
-            {
-                if (!propertyMap.Data.IsIndexSet)
-                {
-                    propertyMap.Data.Index = indexStart + propertyMap.Data.Index;
-                }
-            }
-
-            foreach (var referenceMap in this.ReferenceMaps)
-            {
-                indexStart = referenceMap.Data.Mapping.ReIndex(indexStart);
-            }
-
-            return indexStart;
-        }
-
-        /// <summary>
         ///     Auto maps the given map and checks for circular references as it goes.
         /// </summary>
         /// <param name="map">The map to auto map.</param>
@@ -176,10 +127,10 @@ namespace CsvHelper.Configuration
         /// </param>
         /// <param name="mapParents">The list of parents for the map.</param>
         internal static void AutoMapInternal(
-            CsvClassMap map, 
-            bool ignoreReferences, 
-            bool prefixReferenceHeaders, 
-            LinkedList<Type> mapParents, 
+            CsvClassMap map,
+            bool ignoreReferences,
+            bool prefixReferenceHeaders,
+            LinkedList<Type> mapParents,
             int indexStart = 0)
         {
             var type = map.GetType().BaseType.GetGenericArguments()[0];
@@ -239,8 +190,8 @@ namespace CsvHelper.Configuration
                 {
                     var propertyMap = new CsvPropertyMap(property);
                     propertyMap.Data.Index = map.GetMaxIndex() + 1;
-                    if (propertyMap.Data.TypeConverter.CanConvertFrom(typeof(string))
-                        || propertyMap.Data.TypeConverter.CanConvertTo(typeof(string)) && !isDefaultConverter)
+                    if ((propertyMap.Data.TypeConverter.CanConvertFrom(typeof(string)) || propertyMap.Data.TypeConverter.CanConvertTo(typeof(string)))
+                        && !isDefaultConverter)
                     {
                         // Only add the property map if it can be converted later on.
                         // If the property will use the default converter, don't add it because
@@ -285,6 +236,52 @@ namespace CsvHelper.Configuration
             }
 
             return false;
+        }
+
+        /// <summary>
+        ///     Get the largest index for the
+        ///     properties and references.
+        /// </summary>
+        /// <returns>The max index.</returns>
+        internal int GetMaxIndex()
+        {
+            if (this.PropertyMaps.Count == 0 && this.ReferenceMaps.Count == 0)
+            {
+                return -1;
+            }
+
+            var indexes = new List<int>();
+            if (this.PropertyMaps.Count > 0)
+            {
+                indexes.Add(this.PropertyMaps.Max(pm => pm.Data.Index));
+            }
+
+            indexes.AddRange(this.ReferenceMaps.Select(referenceMap => referenceMap.GetMaxIndex()));
+
+            return indexes.Max();
+        }
+
+        /// <summary>
+        ///     Resets the indexes based on the given start index.
+        /// </summary>
+        /// <param name="indexStart">The index start.</param>
+        /// <returns>The last index + 1.</returns>
+        internal int ReIndex(int indexStart = 0)
+        {
+            foreach (var propertyMap in this.PropertyMaps)
+            {
+                if (!propertyMap.Data.IsIndexSet)
+                {
+                    propertyMap.Data.Index = indexStart + propertyMap.Data.Index;
+                }
+            }
+
+            foreach (var referenceMap in this.ReferenceMaps)
+            {
+                indexStart = referenceMap.Data.Mapping.ReIndex(indexStart);
+            }
+
+            return indexStart;
         }
     }
 }

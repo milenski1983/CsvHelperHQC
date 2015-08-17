@@ -104,42 +104,7 @@ namespace CsvHelper
             this.serializer = serializer;
             this.configuration = serializer.Configuration;
         }
-
-        /// <summary>
-        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <param name="disposing">True if the instance needs to be disposed of.</param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (this.disposed)
-            {
-                return;
-            }
-
-            if (disposing)
-            {
-                if (this.serializer != null)
-                {
-                    this.serializer.Dispose();
-                }
-            }
-
-            this.disposed = true;
-            this.serializer = null;
-        }
-
-        /// <summary>
-        ///     Checks if the instance has been disposed of.
-        /// </summary>
-        /// <exception cref="ObjectDisposedException" />
-        protected virtual void CheckDisposed()
-        {
-            if (this.disposed)
-            {
-                throw new ObjectDisposedException(this.GetType().ToString());
-            }
-        }
-
+        
         /// <summary>
         ///     Gets the configuration.
         /// </summary>
@@ -891,17 +856,52 @@ namespace CsvHelper
             var cantWrite =
 
                 // Ignored properties.
-                propertyMap.Data.Ignore ||
+                (propertyMap.Data.Ignore ||
 
                 // Properties that don't have a public getter
                 // and we are honoring the accessor modifier.
-                propertyMap.Data.Property.GetGetMethod() == null && !this.configuration.IgnorePrivateAccessor ||
+                propertyMap.Data.Property.GetGetMethod() == null) && (!this.configuration.IgnorePrivateAccessor ||
 
                 // Properties that don't have a getter at all.
-                propertyMap.Data.Property.GetGetMethod(true) == null;
+                propertyMap.Data.Property.GetGetMethod(true) == null);
             return !cantWrite;
         }
 
 #endif
+
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <param name="disposing">True if the instance needs to be disposed of.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (this.disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                if (this.serializer != null)
+                {
+                    this.serializer.Dispose();
+                }
+            }
+
+            this.disposed = true;
+            this.serializer = null;
+        }
+
+        /// <summary>
+        ///     Checks if the instance has been disposed of.
+        /// </summary>
+        /// <exception cref="ObjectDisposedException" />
+        protected virtual void CheckDisposed()
+        {
+            if (this.disposed)
+            {
+                throw new ObjectDisposedException(this.GetType().ToString());
+            }
+        }
     }
 }

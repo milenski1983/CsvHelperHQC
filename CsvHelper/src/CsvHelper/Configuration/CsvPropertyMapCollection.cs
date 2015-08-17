@@ -36,6 +36,62 @@ namespace CsvHelper.Configuration
         }
 
         /// <summary>
+        ///     Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
+        /// </summary>
+        /// <returns>
+        ///     The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
+        /// </returns>
+        public virtual int Count
+        {
+            get
+            {
+                return this.list.Count;
+            }
+        }
+
+        /// <summary>
+        ///     Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
+        /// </summary>
+        /// <returns>
+        ///     true if the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only; otherwise, false.
+        /// </returns>
+        public virtual bool IsReadOnly
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        ///     Gets or sets the element at the specified index.
+        /// </summary>
+        /// <returns>
+        ///     The element at the specified index.
+        /// </returns>
+        /// <param name="index">
+        ///     The zero-based index of the element to get or set.
+        /// </param>
+        /// <exception cref="T:System.ArgumentOutOfRangeException">
+        ///     <paramref name="index" /> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1" />.
+        /// </exception>
+        /// <exception cref="T:System.NotSupportedException">
+        ///     The property is set and the <see cref="T:System.Collections.Generic.IList`1" /> is read-only.
+        /// </exception>
+        public virtual CsvPropertyMap this[int index]
+        {
+            get
+            {
+                return this.list[index];
+            }
+
+            set
+            {
+                this.list[index] = value;
+            }
+        }
+
+        /// <summary>
         ///     Adds a range of items to the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <param name="collection">The collection to add.</param>
@@ -153,34 +209,6 @@ namespace CsvHelper.Configuration
         }
 
         /// <summary>
-        ///     Gets the number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
-        /// </summary>
-        /// <returns>
-        ///     The number of elements contained in the <see cref="T:System.Collections.Generic.ICollection`1" />.
-        /// </returns>
-        public virtual int Count
-        {
-            get
-            {
-                return this.list.Count;
-            }
-        }
-
-        /// <summary>
-        ///     Gets a value indicating whether the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only.
-        /// </summary>
-        /// <returns>
-        ///     true if the <see cref="T:System.Collections.Generic.ICollection`1" /> is read-only; otherwise, false.
-        /// </returns>
-        public virtual bool IsReadOnly
-        {
-            get
-            {
-                return false;
-            }
-        }
-
-        /// <summary>
         ///     Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1" />.
         /// </summary>
         /// <returns>
@@ -229,34 +257,6 @@ namespace CsvHelper.Configuration
         public virtual void RemoveAt(int index)
         {
             this.list.RemoveAt(index);
-        }
-
-        /// <summary>
-        ///     Gets or sets the element at the specified index.
-        /// </summary>
-        /// <returns>
-        ///     The element at the specified index.
-        /// </returns>
-        /// <param name="index">
-        ///     The zero-based index of the element to get or set.
-        /// </param>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">
-        ///     <paramref name="index" /> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1" />.
-        /// </exception>
-        /// <exception cref="T:System.NotSupportedException">
-        ///     The property is set and the <see cref="T:System.Collections.Generic.IList`1" /> is read-only.
-        /// </exception>
-        public virtual CsvPropertyMap this[int index]
-        {
-            get
-            {
-                return this.list[index];
-            }
-
-            set
-            {
-                this.list[index] = value;
-            }
         }
     }
 }

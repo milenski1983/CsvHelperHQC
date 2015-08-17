@@ -22,6 +22,8 @@ namespace CsvHelper.Configuration
     /// </summary>
     public class CsvConfiguration
     {
+        private readonly CsvClassMapCollection maps = new CsvClassMapCollection();
+
         private int bufferSize = 2048;
 
         private char comment = '#';
@@ -53,6 +55,10 @@ namespace CsvHelper.Configuration
         private string quoteString = "\"";
 
         private bool willThrowOnMissingField = true;
+
+#if !NET_2_0
+        private bool useNewObjectForNullReferenceProperties = true;
+#endif
 
         /// <summary>
         ///     Creates a new CsvConfiguration.
@@ -521,22 +527,7 @@ namespace CsvHelper.Configuration
         ///     data is detected.
         /// </summary>
         public virtual Action<string> BadDataCallback { get; set; }
-
-        /// <summary>
-        ///     Builds the values for the RequiredQuoteChars property.
-        /// </summary>
-        private void BuildRequiredQuoteChars()
-        {
-            this.quoteRequiredChars = this.delimiter.Length > 1
-                                          ? new[] { '\r', '\n' }
-                                          : new[] { '\r', '\n', this.delimiter[0] };
-        }
-
-#if !NET_2_0
-        private bool useNewObjectForNullReferenceProperties = true;
-
-        private readonly CsvClassMapCollection maps = new CsvClassMapCollection();
-#endif
+        
 #if !NET_2_0
         /// <summary>
         ///     Gets or sets a value indicating whether
@@ -676,5 +667,15 @@ namespace CsvHelper.Configuration
         }
 
 #endif
+
+        /// <summary>
+        ///     Builds the values for the RequiredQuoteChars property.
+        /// </summary>
+        private void BuildRequiredQuoteChars()
+        {
+            this.quoteRequiredChars = this.delimiter.Length > 1
+                                          ? new[] { '\r', '\n' }
+                                          : new[] { '\r', '\n', this.delimiter[0] };
+        }
     }
 }

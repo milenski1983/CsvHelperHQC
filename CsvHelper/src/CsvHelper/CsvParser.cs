@@ -97,6 +97,96 @@ namespace CsvHelper
         }
 
         /// <summary>
+        ///     Gets the configuration.
+        /// </summary>
+        public virtual CsvConfiguration Configuration
+        {
+            get
+            {
+                return this.configuration;
+            }
+        }
+
+        /// <summary>
+        ///     Gets the field count.
+        /// </summary>
+        public virtual int FieldCount { get; protected set; }
+
+        /// <summary>
+        ///     Gets the character position that the parser is currently on.
+        /// </summary>
+        public virtual long CharPosition { get; protected set; }
+
+        /// <summary>
+        ///     Gets the byte position that the parser is currently on.
+        /// </summary>
+        public virtual long BytePosition { get; protected set; }
+
+        /// <summary>
+        ///     Gets the row of the CSV file that the parser is currently on.
+        ///     This is the logical CSV row.
+        /// </summary>
+        public virtual int Row
+        {
+            get
+            {
+                return this.currentRow;
+            }
+        }
+
+        /// <summary>
+        ///     Gets the raw row for the current record that was parsed.
+        /// </summary>
+        public virtual string RawRecord { get; private set; }
+
+        /// <summary>
+        ///     Reads a record from the CSV file.
+        /// </summary>
+        /// <returns>
+        ///     A <see cref="List{T}" /> of fields for the record read.
+        ///     If there are no more records, null is returned.
+        /// </returns>
+        public virtual string[] Read()
+        {
+            this.CheckDisposed();
+
+            try
+            {
+                if (this.configuration.HasExcelSeparator && !this.hasExcelSeparatorBeenRead)
+                {
+                    this.ReadExcelSeparator();
+                }
+
+                var row = this.ReadLine();
+
+                if (this.configuration.DetectColumnCountChanges && row != null)
+                {
+                    if (this.FieldCount > 0 && (this.FieldCount != row.Length || row.Any(field => field == null)))
+                    {
+                        throw new CsvBadDataException("An inconsistent number of columns has been detected.");
+                    }
+                }
+
+                return row;
+            }
+            catch (Exception ex)
+            {
+                ExceptionHelper.AddExceptionDataMessage(ex, this, null, null, null, null);
+                throw;
+            }
+        }
+
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <filterpriority>2</filterpriority>
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         /// <param name="disposing">True if the instance needs to be disposed of.</param>
@@ -280,7 +370,7 @@ namespace CsvHelper
                     }
                     else if (inExcelLeadingZerosFormat)
                     {
-                        if (this.c == '"' && this.cPrev == '=' || char.IsDigit(this.c))
+                        if (this.c == '"' && (this.cPrev == '=' || char.IsDigit(this.c)))
                         {
                             // Inside of the field.
                         }
@@ -635,96 +725,6 @@ namespace CsvHelper
             }
 
             this.hasExcelSeparatorBeenRead = true;
-        }
-
-        /// <summary>
-        ///     Gets the configuration.
-        /// </summary>
-        public virtual CsvConfiguration Configuration
-        {
-            get
-            {
-                return this.configuration;
-            }
-        }
-
-        /// <summary>
-        ///     Gets the field count.
-        /// </summary>
-        public virtual int FieldCount { get; protected set; }
-
-        /// <summary>
-        ///     Gets the character position that the parser is currently on.
-        /// </summary>
-        public virtual long CharPosition { get; protected set; }
-
-        /// <summary>
-        ///     Gets the byte position that the parser is currently on.
-        /// </summary>
-        public virtual long BytePosition { get; protected set; }
-
-        /// <summary>
-        ///     Gets the row of the CSV file that the parser is currently on.
-        ///     This is the logical CSV row.
-        /// </summary>
-        public virtual int Row
-        {
-            get
-            {
-                return this.currentRow;
-            }
-        }
-
-        /// <summary>
-        ///     Gets the raw row for the current record that was parsed.
-        /// </summary>
-        public virtual string RawRecord { get; private set; }
-
-        /// <summary>
-        ///     Reads a record from the CSV file.
-        /// </summary>
-        /// <returns>
-        ///     A <see cref="List{T}" /> of fields for the record read.
-        ///     If there are no more records, null is returned.
-        /// </returns>
-        public virtual string[] Read()
-        {
-            this.CheckDisposed();
-
-            try
-            {
-                if (this.configuration.HasExcelSeparator && !this.hasExcelSeparatorBeenRead)
-                {
-                    this.ReadExcelSeparator();
-                }
-
-                var row = this.ReadLine();
-
-                if (this.configuration.DetectColumnCountChanges && row != null)
-                {
-                    if (this.FieldCount > 0 && (this.FieldCount != row.Length || row.Any(field => field == null)))
-                    {
-                        throw new CsvBadDataException("An inconsistent number of columns has been detected.");
-                    }
-                }
-
-                return row;
-            }
-            catch (Exception ex)
-            {
-                ExceptionHelper.AddExceptionDataMessage(ex, this, null, null, null, null);
-                throw;
-            }
-        }
-
-        /// <summary>
-        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <filterpriority>2</filterpriority>
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

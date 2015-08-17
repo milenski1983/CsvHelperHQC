@@ -12,9 +12,9 @@ namespace CsvHelper.TypeConversion
     /// </summary>
     public static class TypeConverterOptionsFactory
     {
-        private static readonly object locker = new object();
+        private static readonly object Locker = new object();
 
-        private static readonly Dictionary<Type, TypeConverterOptions> typeConverterOptions =
+        private static readonly Dictionary<Type, TypeConverterOptions> TypeConverterOptions =
             new Dictionary<Type, TypeConverterOptions>();
 
         /// <summary>
@@ -34,9 +34,9 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException("options");
             }
 
-            lock (locker)
+            lock (Locker)
             {
-                typeConverterOptions[type] = options;
+                TypeConverterOptions[type] = options;
             }
         }
 
@@ -61,9 +61,9 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException("type");
             }
 
-            lock (locker)
+            lock (Locker)
             {
-                typeConverterOptions.Remove(type);
+                TypeConverterOptions.Remove(type);
             }
         }
 
@@ -88,14 +88,14 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException();
             }
 
-            lock (locker)
+            lock (Locker)
             {
                 TypeConverterOptions options;
 
-                if (!typeConverterOptions.TryGetValue(type, out options))
+                if (!TypeConverterOptions.TryGetValue(type, out options))
                 {
                     options = new TypeConverterOptions();
-                    typeConverterOptions.Add(type, options);
+                    TypeConverterOptions.Add(type, options);
                 }
 
                 return options;

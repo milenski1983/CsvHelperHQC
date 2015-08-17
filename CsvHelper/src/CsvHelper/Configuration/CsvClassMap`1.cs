@@ -35,10 +35,8 @@ namespace CsvHelper.Configuration
             var existingMap =
                 this.PropertyMaps.SingleOrDefault(
                     m =>
-                    m.Data.Property == property
-                    || m.Data.Property.Name == property.Name
-                    && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType)
-                        || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
+                    (m.Data.Property == property || m.Data.Property.Name == property.Name)
+                    && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType) || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
             if (existingMap != null)
             {
                 return existingMap;
@@ -67,10 +65,8 @@ namespace CsvHelper.Configuration
             var existingMap =
                 this.ReferenceMaps.SingleOrDefault(
                     m =>
-                    m.Data.Property == property
-                    || m.Data.Property.Name == property.Name
-                    && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType)
-                        || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
+                    (m.Data.Property == property || m.Data.Property.Name == property.Name)
+                    && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType) || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
             if (existingMap != null)
             {
                 return existingMap;
@@ -104,8 +100,7 @@ namespace CsvHelper.Configuration
             var existingMap =
                 this.ReferenceMaps.SingleOrDefault(
                     m =>
-                    m.Data.Property == property
-                    || m.Data.Property.Name == property.Name
+                    (m.Data.Property == property || m.Data.Property.Name == property.Name)
                     && (m.Data.Property.DeclaringType.IsAssignableFrom(property.DeclaringType)
                         || property.DeclaringType.IsAssignableFrom(m.Data.Property.DeclaringType)));
             if (existingMap != null)

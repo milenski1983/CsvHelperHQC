@@ -108,325 +108,6 @@ namespace CsvHelper
         }
 
         /// <summary>
-        ///     Gets the field converted to <see cref="object" /> using
-        ///     the specified <see cref="ITypeConverter" />.
-        /// </summary>
-        /// <param name="index">The index of the field.</param>
-        /// <param name="converter">The <see cref="ITypeConverter" /> used to convert the field to <see cref="object" />.</param>
-        /// <returns>The field converted to <see cref="object" />.</returns>
-        [Obsolete(
-            "This method is deprecated and will be removed in the next major release. Use GetField( Type, int, ITypeConverter ) instead.", 
-            false)]
-        public virtual object GetField(int index, ITypeConverter converter)
-        {
-            this.CheckDisposed();
-            this.CheckHasBeenRead();
-
-            var typeConverterOptions = new TypeConverterOptions { CultureInfo = this.configuration.CultureInfo };
-
-            var field = this.GetField(index);
-            return converter.ConvertFromString(typeConverterOptions, field);
-        }
-
-        /// <summary>
-        ///     Gets the field converted to <see cref="object" /> using
-        ///     the specified <see cref="ITypeConverter" />.
-        /// </summary>
-        /// <param name="name">The named index of the field.</param>
-        /// <param name="converter">The <see cref="ITypeConverter" /> used to convert the field to <see cref="object" />.</param>
-        /// <returns>The field converted to <see cref="object" />.</returns>
-        [Obsolete(
-            "This method is deprecated and will be removed in the next major release. Use GetField( Type, string, ITypeConverter ) instead.", 
-            false)]
-        public virtual object GetField(string name, ITypeConverter converter)
-        {
-            this.CheckDisposed();
-            this.CheckHasBeenRead();
-
-            var index = this.GetFieldIndex(name);
-            return this.GetField(index, converter);
-        }
-
-        /// <summary>
-        ///     Gets the field converted to <see cref="object" /> using
-        ///     the specified <see cref="ITypeConverter" />.
-        /// </summary>
-        /// <param name="name">The named index of the field.</param>
-        /// <param name="index">The zero based index of the instance of the field.</param>
-        /// <param name="converter">The <see cref="ITypeConverter" /> used to convert the field to <see cref="object" />.</param>
-        /// <returns>The field converted to <see cref="object" />.</returns>
-        [Obsolete(
-            "This method is deprecated and will be removed in the next major release. Use GetField( Type, string, int, ITypeConverter ) instead.", 
-            false)]
-        public virtual object GetField(string name, int index, ITypeConverter converter)
-        {
-            this.CheckDisposed();
-            this.CheckHasBeenRead();
-
-            var fieldIndex = this.GetFieldIndex(name, index);
-            return this.GetField(fieldIndex, converter);
-        }
-
-        /// <summary>
-        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <param name="disposing">True if the instance needs to be disposed of.</param>
-        protected virtual void Dispose(bool disposing)
-        {
-            if (this.disposed)
-            {
-                return;
-            }
-
-            if (disposing)
-            {
-                if (this.parser != null)
-                {
-                    this.parser.Dispose();
-                }
-            }
-
-            this.disposed = true;
-            this.parser = null;
-        }
-
-        /// <summary>
-        ///     Checks if the instance has been disposed of.
-        /// </summary>
-        /// <exception cref="ObjectDisposedException" />
-        protected virtual void CheckDisposed()
-        {
-            if (this.disposed)
-            {
-                throw new ObjectDisposedException(this.GetType().ToString());
-            }
-        }
-
-        /// <summary>
-        ///     Checks if the reader has been read yet.
-        /// </summary>
-        /// <exception cref="CsvReaderException" />
-        protected virtual void CheckHasBeenRead()
-        {
-            if (!this.hasBeenRead)
-            {
-                throw new CsvReaderException("You must call read on the reader before accessing its data.");
-            }
-        }
-
-        /// <summary>
-        ///     Determines whether the current record is empty.
-        ///     A record is considered empty if all fields are empty.
-        /// </summary>
-        /// <param name="checkHasBeenRead">
-        ///     True to check if the record
-        ///     has been read, otherwise false.
-        /// </param>
-        /// <returns>
-        ///     <c>true</c> if [is record empty]; otherwise, <c>false</c>.
-        /// </returns>
-        protected virtual bool IsRecordEmpty(bool checkHasBeenRead)
-        {
-            this.CheckDisposed();
-            if (checkHasBeenRead)
-            {
-                this.CheckHasBeenRead();
-            }
-
-            if (this.currentRecord == null)
-            {
-                return false;
-            }
-
-            return this.currentRecord.All(this.GetEmtpyStringMethod());
-        }
-
-        /// <summary>
-        ///     Gets a function to test for an empty string.
-        ///     Will check <see cref="CsvConfiguration.TrimFields" /> when making its decision.
-        /// </summary>
-        /// <returns>The function to test for an empty string.</returns>
-        protected virtual Func<string, bool> GetEmtpyStringMethod()
-        {
-            if (!this.Configuration.TrimFields)
-            {
-                return string.IsNullOrEmpty;
-            }
-
-#if NET_2_0 || NET_3_5
-			return StringHelper.IsNullOrWhiteSpace;
-#else
-            return string.IsNullOrWhiteSpace;
-#endif
-        }
-
-        /// <summary>
-        ///     Gets the index of the field at name if found.
-        /// </summary>
-        /// <param name="name">The name of the field to get the index for.</param>
-        /// <param name="index">The index of the field if there are multiple fields with the same name.</param>
-        /// <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
-        /// <returns>The index of the field if found, otherwise -1.</returns>
-        /// <exception cref="CsvReaderException">Thrown if there is no header record.</exception>
-        /// <exception cref="CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
-        protected virtual int GetFieldIndex(string name, int index = 0, bool isTryGet = false)
-        {
-            return this.GetFieldIndex(new[] { name }, index, isTryGet);
-        }
-
-        /// <summary>
-        ///     Gets the index of the field at name if found.
-        /// </summary>
-        /// <param name="names">The possible names of the field to get the index for.</param>
-        /// <param name="index">The index of the field if there are multiple fields with the same name.</param>
-        /// <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
-        /// <returns>The index of the field if found, otherwise -1.</returns>
-        /// <exception cref="CsvReaderException">Thrown if there is no header record.</exception>
-        /// <exception cref="CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
-        protected virtual int GetFieldIndex(string[] names, int index = 0, bool isTryGet = false)
-        {
-            if (names == null)
-            {
-                throw new ArgumentNullException("names");
-            }
-
-            if (!this.configuration.HasHeaderRecord)
-            {
-                throw new CsvReaderException("There is no header record to determine the index by name.");
-            }
-
-            var compareOptions = !this.Configuration.IsHeaderCaseSensitive
-                                     ? CompareOptions.IgnoreCase
-                                     : CompareOptions.None;
-            string name = null;
-            foreach (var pair in this.namedIndexes)
-            {
-                var namedIndex = pair.Key;
-                if (this.configuration.IgnoreHeaderWhiteSpace)
-                {
-                    namedIndex = Regex.Replace(namedIndex, "\\s", string.Empty);
-                }
-                else if (this.configuration.TrimHeaders && namedIndex != null)
-                {
-                    namedIndex = namedIndex.Trim();
-                }
-
-                foreach (var n in names)
-                {
-                    if (this.Configuration.CultureInfo.CompareInfo.Compare(namedIndex, n, compareOptions) == 0)
-                    {
-                        name = pair.Key;
-                    }
-                }
-            }
-
-            if (name == null)
-            {
-                if (this.configuration.WillThrowOnMissingField && !isTryGet)
-                {
-                    // If we're in strict reading mode and the
-                    // named index isn't found, throw an exception.
-                    var namesJoined = string.Format("'{0}'", string.Join("', '", names));
-                    var ex =
-                        new CsvMissingFieldException(
-                            string.Format("Fields {0} do not exist in the CSV file.", namesJoined));
-                    ExceptionHelper.AddExceptionDataMessage(
-                        ex, 
-                        this.Parser, 
-                        null, 
-                        this.namedIndexes, 
-                        this.currentIndex, 
-                        this.currentRecord);
-                    throw ex;
-                }
-
-                return -1;
-            }
-
-            return this.namedIndexes[name][index];
-        }
-
-        /// <summary>
-        ///     Parses the named indexes from the header record.
-        /// </summary>
-        protected virtual void ParseNamedIndexes()
-        {
-            if (this.headerRecord == null)
-            {
-                throw new CsvReaderException("No header record was found.");
-            }
-
-            for (var i = 0; i < this.headerRecord.Length; i++)
-            {
-                var name = this.headerRecord[i];
-                if (!this.Configuration.IsHeaderCaseSensitive)
-                {
-                    name = name.ToLower();
-                }
-
-                if (this.namedIndexes.ContainsKey(name))
-                {
-                    this.namedIndexes[name].Add(i);
-                }
-                else
-                {
-                    this.namedIndexes[name] = new List<int> { i };
-                }
-            }
-        }
-
-        /// <summary>
-        ///     Checks if the current record should be skipped or not.
-        /// </summary>
-        /// <returns><c>true</c> if the current record should be skipped, <c>false</c> otherwise.</returns>
-        protected virtual bool ShouldSkipRecord()
-        {
-            this.CheckDisposed();
-
-            if (this.currentRecord == null)
-            {
-                return false;
-            }
-
-            return this.configuration.ShouldSkipRecord != null
-                       ? this.configuration.ShouldSkipRecord(this.currentRecord)
-                       : this.configuration.SkipEmptyRecords && this.IsRecordEmpty(false);
-        }
-
-#if !NET_2_0 && !NET_3_5 && !PCL
-        /// <summary>
-        ///     Creates a dynamic object from the current record.
-        /// </summary>
-        /// <returns>The dynamic object.</returns>
-        protected virtual dynamic CreateDynamic()
-        {
-            var obj = new ExpandoObject();
-            var dict = obj as IDictionary<string, object>;
-            if (this.headerRecord != null)
-            {
-                for (var i = 0; i < this.headerRecord.Length; i++)
-                {
-                    var header = this.headerRecord[i];
-                    var field = this.currentRecord[i];
-                    dict.Add(header, field);
-                }
-            }
-            else
-            {
-                for (var i = 0; i < this.currentRecord.Length; i++)
-                {
-                    var propertyName = "Field" + (i + 1);
-                    var field = this.currentRecord[i];
-                    dict.Add(propertyName, field);
-                }
-            }
-
-            return obj;
-        }
-
-#endif
-
-        /// <summary>
         ///     Gets the configuration.
         /// </summary>
         public virtual CsvConfiguration Configuration
@@ -491,49 +172,6 @@ namespace CsvHelper
         }
 
         /// <summary>
-        ///     Advances the reader to the next record.
-        ///     If HasHeaderRecord is true (true by default), the first record of
-        ///     the CSV file will be automatically read in as the header record
-        ///     and the second record will be returned.
-        /// </summary>
-        /// <returns>True if there are more records, otherwise false.</returns>
-        public virtual bool Read()
-        {
-            this.CheckDisposed();
-
-            if (this.doneReading)
-            {
-                const string message =
-                    "The reader has already exhausted all records. "
-                    + "If you would like to iterate the records more than "
-                    + "once, store the records in memory. i.e. Use " + "CsvReader.GetRecords<T>().ToList()";
-                throw new CsvReaderException(message);
-            }
-
-            if (this.configuration.HasHeaderRecord && this.headerRecord == null)
-            {
-                this.headerRecord = this.parser.Read();
-                this.ParseNamedIndexes();
-            }
-
-            do
-            {
-                this.currentRecord = this.parser.Read();
-            }
-            while (this.ShouldSkipRecord());
-
-            this.currentIndex = -1;
-            this.hasBeenRead = true;
-
-            if (this.currentRecord == null)
-            {
-                this.doneReading = true;
-            }
-
-            return this.currentRecord != null;
-        }
-
-        /// <summary>
         ///     Gets the raw field at position (column) index.
         /// </summary>
         /// <param name="index">The zero based index of the field.</param>
@@ -583,6 +221,66 @@ namespace CsvHelper
         }
 
         /// <summary>
+        ///     Gets the field converted to <see cref="object" /> using
+        ///     the specified <see cref="ITypeConverter" />.
+        /// </summary>
+        /// <param name="index">The index of the field.</param>
+        /// <param name="converter">The <see cref="ITypeConverter" /> used to convert the field to <see cref="object" />.</param>
+        /// <returns>The field converted to <see cref="object" />.</returns>
+        [Obsolete(
+            "This method is deprecated and will be removed in the next major release. Use GetField( Type, int, ITypeConverter ) instead.", 
+            false)]
+        public virtual object GetField(int index, ITypeConverter converter)
+        {
+            this.CheckDisposed();
+            this.CheckHasBeenRead();
+
+            var typeConverterOptions = new TypeConverterOptions { CultureInfo = this.configuration.CultureInfo };
+
+            var field = this.GetField(index);
+            return converter.ConvertFromString(typeConverterOptions, field);
+        }
+
+        /// <summary>
+        ///     Gets the field converted to <see cref="object" /> using
+        ///     the specified <see cref="ITypeConverter" />.
+        /// </summary>
+        /// <param name="name">The named index of the field.</param>
+        /// <param name="converter">The <see cref="ITypeConverter" /> used to convert the field to <see cref="object" />.</param>
+        /// <returns>The field converted to <see cref="object" />.</returns>
+        [Obsolete(
+            "This method is deprecated and will be removed in the next major release. Use GetField( Type, string, ITypeConverter ) instead.", 
+            false)]
+        public virtual object GetField(string name, ITypeConverter converter)
+        {
+            this.CheckDisposed();
+            this.CheckHasBeenRead();
+
+            var index = this.GetFieldIndex(name);
+            return this.GetField(index, converter);
+        }
+
+        /// <summary>
+        ///     Gets the field converted to <see cref="object" /> using
+        ///     the specified <see cref="ITypeConverter" />.
+        /// </summary>
+        /// <param name="name">The named index of the field.</param>
+        /// <param name="index">The zero based index of the instance of the field.</param>
+        /// <param name="converter">The <see cref="ITypeConverter" /> used to convert the field to <see cref="object" />.</param>
+        /// <returns>The field converted to <see cref="object" />.</returns>
+        [Obsolete(
+            "This method is deprecated and will be removed in the next major release. Use GetField( Type, string, int, ITypeConverter ) instead.", 
+            false)]
+        public virtual object GetField(string name, int index, ITypeConverter converter)
+        {
+            this.CheckDisposed();
+            this.CheckHasBeenRead();
+
+            var fieldIndex = this.GetFieldIndex(name, index);
+            return this.GetField(fieldIndex, converter);
+        }
+
+        /// <summary>
         ///     Gets the raw field at position (column) index.
         /// </summary>
         /// <param name="index">The zero based index of the field.</param>
@@ -603,11 +301,11 @@ namespace CsvHelper
                 {
                     var ex = new CsvMissingFieldException(string.Format("Field at index '{0}' does not exist.", index));
                     ExceptionHelper.AddExceptionDataMessage(
-                        ex, 
-                        this.Parser, 
-                        typeof(string), 
-                        this.namedIndexes, 
-                        index, 
+                        ex,
+                        this.Parser,
+                        typeof(string),
+                        this.namedIndexes,
+                        index,
                         this.currentRecord);
                     throw ex;
                 }
@@ -839,11 +537,11 @@ namespace CsvHelper
                 {
                     var ex = new CsvMissingFieldException(string.Format("Field at index '{0}' does not exist.", index));
                     ExceptionHelper.AddExceptionDataMessage(
-                        ex, 
-                        this.Parser, 
-                        typeof(T), 
-                        this.namedIndexes, 
-                        index, 
+                        ex,
+                        this.Parser,
+                        typeof(T),
+                        this.namedIndexes,
+                        index,
                         this.currentRecord);
                     throw ex;
                 }
@@ -1184,11 +882,11 @@ namespace CsvHelper
             catch (Exception ex)
             {
                 ExceptionHelper.AddExceptionDataMessage(
-                    ex, 
-                    this.parser, 
-                    typeof(T), 
-                    this.namedIndexes, 
-                    this.currentIndex, 
+                    ex,
+                    this.parser,
+                    typeof(T),
+                    this.namedIndexes,
+                    this.currentIndex,
                     this.currentRecord);
                 throw;
             }
@@ -1214,11 +912,11 @@ namespace CsvHelper
             catch (Exception ex)
             {
                 ExceptionHelper.AddExceptionDataMessage(
-                    ex, 
-                    this.parser, 
-                    type, 
-                    this.namedIndexes, 
-                    this.currentIndex, 
+                    ex,
+                    this.parser,
+                    type,
+                    this.namedIndexes,
+                    this.currentIndex,
                     this.currentRecord);
                 throw;
             }
@@ -1249,11 +947,11 @@ namespace CsvHelper
                 catch (Exception ex)
                 {
                     ExceptionHelper.AddExceptionDataMessage(
-                        ex, 
-                        this.parser, 
-                        typeof(T), 
-                        this.namedIndexes, 
-                        this.currentIndex, 
+                        ex,
+                        this.parser,
+                        typeof(T),
+                        this.namedIndexes,
+                        this.currentIndex,
                         this.currentRecord);
 
                     if (this.configuration.IgnoreReadingExceptions)
@@ -1299,11 +997,11 @@ namespace CsvHelper
                 catch (Exception ex)
                 {
                     ExceptionHelper.AddExceptionDataMessage(
-                        ex, 
-                        this.parser, 
-                        type, 
-                        this.namedIndexes, 
-                        this.currentIndex, 
+                        ex,
+                        this.parser,
+                        type,
+                        this.namedIndexes,
+                        this.currentIndex,
                         this.currentRecord);
 
                     if (this.configuration.IgnoreReadingExceptions)
@@ -1370,6 +1068,309 @@ namespace CsvHelper
         }
 
 #endif
+
+        /// <summary>
+        ///     Advances the reader to the next record.
+        ///     If HasHeaderRecord is true (true by default), the first record of
+        ///     the CSV file will be automatically read in as the header record
+        ///     and the second record will be returned.
+        /// </summary>
+        /// <returns>True if there are more records, otherwise false.</returns>
+        public virtual bool Read()
+        {
+            this.CheckDisposed();
+
+            if (this.doneReading)
+            {
+                const string Message =
+                    "The reader has already exhausted all records. "
+                    + "If you would like to iterate the records more than "
+                    + "once, store the records in memory. i.e. Use " + "CsvReader.GetRecords<T>().ToList()";
+                throw new CsvReaderException(Message);
+            }
+
+            if (this.configuration.HasHeaderRecord && this.headerRecord == null)
+            {
+                this.headerRecord = this.parser.Read();
+                this.ParseNamedIndexes();
+            }
+
+            do
+            {
+                this.currentRecord = this.parser.Read();
+            }
+            while (this.ShouldSkipRecord());
+
+            this.currentIndex = -1;
+            this.hasBeenRead = true;
+
+            if (this.currentRecord == null)
+            {
+                this.doneReading = true;
+            }
+
+            return this.currentRecord != null;
+        }
+
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <param name="disposing">True if the instance needs to be disposed of.</param>
+        protected virtual void Dispose(bool disposing)
+        {
+            if (this.disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                if (this.parser != null)
+                {
+                    this.parser.Dispose();
+                }
+            }
+
+            this.disposed = true;
+            this.parser = null;
+        }
+
+        /// <summary>
+        ///     Checks if the instance has been disposed of.
+        /// </summary>
+        /// <exception cref="ObjectDisposedException" />
+        protected virtual void CheckDisposed()
+        {
+            if (this.disposed)
+            {
+                throw new ObjectDisposedException(this.GetType().ToString());
+            }
+        }
+
+        /// <summary>
+        ///     Checks if the reader has been read yet.
+        /// </summary>
+        /// <exception cref="CsvReaderException" />
+        protected virtual void CheckHasBeenRead()
+        {
+            if (!this.hasBeenRead)
+            {
+                throw new CsvReaderException("You must call read on the reader before accessing its data.");
+            }
+        }
+
+        /// <summary>
+        ///     Determines whether the current record is empty.
+        ///     A record is considered empty if all fields are empty.
+        /// </summary>
+        /// <param name="checkHasBeenRead">
+        ///     True to check if the record
+        ///     has been read, otherwise false.
+        /// </param>
+        /// <returns>
+        ///     <c>true</c> if [is record empty]; otherwise, <c>false</c>.
+        /// </returns>
+        protected virtual bool IsRecordEmpty(bool checkHasBeenRead)
+        {
+            this.CheckDisposed();
+            if (checkHasBeenRead)
+            {
+                this.CheckHasBeenRead();
+            }
+
+            if (this.currentRecord == null)
+            {
+                return false;
+            }
+
+            return this.currentRecord.All(this.GetEmtpyStringMethod());
+        }
+
+        /// <summary>
+        ///     Gets a function to test for an empty string.
+        ///     Will check <see cref="CsvConfiguration.TrimFields" /> when making its decision.
+        /// </summary>
+        /// <returns>The function to test for an empty string.</returns>
+        protected virtual Func<string, bool> GetEmtpyStringMethod()
+        {
+            if (!this.Configuration.TrimFields)
+            {
+                return string.IsNullOrEmpty;
+            }
+
+#if NET_2_0 || NET_3_5
+			return StringHelper.IsNullOrWhiteSpace;
+#else
+            return string.IsNullOrWhiteSpace;
+#endif
+        }
+
+        /// <summary>
+        ///     Gets the index of the field at name if found.
+        /// </summary>
+        /// <param name="name">The name of the field to get the index for.</param>
+        /// <param name="index">The index of the field if there are multiple fields with the same name.</param>
+        /// <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
+        /// <returns>The index of the field if found, otherwise -1.</returns>
+        /// <exception cref="CsvReaderException">Thrown if there is no header record.</exception>
+        /// <exception cref="CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
+        protected virtual int GetFieldIndex(string name, int index = 0, bool isTryGet = false)
+        {
+            return this.GetFieldIndex(new[] { name }, index, isTryGet);
+        }
+
+        /// <summary>
+        ///     Gets the index of the field at name if found.
+        /// </summary>
+        /// <param name="names">The possible names of the field to get the index for.</param>
+        /// <param name="index">The index of the field if there are multiple fields with the same name.</param>
+        /// <param name="isTryGet">A value indicating if the call was initiated from a TryGet.</param>
+        /// <returns>The index of the field if found, otherwise -1.</returns>
+        /// <exception cref="CsvReaderException">Thrown if there is no header record.</exception>
+        /// <exception cref="CsvMissingFieldException">Thrown if there isn't a field with name.</exception>
+        protected virtual int GetFieldIndex(string[] names, int index = 0, bool isTryGet = false)
+        {
+            if (names == null)
+            {
+                throw new ArgumentNullException("names");
+            }
+
+            if (!this.configuration.HasHeaderRecord)
+            {
+                throw new CsvReaderException("There is no header record to determine the index by name.");
+            }
+
+            var compareOptions = !this.Configuration.IsHeaderCaseSensitive
+                                     ? CompareOptions.IgnoreCase
+                                     : CompareOptions.None;
+            string name = null;
+            foreach (var pair in this.namedIndexes)
+            {
+                var namedIndex = pair.Key;
+                if (this.configuration.IgnoreHeaderWhiteSpace)
+                {
+                    namedIndex = Regex.Replace(namedIndex, "\\s", string.Empty);
+                }
+                else if (this.configuration.TrimHeaders && namedIndex != null)
+                {
+                    namedIndex = namedIndex.Trim();
+                }
+
+                foreach (var n in names)
+                {
+                    if (this.Configuration.CultureInfo.CompareInfo.Compare(namedIndex, n, compareOptions) == 0)
+                    {
+                        name = pair.Key;
+                    }
+                }
+            }
+
+            if (name == null)
+            {
+                if (this.configuration.WillThrowOnMissingField && !isTryGet)
+                {
+                    // If we're in strict reading mode and the
+                    // named index isn't found, throw an exception.
+                    var namesJoined = string.Format("'{0}'", string.Join("', '", names));
+                    var ex =
+                        new CsvMissingFieldException(
+                            string.Format("Fields {0} do not exist in the CSV file.", namesJoined));
+                    ExceptionHelper.AddExceptionDataMessage(
+                        ex, 
+                        this.Parser, 
+                        null, 
+                        this.namedIndexes, 
+                        this.currentIndex, 
+                        this.currentRecord);
+                    throw ex;
+                }
+
+                return -1;
+            }
+
+            return this.namedIndexes[name][index];
+        }
+
+        /// <summary>
+        ///     Parses the named indexes from the header record.
+        /// </summary>
+        protected virtual void ParseNamedIndexes()
+        {
+            if (this.headerRecord == null)
+            {
+                throw new CsvReaderException("No header record was found.");
+            }
+
+            for (var i = 0; i < this.headerRecord.Length; i++)
+            {
+                var name = this.headerRecord[i];
+                if (!this.Configuration.IsHeaderCaseSensitive)
+                {
+                    name = name.ToLower();
+                }
+
+                if (this.namedIndexes.ContainsKey(name))
+                {
+                    this.namedIndexes[name].Add(i);
+                }
+                else
+                {
+                    this.namedIndexes[name] = new List<int> { i };
+                }
+            }
+        }
+
+        /// <summary>
+        ///     Checks if the current record should be skipped or not.
+        /// </summary>
+        /// <returns><c>true</c> if the current record should be skipped, <c>false</c> otherwise.</returns>
+        protected virtual bool ShouldSkipRecord()
+        {
+            this.CheckDisposed();
+
+            if (this.currentRecord == null)
+            {
+                return false;
+            }
+
+            return this.configuration.ShouldSkipRecord != null
+                       ? this.configuration.ShouldSkipRecord(this.currentRecord)
+                       : this.configuration.SkipEmptyRecords && this.IsRecordEmpty(false);
+        }
+
+#if !NET_2_0 && !NET_3_5 && !PCL
+        /// <summary>
+        ///     Creates a dynamic object from the current record.
+        /// </summary>
+        /// <returns>The dynamic object.</returns>
+        protected virtual dynamic CreateDynamic()
+        {
+            var obj = new ExpandoObject();
+            var dict = obj as IDictionary<string, object>;
+            if (this.headerRecord != null)
+            {
+                for (var i = 0; i < this.headerRecord.Length; i++)
+                {
+                    var header = this.headerRecord[i];
+                    var field = this.currentRecord[i];
+                    dict.Add(header, field);
+                }
+            }
+            else
+            {
+                for (var i = 0; i < this.currentRecord.Length; i++)
+                {
+                    var propertyName = "Field" + (i + 1);
+                    var field = this.currentRecord[i];
+                    dict.Add(propertyName, field);
+                }
+            }
+
+            return obj;
+        }
+
+#endif
+        
 #if !NET_2_0
         /// <summary>
         ///     Creates the record for the given type.
@@ -1709,14 +1710,14 @@ namespace CsvHelper
             var cantRead =
 
                 // Ignored properties.
-                propertyMap.Data.Ignore ||
+                (propertyMap.Data.Ignore ||
 
                 // Properties that don't have a public setter
                 // and we are honoring the accessor modifier.
-                propertyMap.Data.Property.GetSetMethod() == null && !this.configuration.IgnorePrivateAccessor ||
+                propertyMap.Data.Property.GetSetMethod() == null) && (!this.configuration.IgnorePrivateAccessor ||
 
                 // Properties that don't have a setter at all.
-                propertyMap.Data.Property.GetSetMethod(true) == null;
+                propertyMap.Data.Property.GetSetMethod(true) == null);
             return !cantRead;
         }
 
@@ -1732,11 +1733,11 @@ namespace CsvHelper
 
                 // Properties that don't have a public setter
                 // and we are honoring the accessor modifier.
-                propertyReferenceMap.Data.Property.GetSetMethod() == null && !this.configuration.IgnorePrivateAccessor
+                propertyReferenceMap.Data.Property.GetSetMethod() == null && (!this.configuration.IgnorePrivateAccessor
                 ||
 
                 // Properties that don't have a setter at all.
-                propertyReferenceMap.Data.Property.GetSetMethod(true) == null;
+                propertyReferenceMap.Data.Property.GetSetMethod(true) == null);
             return !cantRead;
         }
 

@@ -53,6 +53,39 @@ namespace CsvHelper
         }
 
         /// <summary>
+        ///     Gets the configuration.
+        /// </summary>
+        public CsvConfiguration Configuration
+        {
+            get
+            {
+                return this.configuration;
+            }
+        }
+
+        /// <summary>
+        ///     Writes a record to the CSV file.
+        /// </summary>
+        /// <param name="record">The record to write.</param>
+        public void Write(string[] record)
+        {
+            this.CheckDisposed();
+
+            var recordString = string.Join(this.configuration.Delimiter, record);
+            this.writer.WriteLine(recordString);
+        }
+
+        /// <summary>
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        /// <filterpriority>2</filterpriority>
+        public void Dispose()
+        {
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         /// <param name="disposing">True if the instance needs to be disposed of.</param>
@@ -85,39 +118,6 @@ namespace CsvHelper
             {
                 throw new ObjectDisposedException(this.GetType().ToString());
             }
-        }
-
-        /// <summary>
-        ///     Gets the configuration.
-        /// </summary>
-        public CsvConfiguration Configuration
-        {
-            get
-            {
-                return this.configuration;
-            }
-        }
-
-        /// <summary>
-        ///     Writes a record to the CSV file.
-        /// </summary>
-        /// <param name="record">The record to write.</param>
-        public void Write(string[] record)
-        {
-            this.CheckDisposed();
-
-            var recordString = string.Join(this.configuration.Delimiter, record);
-            this.writer.WriteLine(recordString);
-        }
-
-        /// <summary>
-        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        /// <filterpriority>2</filterpriority>
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

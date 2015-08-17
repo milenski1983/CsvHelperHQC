@@ -13,9 +13,17 @@ namespace CsvHelper.TypeConversion
     /// </summary>
     public static class TypeConverterFactory
     {
-        private static readonly object locker = new object();
+        private static readonly object Locker = new object();
 
-        private static readonly Dictionary<Type, ITypeConverter> typeConverters = new Dictionary<Type, ITypeConverter>();
+        private static readonly Dictionary<Type, ITypeConverter> TypeConverters = new Dictionary<Type, ITypeConverter>();
+
+        /// <summary>
+        ///     Initializes the <see cref="TypeConverterFactory" /> class.
+        /// </summary>
+        static TypeConverterFactory()
+        {
+            CreateDefaultConverters();
+        }
 
         /// <summary>
         ///     Adds the <see cref="ITypeConverter" /> for the given <see cref="Type" />.
@@ -34,9 +42,9 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException("typeConverter");
             }
 
-            lock (locker)
+            lock (Locker)
             {
-                typeConverters[type] = typeConverter;
+                TypeConverters[type] = typeConverter;
             }
         }
 
@@ -52,9 +60,9 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException("typeConverter");
             }
 
-            lock (locker)
+            lock (Locker)
             {
-                typeConverters[typeof(T)] = typeConverter;
+                TypeConverters[typeof(T)] = typeConverter;
             }
         }
 
@@ -69,9 +77,9 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException("type");
             }
 
-            lock (locker)
+            lock (Locker)
             {
-                typeConverters.Remove(type);
+                TypeConverters.Remove(type);
             }
         }
 
@@ -96,10 +104,10 @@ namespace CsvHelper.TypeConversion
                 throw new ArgumentNullException("type");
             }
 
-            lock (locker)
+            lock (Locker)
             {
                 ITypeConverter typeConverter;
-                if (typeConverters.TryGetValue(type, out typeConverter))
+                if (TypeConverters.TryGetValue(type, out typeConverter))
                 {
                     return typeConverter;
                 }
@@ -157,14 +165,6 @@ namespace CsvHelper.TypeConversion
             AddConverter(typeof(uint), new UInt32Converter());
             AddConverter(typeof(ulong), new UInt64Converter());
             AddConverter(typeof(IEnumerable), new EnumerableConverter());
-        }
-
-        /// <summary>
-        ///     Initializes the <see cref="TypeConverterFactory" /> class.
-        /// </summary>
-        static TypeConverterFactory()
-        {
-            CreateDefaultConverters();
         }
     }
 }
