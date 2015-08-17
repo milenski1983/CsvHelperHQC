@@ -11,13 +11,11 @@ namespace CsvHelper.SpeedTests
     using System.Linq;
     using System.Text;
 
-    using CsvHelper.Configuration;
-
     internal class Program
     {
         private const string FileName = "test.csv";
 
-        private static void Main(string[] args)
+        private static void Main()
         {
             CreateCsvFile();
             SelectTest();
@@ -45,12 +43,14 @@ namespace CsvHelper.SpeedTests
             var answer = ReadUntilValid(
                 "Create CSV? ", 
                 "Not a valid answer.", 
-                a =>
-                new[] { "y", "yes", "1", "true", "n", "no", "0", "false" }.Contains(
+                a => new[]
+                         {
+                             "y", "yes", "1", "true", "n", "no", "0", "false"
+                         
+                         }.Contains(
                     a, 
                     StringComparer.Create(CultureInfo.CurrentCulture, true)));
-            if (
-                !new[] { "y", "yes", "1", "true" }.Contains(
+            if (!new[] { "y", "yes", "1", "true" }.Contains(
                     answer, 
                     StringComparer.Create(CultureInfo.CurrentCulture, true)))
             {
@@ -169,29 +169,29 @@ namespace CsvHelper.SpeedTests
             }
         }
 
-        private class TestClass
-        {
-            public int IntColumn { get; set; }
+        //private class TestClass
+        //{
+        //    public int IntColumn { get; set; }
 
-            public string StringColumn { get; set; }
+        //    public string StringColumn { get; set; }
 
-            public DateTime DateColumn { get; set; }
+        //    public DateTime DateColumn { get; set; }
 
-            public bool BoolColumn { get; set; }
+        //    public bool BoolColumn { get; set; }
 
-            public Guid GuidColumn { get; set; }
-        }
+        //    public Guid GuidColumn { get; set; }
+        //}
 
-        private sealed class TestClassMap : CsvClassMap<TestClass>
-        {
-            public TestClassMap()
-            {
-                this.Map(m => m.IntColumn).Name("Int Column");
-                this.Map(m => m.StringColumn).Name("String Column");
-                this.Map(m => m.DateColumn).Name("Date Column");
-                this.Map(m => m.BoolColumn).Name("Bool Column");
-                this.Map(m => m.GuidColumn).Name("Guid Column");
-            }
-        }
+        //private sealed class TestClassMap : CsvClassMap<TestClass>
+        //{
+        //    public TestClassMap()
+        //    {
+        //        this.Map(m => m.IntColumn).Name("Int Column");
+        //        this.Map(m => m.StringColumn).Name("String Column");
+        //        this.Map(m => m.DateColumn).Name("Date Column");
+        //        this.Map(m => m.BoolColumn).Name("Bool Column");
+        //        this.Map(m => m.GuidColumn).Name("Guid Column");
+        //    }
+        //}
     }
 }

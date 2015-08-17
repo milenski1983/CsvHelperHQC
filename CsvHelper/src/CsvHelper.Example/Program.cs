@@ -7,10 +7,6 @@ namespace CsvHelper.Example
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Web.Script.Serialization;
-
-    using CsvHelper.Configuration;
-    using CsvHelper.TypeConversion;
 
     public class Program
     {
@@ -24,8 +20,7 @@ namespace CsvHelper.Example
             // ReadRecordsNoAttributes();
             // ReadRecordsWithAttributes();
             // ReadAllRecords();
-
-            WriteRawFields();
+            // WriteRawFields();
             // WriteFields();
             // WriteRecordsNoAttributes();
             // WriteRecordsWithAttributes();
