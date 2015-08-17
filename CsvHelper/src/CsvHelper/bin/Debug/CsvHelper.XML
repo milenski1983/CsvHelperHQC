@@ -4013,11 +4013,6 @@
                 Creates <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/>s.
             </summary>
         </member>
-        <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.#cctor">
-            <summary>
-                Initializes the <see cref="T:CsvHelper.TypeConversion.TypeConverterFactory"/> class.
-            </summary>
-        </member>
         <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.AddConverter(System.Type,CsvHelper.TypeConversion.ITypeConverter)">
             <summary>
                 Adds the <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.
@@ -4057,6 +4052,11 @@
             </summary>
             <typeparam name="T">The type to get the converter for.</typeparam>
             <returns>The <see cref="T:CsvHelper.TypeConversion.ITypeConverter"/> for the given <see cref="T:System.Type"/>.</returns>
+        </member>
+        <member name="M:CsvHelper.TypeConversion.TypeConverterFactory.#cctor">
+            <summary>
+                Initializes the <see cref="T:CsvHelper.TypeConversion.TypeConverterFactory"/> class.
+            </summary>
         </member>
         <member name="T:CsvHelper.TypeConversion.UInt32Converter">
             <summary>
