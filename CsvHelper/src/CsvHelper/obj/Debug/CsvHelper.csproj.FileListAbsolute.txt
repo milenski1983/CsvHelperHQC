@@ -8,3 +8,7 @@ C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debu
 C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.csprojResolveAssemblyReference.cache
 C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.dll
 C:\Users\Ivan\Desktop\Team Project\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.pdb
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper\bin\Debug\CsvHelper.XML
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.csprojResolveAssemblyReference.cache
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.dll
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper\obj\Debug\CsvHelper.pdb

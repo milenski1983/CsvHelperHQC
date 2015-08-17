@@ -8,3 +8,13 @@ C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.Tests\bin\Debug\Castle.Core.xml
 C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.dll
 C:\Users\Milen\Desktop\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.pdb
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\CsvHelper.Tests.dll
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\CsvHelper.Tests.pdb
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\Castle.Core.dll
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\CsvHelper.dll
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\CsvHelper.pdb
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\CsvHelper.xml
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\bin\Debug\Castle.Core.xml
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.dll
+C:\Users\Mariana\Desktop\New folder\CsvHelperHQC\CsvHelper\src\CsvHelper.Tests\obj\Debug\CsvHelper.Tests.pdb
