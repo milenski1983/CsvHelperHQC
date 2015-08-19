@@ -17,9 +17,7 @@ namespace CsvHelper.Tests
     using System.IO;
     using System.Linq;
     using System.Threading;
-
     using CsvHelper.Configuration;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -55,10 +53,10 @@ namespace CsvHelper.Tests
 
         private static void ReadRecordsTestBody()
         {
-            const string source = "DateTimeColumn;DecimalColumn\r\n" + "11.11.2010;12,0\r\n";
+            const string Source = "DateTimeColumn;DecimalColumn\r\n" + "11.11.2010;12,0\r\n";
 
             var configuration = new CsvConfiguration { Delimiter = ";" };
-            var reader = new CsvReader(new CsvParser(new StringReader(source), configuration));
+            var reader = new CsvReader(new CsvParser(new StringReader(Source), configuration));
 
             var records = reader.GetRecords<TestRecordWithDecimal>().ToList();
 
@@ -70,6 +68,8 @@ namespace CsvHelper.Tests
 
         private static void WriteRecordsTestBody()
         {
+            const string Expected = "DecimalColumn;DateTimeColumn\r\n" + "12,0;11.11.2010 0:00:00\r\n";
+
             var records = new List<TestRecordWithDecimal>
                               {
                                   new TestRecordWithDecimal
@@ -87,9 +87,7 @@ namespace CsvHelper.Tests
 
             var csvFile = writer.ToString();
 
-            const string expected = "DecimalColumn;DateTimeColumn\r\n" + "12,0;11.11.2010 0:00:00\r\n";
-
-            Assert.AreEqual(expected, csvFile);
+            Assert.AreEqual(Expected, csvFile);
         }
 
         private class TestRecordWithDecimal

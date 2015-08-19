@@ -1,7 +1,6 @@
 ﻿namespace CsvHelper.Tests.Mappings
 {
     using CsvHelper.Configuration;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

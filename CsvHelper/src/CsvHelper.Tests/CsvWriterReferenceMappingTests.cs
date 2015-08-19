@@ -14,9 +14,7 @@ namespace CsvHelper.Tests
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
-
     using CsvHelper.Configuration;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
@@ -43,8 +41,6 @@ namespace CsvHelper.Tests
                                 B = new B { Id = "b" + row, C = new C { Id = "c" + row, D = new D { Id = "d" + row } } }
                             });
                 }
-
-                ;
 
                 csv.WriteRecords(list);
                 writer.Flush();

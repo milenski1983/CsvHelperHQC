@@ -14,11 +14,8 @@ namespace CsvHelper.Tests
     using System.Collections.Generic;
     using System.IO;
     using System.Text;
-
     using Castle.DynamicProxy;
-
     using CsvHelper.Configuration;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

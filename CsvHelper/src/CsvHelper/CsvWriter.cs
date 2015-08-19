@@ -23,7 +23,6 @@ namespace CsvHelper
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
-
     using CsvHelper.Configuration;
     using CsvHelper.Interfaces;
     using CsvHelper.TypeConversion;

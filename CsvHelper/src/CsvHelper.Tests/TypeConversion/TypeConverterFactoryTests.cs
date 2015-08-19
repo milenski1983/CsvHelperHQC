@@ -15,9 +15,7 @@ namespace CsvHelper.Tests.TypeConversion
     using System.Collections;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
-
     using CsvHelper.TypeConversion;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

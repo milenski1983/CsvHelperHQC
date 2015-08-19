@@ -5,7 +5,6 @@
 namespace CsvHelper.Interfaces
 {
     using System;
-
     using CsvHelper.Configuration;
 
     /// <summary>

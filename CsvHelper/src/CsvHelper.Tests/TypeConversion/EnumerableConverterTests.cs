@@ -13,10 +13,8 @@ namespace CsvHelper.Tests.TypeConversion
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
-
     using CsvHelper.Tests.Mocks;
     using CsvHelper.TypeConversion;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

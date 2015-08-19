@@ -16,11 +16,9 @@ namespace CsvHelper.Tests
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
-
     using CsvHelper.Configuration;
     using CsvHelper.Tests.Mocks;
     using CsvHelper.TypeConversion;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

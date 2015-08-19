@@ -6,10 +6,8 @@ namespace CsvHelper.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
-
     using CsvHelper.Configuration;
     using CsvHelper.Tests.Mocks;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

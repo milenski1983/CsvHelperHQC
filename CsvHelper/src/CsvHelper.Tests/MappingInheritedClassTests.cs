@@ -5,22 +5,21 @@
 namespace CsvHelper.Tests
 {
     using CsvHelper.Configuration;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class MappingInheritedClassTests
     {
+        private interface IA
+        {
+            int Id { get; set; }
+        }
+
         [TestMethod]
         public void Test()
         {
             var map = new AMap<A>();
             Assert.AreEqual(2, map.PropertyMaps.Count);
-        }
-
-        private interface IA
-        {
-            int Id { get; set; }
         }
 
         private class A : IA

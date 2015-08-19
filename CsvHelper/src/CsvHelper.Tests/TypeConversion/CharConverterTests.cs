@@ -12,9 +12,7 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 namespace CsvHelper.Tests.TypeConversion
 {
     using System.Globalization;
-
     using CsvHelper.TypeConversion;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

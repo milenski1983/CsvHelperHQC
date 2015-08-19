@@ -2,9 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-
     using CsvHelper.Tests.Mocks;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

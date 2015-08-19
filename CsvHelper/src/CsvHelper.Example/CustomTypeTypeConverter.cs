@@ -2,7 +2,6 @@
 namespace CsvHelper.Example
 {
     using System;
-
     using CsvHelper.TypeConversion;
 
     public class CustomTypeTypeConverter : ITypeConverter

@@ -13,10 +13,8 @@ namespace CsvHelper.Tests
 {
     using System;
     using System.IO;
-
     using CsvHelper.Configuration;
     using CsvHelper.Interfaces;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

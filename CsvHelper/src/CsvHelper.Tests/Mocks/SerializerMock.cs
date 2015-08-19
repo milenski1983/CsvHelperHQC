@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-
     using CsvHelper.Configuration;
     using CsvHelper.Interfaces;
 

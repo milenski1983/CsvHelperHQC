@@ -16,9 +16,7 @@ namespace CsvHelper.Tests
     using System.Linq;
     using System.Text;
     using System.Threading;
-
     using CsvHelper.Configuration;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

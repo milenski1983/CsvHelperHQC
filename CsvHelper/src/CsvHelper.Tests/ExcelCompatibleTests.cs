@@ -6,7 +6,6 @@ namespace CsvHelper.Tests
 {
     using System.Collections.Generic;
     using System.IO;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

@@ -6,7 +6,6 @@ namespace CsvHelper.Tests.Mocks
 {
     using System.Collections;
     using System.Collections.Generic;
-
     using CsvHelper.Configuration;
     using CsvHelper.Interfaces;
 

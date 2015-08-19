@@ -13,9 +13,7 @@ namespace CsvHelper.Tests.TypeConversion
 {
     using System;
     using System.Globalization;
-
     using CsvHelper.TypeConversion;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

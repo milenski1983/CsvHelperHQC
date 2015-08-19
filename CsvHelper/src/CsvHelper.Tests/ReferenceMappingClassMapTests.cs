@@ -12,10 +12,8 @@ using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 namespace CsvHelper.Tests
 {
     using System.Collections.Generic;
-
     using CsvHelper.Configuration;
     using CsvHelper.Tests.Mocks;
-
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]

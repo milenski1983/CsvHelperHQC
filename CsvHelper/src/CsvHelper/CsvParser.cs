@@ -16,7 +16,6 @@ namespace CsvHelper
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-
     using CsvHelper.Configuration;
     using CsvHelper.Interfaces;
 

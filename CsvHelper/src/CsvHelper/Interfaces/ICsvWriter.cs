@@ -6,7 +6,6 @@ namespace CsvHelper.Interfaces
 {
     using System;
     using System.Collections;
-
     using CsvHelper.Configuration;
     using CsvHelper.TypeConversion;
 
