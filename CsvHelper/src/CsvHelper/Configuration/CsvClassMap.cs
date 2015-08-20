@@ -51,7 +51,7 @@ namespace CsvHelper.Configuration
         {
             get
             {
-                return null; /*referenceMaps;*/
+                return this.referenceMaps;
             }
         }
 
