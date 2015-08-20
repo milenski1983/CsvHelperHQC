@@ -26,25 +26,18 @@ namespace CsvHelper.Tests
                            {
                                new ContainerClass
                                    {
-                                       Contents =
-                                           new ThirdClass
-                                               {
-                                                   Third = 3, 
-                                                   Second =
-                                                       new SecondClass
-                                                           {
-                                                               Second
-                                                                   =
-                                                                   2
-                                                           }, 
-                                                   First =
-                                                       new FirstClass
-                                                           {
-                                                               First
-                                                                   =
-                                                                   1
-                                                           }
-                                               }
+                                       Contents = new ThirdClass
+                                                    {
+                                                        Third = 3, 
+                                                        Second = new SecondClass
+                                                                    {
+                                                                        Second = 2
+                                                                    }, 
+                                                        First = new FirstClass
+                                                                    {
+                                                                    First = 1
+                                                                    }
+                                                    }
                                    }
                            };
 

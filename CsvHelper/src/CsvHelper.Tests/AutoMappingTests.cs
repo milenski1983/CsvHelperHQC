@@ -125,14 +125,8 @@ namespace CsvHelper.Tests
                                {
                                    new SimpleReferenceNoDefaultConstructor
                                        {
-                                           Id
-                                               =
-                                               1, 
-                                           Ref
-                                               =
-                                               new NoDefaultConstructor
-                                               (
-                                               "one")
+                                           Id = 1, 
+                                           Ref = new NoDefaultConstructor("one")
                                        }
                                };
                 csv.WriteRecords(list);

@@ -19,15 +19,15 @@ namespace CsvHelper.Tests
         [TestMethod]
         public void Test()
         {
-            var aMap = new AMap();
+            var map = new AMap();
 
-            Assert.AreEqual(3, aMap.PropertyMaps.Count);
-            Assert.AreEqual(0, aMap.PropertyMaps[0].Data.Index);
-            Assert.AreEqual(1, aMap.PropertyMaps[1].Data.Index);
-            Assert.AreEqual(2, aMap.PropertyMaps[2].Data.Index);
-            Assert.AreEqual(true, aMap.PropertyMaps[2].Data.Ignore);
+            Assert.AreEqual(3, map.PropertyMaps.Count);
+            Assert.AreEqual(0, map.PropertyMaps[0].Data.Index);
+            Assert.AreEqual(1, map.PropertyMaps[1].Data.Index);
+            Assert.AreEqual(2, map.PropertyMaps[2].Data.Index);
+            Assert.AreEqual(true, map.PropertyMaps[2].Data.Ignore);
 
-            Assert.AreEqual(1, aMap.ReferenceMaps.Count);
+            Assert.AreEqual(1, map.ReferenceMaps.Count);
         }
 
         private class A

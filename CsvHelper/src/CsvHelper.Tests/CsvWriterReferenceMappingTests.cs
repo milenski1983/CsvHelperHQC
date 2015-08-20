@@ -38,7 +38,8 @@ namespace CsvHelper.Tests
                         new A
                             {
                                 Id = "a" + row, 
-                                B = new B { Id = "b" + row, C = new C { Id = "c" + row, D = new D { Id = "d" + row } } }
+                                B = new B
+                                { Id = "b" + row, C = new C { Id = "c" + row, D = new D { Id = "d" + row } } }
                             });
                 }
 

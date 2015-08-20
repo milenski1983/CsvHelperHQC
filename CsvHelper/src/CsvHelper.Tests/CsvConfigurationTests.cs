@@ -131,7 +131,7 @@ namespace CsvHelper.Tests
             public int IntColumn { get; set; }
         }
 
-        private class TestClassMappings : CsvClassMap<TestClass>
+        private sealed class TestClassMappings : CsvClassMap<TestClass>
         {
             public TestClassMappings()
             {

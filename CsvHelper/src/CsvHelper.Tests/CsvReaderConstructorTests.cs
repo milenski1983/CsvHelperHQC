@@ -73,11 +73,6 @@ namespace CsvHelper.Tests
 
         private class TestParser : ICsvParser
         {
-            public void Dispose()
-            {
-                throw new NotImplementedException();
-            }
-
             public CsvConfiguration Configuration { get; private set; }
 
             public int FieldCount
@@ -89,12 +84,7 @@ namespace CsvHelper.Tests
             }
 
             public string RawRecord { get; private set; }
-
-            public string[] Read()
-            {
-                throw new NotImplementedException();
-            }
-
+            
             public long CharPosition
             {
                 get
@@ -111,6 +101,16 @@ namespace CsvHelper.Tests
                 {
                     throw new NotImplementedException();
                 }
+            }
+
+            public void Dispose()
+            {
+                throw new NotImplementedException();
+            }
+
+            public string[] Read()
+            {
+                throw new NotImplementedException();
             }
         }
     }
